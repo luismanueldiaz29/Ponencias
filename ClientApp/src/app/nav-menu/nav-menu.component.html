@@ -1,0 +1,41 @@
+<header class="header border-bottom box-shadow mb-3">
+  <nav 
+    id = "mr-nav"
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white "
+  >
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="['/']">Universidad popular del Cesar</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target=".navbar-collapse"
+        aria-label="Toggle navigation"
+        [attr.aria-expanded]="isExpanded"
+        (click)="toggle()"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
+        [ngClass]="{ show: isExpanded }"
+      >
+        <ul class="navbar-nav flex-grow">
+          <li
+            class="nav-item"
+            [routerLinkActive]="['link-active']"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a class="nav-link text-dark" href="https://unicesar.edu.co/index.php/es/">Inicio</a>
+          </li>
+          <li id = "btnReg"class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/counter']"
+              >Registrar</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+

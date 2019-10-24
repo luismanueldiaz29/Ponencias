@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #e01a76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+body{
+  background: #c8d6e5;
+}
+
+.agrupar{
+  width: 860px;
+  padding: 20px;
+  background-color: white;
+}
+
+.borde{
+  background-color: white;
+  padding: 15px;
+  width: 890px; /*ancho de la seccion*/
+  margin: auto;
+  border-radius: 9px 9px 9px 9px;
+  -moz-border-radius: 9px 9px 9px 9px;
+  -webkit-border-radius: 9px 9px 9px 9px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  text-shadow: 1px 1px 1px rgba(225,225,225,0.9);
+}
+
