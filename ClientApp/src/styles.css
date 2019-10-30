@@ -16,7 +16,8 @@ code {
 }
 
 body{
-  background: #c8d6e5;
+  /*background: #c8d6e5;*/
+  background: #f1f5f5;
 }
 
 .agrupar{
@@ -28,12 +29,13 @@ body{
 .borde{
   background-color: white;
   padding: 15px;
-  width: 890px; /*ancho de la seccion*/
+  width: 890px; /*ancho de la seccion*//*color---background-color: #EFEFEF;*/
   margin: auto;
   border-radius: 9px 9px 9px 9px;
   -moz-border-radius: 9px 9px 9px 9px;
   -webkit-border-radius: 9px 9px 9px 9px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.4);
   text-shadow: 1px 1px 1px rgba(225,225,225,0.9);
+  
 }
 
