@@ -15,6 +15,7 @@ import { CartaDeDerechoComponent } from './carta-de-derecho/carta-de-derecho.com
 import { CartaSolicitudGeneralComponent } from './carta-de-solicitud/carta-solicitud-general/carta-solicitud-general.component';
 import { InfromacionEventoComponent } from './carta-de-solicitud/infromacion-evento/infromacion-evento.component';
 import { AnexosComponent } from './carta-de-solicitud/anexos/anexos.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AnexosComponent } from './carta-de-solicitud/anexos/anexos.component';
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
