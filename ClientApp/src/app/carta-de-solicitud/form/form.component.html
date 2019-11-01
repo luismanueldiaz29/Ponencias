@@ -1,0 +1,52 @@
+<app-nav-menu-acc></app-nav-menu-acc>
+
+<div class="borde">
+    <div class="agrupar">
+        <mat-horizontal-stepper>
+            <mat-step label="firstFormGroup">
+                <ng-template matStepLabel>Informacion general</ng-template>
+                    
+                    <!-- solicitud de ponecias -->
+                    <app-carta-solicitud-general></app-carta-solicitud-general>
+                    
+                    <div class="container">
+                        <div class="row">
+                            <div class="ml-auto">
+                                <div class="ml-auto">
+                                    <button class="btn btn-info" mat-button matStepperNext>Siguiente</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </mat-step> 
+            
+            <mat-step label="secondFormGroup">
+                    <ng-template matStepLabel>Informacion del evento</ng-template>
+
+                    <!-- Infromacion del evento -->
+                    <app-infromacion-evento></app-infromacion-evento>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                    <button class="btn btn-info" mat-button matStepperPrevious>Anterior</button>
+                            </div>
+                            <div class="ml-auto">
+                                <div class="ml-auto">
+                                        <button class="btn btn-info" mat-button matStepperNext>Siguiente</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Anexos</ng-template>
+                <!-- Anexos -->
+                <app-anexos></app-anexos>
+                
+                <button class="btn btn-info" mat-button matStepperPrevious>Anterior</button>
+            </mat-step>    
+        </mat-horizontal-stepper>
+    </div>    
+</div>
+

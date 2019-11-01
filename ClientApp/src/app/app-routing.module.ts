@@ -8,6 +8,7 @@ import { CartaDeOriginalidadComponent } from './carta-de-originalidad/carta-de-o
 import { CartaSolicitudGeneralComponent } from './carta-de-solicitud/carta-solicitud-general/carta-solicitud-general.component';
 import { AnexosComponent } from './carta-de-solicitud/anexos/anexos.component';
 import { InfromacionEventoComponent } from './carta-de-solicitud/infromacion-evento/infromacion-evento.component';
+import { FormComponent } from './carta-de-solicitud/form/form.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'Home',
     component: HomeComponent
+  },
+  {
+    path: 'Solicitud',
+    component: FormComponent
   },
   {
     path: 'Carta_Derecho',

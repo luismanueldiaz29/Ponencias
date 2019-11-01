@@ -1,9 +1,6 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
-
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
@@ -16,6 +13,9 @@ import { CartaSolicitudGeneralComponent } from './carta-de-solicitud/carta-solic
 import { InfromacionEventoComponent } from './carta-de-solicitud/infromacion-evento/infromacion-evento.component';
 import { AnexosComponent } from './carta-de-solicitud/anexos/anexos.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+import { MaterialModule } from './material/material';
+import { FormComponent } from './carta-de-solicitud/form/form.component';
 
 @NgModule({
   declarations: [
@@ -28,14 +28,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CartaDeDerechoComponent,
     CartaSolicitudGeneralComponent,
     InfromacionEventoComponent,
-    AnexosComponent
+    AnexosComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

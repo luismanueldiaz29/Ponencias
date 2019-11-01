@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import { MaterialModule } from 'src/app/material/material';
+
 
 @Component({
   selector: 'app-carta-solicitud-general',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./carta-solicitud-general.component.css']
 })
 export class CartaSolicitudGeneralComponent implements OnInit {
-
-  constructor() { }
+  imports: [MaterialModule];
+  
+  constructor() {}
 
   ngOnInit() {
+    
   }
-
 }
