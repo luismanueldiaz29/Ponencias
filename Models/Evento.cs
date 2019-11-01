@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace Ponencias.Models
 {
     public class Evento
@@ -21,13 +23,13 @@ namespace Ponencias.Models
         public decimal ValorInscripcion {get; set;}
 
         [JsonProperty("FechaEvento")]
-        public date FechaEvento {get; set;}
+        public string FechaEvento {get; set;}
 
         [JsonProperty("FechaInicio")]
-        public date FechaInicio {get; set;}
+        public string FechaInicio {get; set;}
 
         [JsonProperty("FechaFinal")]
-        public date FechaFinal {get; set;}
+        public string FechaFinal {get; set;}
 
         [JsonProperty("NumeroDias")]
         public int NumeroDias {get; set;}

@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace Ponencias.Models
 {
     public class Programa

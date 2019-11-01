@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+using System.Collections.Generic;
 namespace Ponencias.Models
 {
     public class Facultad
@@ -14,6 +16,6 @@ namespace Ponencias.Models
 
         //  varios programas pueden pertenecer a una facultad
         [JsonProperty("Programas")]
-        public List<Programa> Programas {get;} = new List<Docente>();
+        public List<Programa> Programas {get;} = new List<Programa>();
     }
 }

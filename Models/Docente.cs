@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace Ponencias.Models
 {
     public class Docente
@@ -6,7 +8,7 @@ namespace Ponencias.Models
         public int Id {get; set;}
 
         [JsonProperty("Nombres")]
-        public String Nombres {get; set;}
+        public string Nombres {get; set;}
 
         [JsonProperty("Apellidos")]
         public string Apellidos {get; set;}
