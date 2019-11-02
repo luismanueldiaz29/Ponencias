@@ -1,11 +1,11 @@
 using Newtonsoft.Json;
-
+using System.ComponentModel.DataAnnotations.Schema;
 namespace Ponencias.Models
 {
     public class Evento
     {
-        [JsonProperty("EventoId")]
-        public int EventoId {get; set;}
+        [JsonProperty("Id")]
+        public int Id {get; set;}
 
         [JsonProperty("NombreEvento")]
         public string NombreEvento {get; set;}

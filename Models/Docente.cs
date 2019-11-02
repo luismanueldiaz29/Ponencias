@@ -7,6 +7,9 @@ namespace Ponencias.Models
         [JsonProperty("Id")]
         public int Id {get; set;}
 
+        [JsonProperty("Identificacion")]
+        public int Identificacion {get; set;}
+
         [JsonProperty("Nombres")]
         public string Nombres {get; set;}
 
@@ -25,12 +28,21 @@ namespace Ponencias.Models
         [JsonProperty("direccion")]
         public string direccion {get; set;}
 
-        // un docente pertenece a una facultad
+        // un  pertenece a una facultad
 
         [JsonProperty("FacultadId")]
         public int FacultadId {get; set;}
 
         [JsonProperty("Facultad")]
         public Facultad Facultad {get; set;}
+
+        // un  pertenece a un grupo de investigacion
+        // [JsonProperty("GrupoId")]
+        // public int GrupoId { get; set; }
+
+        // [JsonProperty("GrupoInvestigacion")]
+        // public GrupoInvestigacion GrupoInvestigacion { get; set; }
+
+
     }
 }

@@ -13,5 +13,10 @@ namespace Ponencias.Models
         [JsonProperty("ApellidoEstudiante")]
         public int ApellidoEstudiante { get; set; }
 
+        [JsonProperty("SemilleroId")]
+        public int SemilleroId { get; set; }
+
+        [JsonProperty("Semillero")]
+        public Semillero Semillero { get; set; }
     }
 }
