@@ -19,8 +19,8 @@ namespace Ponencias.Controllers
 
             _context = context;
             if (_context.Docente.Count() == 0){
-                _context.Docente.Add(new Docente { Id = 1, Nombres = "Priorizar el proyecto", Apellidos = "Priorizar", Telefono = "101291212", VinculoInst = "docente", Email = "luis@gmail.com", direccion = "calle cuba", FacultadId = 1});
-                _context.Docente.Add(new Docente { Id = 2, Nombres = "Calendario el proyecto", Apellidos = "Priorizar", Telefono = "101291212", VinculoInst = "docente", Email = "luis@gmail.com", direccion = "calle cuba", FacultadId = 1});
+                _context.Docente.Add(new Docente { id = 1, Identificacion = 2,  Nombres = "Priorizar el proyecto", Apellidos = "Priorizar", Telefono = "101291212", VinculoInst = "docente", Email = "luis@gmail.com", direccion = "calle cuba", FacultadId = 1});
+                _context.Docente.Add(new Docente { id = 2, Identificacion = 2, Nombres = "Calendario el proyecto", Apellidos = "Priorizar", Telefono = "101291212", VinculoInst = "docente", Email = "luis@gmail.com", direccion = "calle cuba", FacultadId = 1});
                 _context.SaveChanges();
             }
         }
@@ -48,14 +48,14 @@ namespace Ponencias.Controllers
         {
             _context.Docente.Add(item);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetDocente), new { id = item.Id }, item);
+            return CreatedAtAction(nameof(GetDocente), new { id = item.id }, item);
         }
 
         // PUT: api/Task/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTaskItem(int id, Docente item)
         {
-            if (id != item.Id)
+            if (id != item.id)
             {
             return BadRequest();
             }

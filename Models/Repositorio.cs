@@ -4,8 +4,8 @@ namespace Ponencias.Models
 {
     public class Repositorio
     {
-        [JsonProperty("RepositorioId")]
-        public int RepositorioId {get; set;}
+        [JsonProperty("id")]
+        public int id {get; set;}
 
     }
 }

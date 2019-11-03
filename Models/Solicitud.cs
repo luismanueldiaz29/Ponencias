@@ -5,8 +5,8 @@ namespace Ponencias.Models
     public class Solicitud
     {
 
-        [JsonProperty("SolicitudId")]
-        public int SolicitudId {get; set;}
+        [JsonProperty("id")]
+        public int id {get; set;}
 
         [JsonProperty("NombrePonencia")]
         public string NombrePonencia {get; set;}

@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { MaterialModule } from 'src/app/material/material';
+import { Docente } from 'src/app/models/docente';
+import { DocenteService } from 'src/app/services/docente.service';
 
 
 @Component({
@@ -10,9 +12,17 @@ import { MaterialModule } from 'src/app/material/material';
 export class CartaSolicitudGeneralComponent implements OnInit {
   imports: [MaterialModule];
   
-  constructor() {}
-
+  constructor(private DocenteService: DocenteService) { }
+  docente: Docente;
   ngOnInit() {
+    this.docente={id:0, Identificacion: 0, Nombres: "", Apellidos: "", Telefono: "", VinculoInst: "", Email: "", direccion: ""};
+  }
+  
+  add(){
+    this.DocenteService.add(this.docente)
+    .subscribe(docente => {
+      alert('Se agregó una nueva tarea')
+    });
     
   }
 }

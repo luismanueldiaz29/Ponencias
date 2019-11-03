@@ -11,7 +11,7 @@
 
         <div class="col-6">
             <mat-form-field>
-                <input matInput placeholder="Título de la ponencia" type="text" name="Telefono" required/>
+                <input matInput placeholder="Título (por ahora vin)" type="text"  [(ngModel)]="docente.VinculoInst" name = "vin"/>
             </mat-form-field>
         </div>
 
@@ -22,12 +22,12 @@
                 <tr>
                     <td>
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Nombres">
+                            <input matInput type = "text" placeholder="Nombres" [(ngModel)]="docente.Nombres" name = "Nombres"/>
                         </mat-form-field>
                     </td>
                     <td>
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Apellidos">
+                            <input matInput type = "text" placeholder="Apellidos"[(ngModel)]="docente.Apellidos" name = "Apellidos" />
                         </mat-form-field>
                     </td>
                 </tr>
@@ -48,7 +48,7 @@
 
         <div class="col-6">
             <mat-form-field>
-                <input matInput placeholder="Identificación" type="number" name="Identificación" required/>
+                <input matInput placeholder="Identificación" type="number" name="Identificación" [(ngModel)]="docente.Identificacion" required/>
             </mat-form-field>
         </div>
         
@@ -71,14 +71,14 @@
         <br>
         <div class="col-6">
             <mat-form-field>
-                <input matInput placeholder="Teléfono Celular" type="number" name="Telefono" required/>
+                <input matInput placeholder="Teléfono Celular" type="text" name="Telefono" [(ngModel)]="docente.Telefono" required/>
             </mat-form-field>
         </div>
         <br>
     
         <div class="col-6">
             <mat-form-field>
-                <input matInput placeholder="Dirección Residencial" type="number" name="Telefono" required/>
+                <input matInput placeholder="Dirección Residencial" type="text" name="direccion" [(ngModel)]="docente.direccion" required/>
             </mat-form-field>
         </div>
     
@@ -86,7 +86,7 @@
     
         <div class="col-6">
             <mat-form-field>
-                <input matInput placeholder="E-mail" type="text" name="Telefono" required/>
+                <input matInput placeholder="E-mail" type="text" name="Email" [(ngModel)]="docente.Email"required/>
             </mat-form-field>
         </div>
     
@@ -117,8 +117,26 @@
             </div>
         
         <br>
-    
-            
+        
+        <div class="col-6">
+            <table class="example-full-width" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Nombres del estudiante">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Apellidos del estudiante">
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
+        </div> 
+        <div id = "Guardar">
+            <button (click)="add()" class="btn btn-primary">Guardar</button>
+        </div>
     </div>    
 </form>  
     <!-- </div> -->

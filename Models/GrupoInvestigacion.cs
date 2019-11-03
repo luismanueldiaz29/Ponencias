@@ -4,8 +4,8 @@ namespace Ponencias.Models
 {
     public class GrupoInvestigacion
     {
-        [JsonProperty("GrupoInvestigacionId")]
-        public int GrupoInvestigacionId { get; set; }
+        [JsonProperty("id")]
+        public int id { get; set; }
 
         [JsonProperty("NombreGrupo")]
         public string NombreGrupo { get; set; }

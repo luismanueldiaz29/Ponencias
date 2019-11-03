@@ -4,8 +4,8 @@ namespace Ponencias.Models
 {
     public class Investigacion
     {
-        [JsonProperty("Id")]
-        public int Id {get; set;}
+        [JsonProperty("id")]
+        public int id {get; set;}
 
         [JsonProperty("NombreInvestigacion")]
         public string NombreInvestigacion {get; set;}

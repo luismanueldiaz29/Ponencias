@@ -13,14 +13,15 @@ namespace Ponencias.Controllers
     [ApiController]
     public class EventoController: ControllerBase
     {
+        
         private readonly PonenciaContext _context;
 
         public EventoController(PonenciaContext context){
 
             _context = context;
             // if (_context.Evento.Count() == 0){
-            //     _context.Evento.Add(new Evento { Id = 1, Nombres = "Priorizar el proyecto", Apellidos = "Priorizar", Telefono = "101291212", VinculoInst = "Evento", Email = "luis@gmail.com", direccion = "calle cuba", FacultadId = 1});
-            //     _context.Evento.Add(new Evento { Id = 2, Nombres = "Calendario el proyecto", Apellidos = "Priorizar", Telefono = "101291212", VinculoInst = "Evento", Email = "luis@gmail.com", direccion = "calle cuba", FacultadId = 1});
+            //     _context.Evento.Add(new Evento { id = 1, Nombres = "Priorizar el proyecto", Apellidos = "Priorizar", Telefono = "101291212", VinculoInst = "Evento", Email = "luis@gmail.com", direccion = "calle cuba", Facultadid = 1});
+            //     _context.Evento.Add(new Evento { id = 2, Nombres = "Calendario el proyecto", Apellidos = "Priorizar", Telefono = "101291212", VinculoInst = "Evento", Email = "luis@gmail.com", direccion = "calle cuba", Facultadid = 1});
             //     _context.SaveChanges();
             // }
         }
@@ -48,14 +49,14 @@ namespace Ponencias.Controllers
         {
             _context.Evento.Add(item);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetEvento), new { id = item.Id }, item);
+            return CreatedAtAction(nameof(GetEvento), new { id = item.id }, item);
         }
 
         // PUT: api/Task/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutEvento(int id, Evento item)
         {
-            if (id != item.Id)
+            if (id != item.id)
             {
             return BadRequest();
             }
