@@ -50,6 +50,7 @@ export class DocenteService {
     );
   }
 
+
   /** DELETE: delete the hero from the server */
   delete (Docente: Docente | number): Observable<Docente> {
     const id = typeof Docente === 'number' ? Docente : Docente.id;

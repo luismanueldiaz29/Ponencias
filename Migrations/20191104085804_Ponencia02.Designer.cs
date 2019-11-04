@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Ponencias.Models;
 
 namespace Ponencias.Migrations
 {
     [DbContext(typeof(PonenciaContext))]
-    partial class PonenciaContextModelSnapshot : ModelSnapshot
+    [Migration("20191104085804_Ponencia02")]
+    partial class Ponencia02
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

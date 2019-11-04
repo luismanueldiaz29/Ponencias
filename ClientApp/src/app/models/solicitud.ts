@@ -1,4 +1,7 @@
 export class Solicitud {
-    NombrePonecia: string;
+    
+    id: number;
+    NombrePonencia:string;
     FechaEntrega: string;
+
 }

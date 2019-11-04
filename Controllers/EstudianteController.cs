@@ -18,11 +18,11 @@ namespace Ponencias.Controllers
         public EstudianteController(PonenciaContext context){
 
             _context = context;
-            // if (_context.Estudiante.Count() == 0){
-            //     _context.Estudiante.Add(new Estudiante { Id = 1, Identificacion = 2,  Nombres = "Priorizar el proyecto", Apellidos = "Priorizar", Telefono = "101291212", VinculoInst = "Estudiante", Email = "luis@gmail.com", direccion = "calle cuba", FacultadId = 1});
-            //     _context.Estudiante.Add(new Estudiante { Id = 2, Identificacion = 2, Nombres = "Calendario el proyecto", Apellidos = "Priorizar", Telefono = "101291212", VinculoInst = "Estudiante", Email = "luis@gmail.com", direccion = "calle cuba", FacultadId = 1});
-            //     _context.SaveChanges();
-            // }
+            if (_context.Estudiante.Count() == 0){
+                _context.Estudiante.Add(new Estudiante { NombreEstudiante = "Priorizar el proyecto", ApellidoEstudiante = "Priorizar"});
+                _context.Estudiante.Add(new Estudiante {NombreEstudiante = "Priorizar el proyecto", ApellidoEstudiante = "Priorizar" });
+                _context.SaveChanges();
+            }
         }
 
         [HttpGet]

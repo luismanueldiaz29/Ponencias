@@ -19,7 +19,7 @@ export class SolicitudService {
   add(Solicitud: Solicitud): Observable<Solicitud> {
 
     return this.http.post<Solicitud>(this.baseUrl + 'api/Solicitud', Solicitud, httpOptions).pipe(
-      tap((newSolicitud: Solicitud) => this.log(`added newSolicitud w/ id=${newSolicitud.NombrePonecia}`)),
+      tap((newSolicitud: Solicitud) => this.log(`added newSolicitud w/ id=${newSolicitud.id}`)),
       catchError(this.handleError<Solicitud>('addSolicitud'))
     );
   }
@@ -43,16 +43,16 @@ export class SolicitudService {
 
   /** PUT: update the hero on the server */
   update (Solicitud: Solicitud): Observable<any> {
-    const url = `${this.baseUrl + 'api/Solicitud'}/${Solicitud.NombrePonecia}`;
+    const url = `${this.baseUrl + 'api/Solicitud'}/${Solicitud.id}`;
     return this.http.put(url, Solicitud, httpOptions).pipe(
-      tap(_ => this.log(`updated Solicitud id=${Solicitud.NombrePonecia}`)),
+      tap(_ => this.log(`updated Solicitud id=${Solicitud.id}`)),
       catchError(this.handleError<any>('Solicitud'))
     );
   }
 
   /** DELETE: delete the hero from the server */
   delete (Solicitud: Solicitud | number): Observable<Solicitud> {
-    const id = typeof Solicitud === 'number' ? Solicitud : Solicitud.NombrePonecia;
+    const id = typeof Solicitud === 'number' ? Solicitud : Solicitud.id;
     const url = `${this.baseUrl + 'api/Solicitud'}/${id}`;
 
     return this.http.delete<Solicitud>(url, httpOptions).pipe(

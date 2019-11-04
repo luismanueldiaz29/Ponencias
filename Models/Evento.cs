@@ -17,7 +17,7 @@ namespace Ponencias.Models
         public string Pais {get; set;}
 
         [JsonProperty("Telefono")]
-        public int Telefono {get; set;}
+        public string Telefono {get; set;}
 
         [JsonProperty("ValorInscripcion")]
         public decimal ValorInscripcion {get; set;}

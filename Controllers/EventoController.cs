@@ -19,11 +19,11 @@ namespace Ponencias.Controllers
         public EventoController(PonenciaContext context){
 
             _context = context;
-            // if (_context.Evento.Count() == 0){
-            //     _context.Evento.Add(new Evento { id = 1, Nombres = "Priorizar el proyecto", Apellidos = "Priorizar", Telefono = "101291212", VinculoInst = "Evento", Email = "luis@gmail.com", direccion = "calle cuba", Facultadid = 1});
-            //     _context.Evento.Add(new Evento { id = 2, Nombres = "Calendario el proyecto", Apellidos = "Priorizar", Telefono = "101291212", VinculoInst = "Evento", Email = "luis@gmail.com", direccion = "calle cuba", Facultadid = 1});
-            //     _context.SaveChanges();
-            // }
+            if (_context.Evento.Count() == 0){
+                _context.Evento.Add(new Evento {NombreEvento="Ponencia", LinkEvento="luismaajas", Pais= "colombia",Telefono="30051725445", ValorInscripcion = 30012, FechaEvento = "30/12/20", FechaInicio= "01/12/20", FechaFinal = "01/12/23", NumeroDias=3, TipoTransporte="aereo", ValorTrasporte=1212});
+                _context.Evento.Add(new Evento {NombreEvento="Ponencia", LinkEvento="luismaajas", Pais= "colombia",Telefono="30051725445", ValorInscripcion = 30012, FechaEvento = "30/12/20", FechaInicio= "01/12/20", FechaFinal = "01/12/23", NumeroDias=3, TipoTransporte="aereo", ValorTrasporte=1212});
+                _context.SaveChanges();
+            }
         }
 
         [HttpGet]

@@ -18,11 +18,11 @@ namespace Ponencias.Controllers
         public SolicitudController(PonenciaContext context){
 
             _context = context;
-            // if (_context.Solicitud.Count() == 0){
-            //     _context.Solicitud.Add(new Solicitud { id = 1, Nombres = "Priorizar el proyecto", Apellidos = "Priorizar", Telefono = "101291212", VinculoInst = "Solicitud", Email = "luis@gmail.com", direccion = "calle cuba", Facultadid = 1});
-            //     _context.Solicitud.Add(new Solicitud { id = 2, Nombres = "Calendario el proyecto", Apellidos = "Priorizar", Telefono = "101291212", VinculoInst = "Solicitud", Email = "luis@gmail.com", direccion = "calle cuba", Facultadid = 1});
-            //     _context.SaveChanges();
-            // }
+            if (_context.Solicitud.Count() == 0){
+                _context.Solicitud.Add(new Solicitud {  NombrePonencia = "Priorizar el proyecto", FechaEntrega = "Priorizar"});
+                _context.Solicitud.Add(new Solicitud { NombrePonencia = "Calendario el proyecto", FechaEntrega = "Priorizar"});
+                _context.SaveChanges();
+            }
         }
 
         [HttpGet]
@@ -35,11 +35,11 @@ namespace Ponencias.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Solicitud>> GetSolicitud(int id)
         {
-            var solicitud = await _context.Solicitud.FindAsync();
-            if (solicitud == null){
+            var Solicitud = await _context.Solicitud.FindAsync();
+            if (Solicitud == null){
                 return NotFound();
             }
-            return solicitud;
+            return Solicitud;
         }
 
         // POST: api/Task

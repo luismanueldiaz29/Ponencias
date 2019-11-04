@@ -8,15 +8,10 @@ namespace Ponencias.Models
         public int id { get; set; }
 
         [JsonProperty("NombreEstudiante")]
-        public int NombreEstudiante { get; set; }
+        public string NombreEstudiante { get; set; }
 
         [JsonProperty("ApellidoEstudiante")]
-        public int ApellidoEstudiante { get; set; }
+        public string ApellidoEstudiante { get; set; }
 
-        [JsonProperty("SemilleroId")]
-        public int SemilleroId { get; set; }
-
-        [JsonProperty("Semillero")]
-        public Semillero Semillero { get; set; }
     }
 }

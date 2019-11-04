@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SemilleroService } from './semillero.service';
+import { EventoService } from './evento.service';
 
-describe('SemilleroService', () => {
+describe('EventoService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: SemilleroService = TestBed.get(SemilleroService);
+    const service: EventoService = TestBed.get(EventoService);
     expect(service).toBeTruthy();
   });
 });
