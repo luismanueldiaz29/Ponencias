@@ -16,6 +16,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { MaterialModule } from './material/material';
 import { FormComponent } from './carta-de-solicitud/form/form.component';
+import { ConsultaDocenteComponent } from './consulta-docente/consulta-docente.component';
+import { DocenteEditComponent } from './docente-edit/docente-edit.component';
+import { ConsultaEventoComponent } from './consulta-evento/consulta-evento.component';
+import { EventoEditComponent } from './evento-edit/evento-edit.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,11 @@ import { FormComponent } from './carta-de-solicitud/form/form.component';
     CartaSolicitudGeneralComponent,
     InfromacionEventoComponent,
     AnexosComponent,
-    FormComponent
+    FormComponent,
+    ConsultaDocenteComponent,
+    DocenteEditComponent,
+    ConsultaEventoComponent,
+    EventoEditComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

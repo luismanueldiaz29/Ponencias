@@ -1,0 +1,65 @@
+<p>docente-edit works!</p>
+<div *ngIf="task">
+    <div>
+        <h1 class="h2">Detalle Docentes</h1>
+    </div>
+    <p>Editar/Eliminar Docentes</p>
+
+    <br>
+    
+    <div class="form-group">
+            <label>Id:
+                {{docente.id}}
+            </label>
+    </div>
+    
+    <div class="col-6">
+        <mat-form-field>
+            <input matInput placeholder="Identificacion" name="Identificacion" [(ngModel)]="docente.identificacion" required/>
+        </mat-form-field>
+    </div>
+    <br>
+    <div class="col-6">
+            <mat-form-field>
+                <input matInput placeholder="Nombre" name="Nombre" [(ngModel)]="docente.Nombres" required/>
+            </mat-form-field>
+        </div>
+        <br>
+    
+        <div class="col-6">
+                <mat-form-field>
+                    <input matInput placeholder="Apellidos" name="Apellidos" [(ngModel)]="docente.Apellidos" required/>
+                </mat-form-field>
+            </div>
+            <br>
+            <div class="col-6">
+                    <mat-form-field>
+                        <input matInput placeholder="Telefono" name="Telefono" [(ngModel)]="docente.Telefono" required/>
+                    </mat-form-field>
+                </div>
+                <br>
+                <div class="col-6">
+                        <mat-form-field>
+                            <input matInput placeholder="Vinculo institucional" name="VinculoIns" [(ngModel)]="docente.VinculoIns" required/>
+                        </mat-form-field>
+                    </div>
+                    <br>
+                    <div class="col-6">
+                            <mat-form-field>
+                                <input matInput placeholder="E-mail" name="Email" [(ngModel)]="docente.Email" required/>
+                            </mat-form-field>
+                        </div>
+                        <br>
+                        <div class="col-6">
+                                <mat-form-field>
+                                    <input matInput placeholder="Direccion" name="Direccion" [(ngModel)]="docente.direccion" required/>
+                                </mat-form-field>
+                            </div>
+                            <br>
+
+    
+    <div class="form-group">
+        <button (click)="update()" class="btn btn-primary">Actualizar</button>
+        <button (click)="delete()" class="btn btn-primary">Eliminar</button>
+    </div>
+</div>

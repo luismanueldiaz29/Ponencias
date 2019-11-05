@@ -9,9 +9,14 @@ import { CartaSolicitudGeneralComponent } from './carta-de-solicitud/carta-solic
 import { AnexosComponent } from './carta-de-solicitud/anexos/anexos.component';
 import { InfromacionEventoComponent } from './carta-de-solicitud/infromacion-evento/infromacion-evento.component';
 import { FormComponent } from './carta-de-solicitud/form/form.component';
-
+import{ConsultaDocenteComponent}from './consulta-docente/consulta-docente.component';
+import{ConsultaEventoComponent}from './consulta-evento/consulta-evento.component';
+import {EventoEditComponent}from './evento-edit/evento-edit.component';
+import{DocenteEditComponent} from './docente-edit/docente-edit.component';
 const routes: Routes = [
-  {
+  
+
+    {
     path: '', 
     component: LoginComponent,
     pathMatch: 'full' 
@@ -28,6 +33,21 @@ const routes: Routes = [
     path: 'Carta_Derecho',
     component: CartaDeDerechoComponent
   },
+  {
+    path:'eventoEdit/:id',
+    component:EventoEditComponent
+  },{
+    path:'Docente',
+    component:ConsultaDocenteComponent
+
+  },
+  {
+    path:'Evento',
+    component:ConsultaEventoComponent
+  },{
+      path:'docenteEdit/:id',
+      component:DocenteEditComponent
+    },
   {
     path: 'Carta_Originalidad',
     component: CartaDeOriginalidadComponent

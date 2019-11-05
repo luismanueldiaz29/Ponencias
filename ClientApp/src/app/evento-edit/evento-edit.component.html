@@ -1,0 +1,227 @@
+<p>evento-edit works!</p>
+<header class="Titulo">
+        <h1>Carta de solicitud</h1>
+    </header>
+    <br>
+    <h2>Informacion del evento</h2>
+    <hr>
+    <br>
+    <form class="form-group">
+        <div class="row">
+            <div class="col-6">
+                <mat-form-field>
+                <input matInput 
+                placeholder="Nombre del evento"
+                type="text"
+                name="evento" 
+                required
+                [(ngModel)]="evento.NombreEvento"
+                />
+             </mat-form-field>       
+            </div>    
+        
+
+            <br>
+        
+            <div class="col-6">
+                <mat-form-field>
+                <input matInput 
+                placeholder="Nombre de la entidad"
+                type="text"
+                name="entidad" 
+                required
+                [(ngModel)]="evento.entidad"
+                />
+             </mat-form-field>       
+            </div>    
+        
+
+            <br>
+        
+            <div class="col-6">
+                <mat-form-field>
+                <input matInput 
+                placeholder="Link"
+                type="text"
+                name="Link" 
+                required
+                [(ngModel)]="evento.LinkEvento"
+                />
+             </mat-form-field>       
+            </div>    
+        
+
+            <br>
+        
+            <div class="col-6">
+                <mat-form-field>
+                <input matInput 
+                placeholder="Nacionalidad"
+                type="text"
+                name="Nacionalidad" 
+                required
+                
+                />
+             </mat-form-field>       
+            </div>    
+        
+
+            <br>
+        
+            <div class="col-6">
+                <mat-form-field>
+                <input matInput 
+                placeholder="Pais"
+                type="text"
+                name="pais" 
+                required
+                [(ngModel)]="evento.Pais"
+                />
+             </mat-form-field>       
+            </div>    
+            
+
+            <br>
+        
+            <div class="col-6">
+                <mat-form-field>
+                <input matInput 
+                placeholder="Ciudad"
+                type="text"
+                name="cuidad" 
+                required
+                [(ngModel)]="evento.Ciudad"
+                />
+             </mat-form-field>       
+            </div>    
+        
+            <br>
+
+            <br>
+        
+            <div class="col-6">
+                <mat-form-field>
+                <input matInput 
+                placeholder="Telefono y/o celular"
+                type="text"
+                name="Telefono" 
+                required
+                [(ngModel)]="evento.Telefono"
+                />
+             </mat-form-field>       
+            </div>    
+        
+            
+
+            <br>
+        
+            <div class="col-6">
+                <mat-form-field>
+                <input matInput 
+                placeholder="E-mail"
+                type="text"
+                name="email" 
+                required
+                [(ngModel)]="evento.Email"
+                />
+             </mat-form-field>       
+            </div>    
+            
+            <br>
+        
+            <div class="col-6">
+                <mat-form-field>
+                <input matInput 
+                placeholder="costo de la inscripcion"
+                type="number"
+                name="CostoInscripcion" 
+                required
+                [(ngModel)]="evento.ValorInscripcion"
+                />
+             </mat-form-field>       
+            </div>    
+            
+            <br>
+        
+
+            <div class="col-6">
+                    <mat-form-field>
+                        <mat-label>Tipo del transporte:</mat-label>
+                            <mat-select matNativeControl required  [(ngModel)]="evento.TipoTransporte">
+                                    <option value="1">Aereo</option>
+                                    <option value="2">Terrestre</option>
+                            </mat-select>
+                    </mat-form-field>
+                </div>
+            
+            <br>
+        
+        
+
+            <br>
+            <div class="col-6">
+                <mat-form-field>
+                <input matInput 
+                placeholder="Fecha del evento"
+                type="date"
+                name="FechaEvento" 
+                required
+                [(ngModel)]="evento.FechaEvento"
+                />
+             </mat-form-field>       
+            </div>    
+           
+            
+            <br>
+        
+            <div class="col-6">
+                <mat-form-field>
+                <input matInput 
+                placeholder="fecha de inicio"
+                type="date"
+                name="inicio" 
+                required
+                [(ngModel)]="evento.FechaInicio"
+                />
+             </mat-form-field>       
+            </div>    
+            
+            <br>
+            
+            <div class="col-6">
+                <mat-form-field>
+                <input matInput 
+                placeholder="fecha de Finalización"
+                type="date"
+                name="Finaliza" 
+                required
+                [(ngModel)]="evento.FechaFinal"
+                />
+             </mat-form-field>       
+            </div>    
+            
+            <br>
+           
+            <div class="col-6">
+                <mat-form-field>
+                <input matInput 
+                placeholder="Costo del transporte"
+                type="number"
+                name="CostoTransporte" 
+                required
+                [(ngModel)]="evento.ValorTrasporte"
+                />
+             </mat-form-field>       
+            </div>    
+
+
+            <div class="form-group">
+                    <button (click)="update()" class="btn btn-primary">Actualizar</button>
+                    <button (click)="delete()" class="btn btn-primary">Eliminar</button>
+                </div>
+            
+    </div>
+    
+<br>
+
+</form>
