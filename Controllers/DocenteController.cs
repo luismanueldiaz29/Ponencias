@@ -19,8 +19,8 @@ namespace Ponencias.Controllers
 
             _context = context;
             if (_context.Docente.Count() == 0){
-                _context.Docente.Add(new Docente { Identificacion = 2,  Nombres = "Priorizar el proyecto", Apellidos = "Priorizar", Telefono = "101291212", VinculoInst = "docente", Email = "luis@gmail.com", direccion = "calle cuba"});
-                _context.Docente.Add(new Docente {  Identificacion = 2, Nombres = "Calendario el proyecto", Apellidos = "Priorizar", Telefono = "101291212", VinculoInst = "docente", Email = "luis@gmail.com", direccion = "calle cuba"});
+                _context.Docente.Add(new Docente { Identificacion = 1,  Nombres = "Carlos ", Apellidos = "Daza", Telefono = "101291212", VinculoInst = "docente", Email = "luis@gmail.com", direccion = "calle linda"});
+                _context.Docente.Add(new Docente {  Identificacion = 2, Nombres = "Luis Manué", Apellidos = "Diaz", Telefono = "101291212", VinculoInst = "docente", Email = "luis@gmail.com", direccion = "calle cuba"});
                 _context.SaveChanges();
             }
         }

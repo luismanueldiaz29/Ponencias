@@ -15,6 +15,7 @@
                                 type="text"
                                 name="evento" 
                                 required
+                                [(ngModel)]="evento.NombreEvento"
                                 />
                              </mat-form-field>       
                             </div>    
@@ -29,6 +30,7 @@
                                 type="text"
                                 name="entidad" 
                                 required
+                                [(ngModel)]="evento.entidad"
                                 />
                              </mat-form-field>       
                             </div>    
@@ -43,6 +45,7 @@
                                 type="text"
                                 name="Link" 
                                 required
+                                [(ngModel)]="evento.LinkEvento"
                                 />
                              </mat-form-field>       
                             </div>    
@@ -57,6 +60,7 @@
                                 type="text"
                                 name="Nacionalidad" 
                                 required
+                                
                                 />
                              </mat-form-field>       
                             </div>    
@@ -71,6 +75,7 @@
                                 type="text"
                                 name="pais" 
                                 required
+                                [(ngModel)]="evento.Pais"
                                 />
                              </mat-form-field>       
                             </div>    
@@ -85,11 +90,11 @@
                                 type="text"
                                 name="cuidad" 
                                 required
+                                [(ngModel)]="evento.Ciudad"
                                 />
                              </mat-form-field>       
                             </div>    
                         
- 
                             <br>
                         
                             <div class="col-6">
@@ -99,6 +104,7 @@
                                 type="text"
                                 name="Departamento" 
                                 required
+                                
                                 />
                              </mat-form-field>       
                             </div>    
@@ -113,10 +119,13 @@
                                 type="text"
                                 name="Telefono" 
                                 required
+                                [(ngModel)]="evento.Telefono"
                                 />
                              </mat-form-field>       
                             </div>    
+                        
                             
+
                             <br>
                         
                             <div class="col-6">
@@ -126,6 +135,7 @@
                                 type="text"
                                 name="email" 
                                 required
+                                [(ngModel)]="evento.Email"
                                 />
                              </mat-form-field>       
                             </div>    
@@ -135,38 +145,30 @@
                             <div class="col-6">
                                 <mat-form-field>
                                 <input matInput 
-                                placeholder="$0"
+                                placeholder="costo de la inscripcion"
                                 type="number"
                                 name="CostoInscripcion" 
                                 required
+                                [(ngModel)]="evento.ValorInscripcion"
                                 />
                              </mat-form-field>       
                             </div>    
                             
                             <br>
-                            
+                        
+
                             <div class="col-6">
                                     <mat-form-field>
                                         <mat-label>Tipo del transporte:</mat-label>
-                                            <select matNativeControl required>
+                                            <mat-select matNativeControl required  [(ngModel)]="evento.TipoTransporte">
                                                     <option value="1">Aereo</option>
                                                     <option value="2">Terrestre</option>
-                                            </select>
+                                            </mat-select>
                                     </mat-form-field>
                                 </div>
                             
                             <br>
                         
-                            <div class="col-6">
-                                <mat-form-field>
-                                <input matInput 
-                                placeholder="$0"
-                                type="number"
-                                name="CostoTransporte" 
-                                required
-                            />    
-                             </mat-form-field>       
-                        </div>     
                         
  
                             <br>
@@ -175,11 +177,13 @@
                                 <input matInput 
                                 placeholder="Fecha del evento"
                                 type="date"
-                                name="Telefono" 
+                                name="FechaEvento" 
                                 required
+                                [(ngModel)]="evento.FechaEvento"
                                 />
                              </mat-form-field>       
                             </div>    
+                           
                             
                             <br>
                         
@@ -190,6 +194,7 @@
                                 type="date"
                                 name="inicio" 
                                 required
+                                [(ngModel)]="evento.FechaInicio"
                                 />
                              </mat-form-field>       
                             </div>    
@@ -203,12 +208,13 @@
                                 type="date"
                                 name="Finaliza" 
                                 required
+                                [(ngModel)]="evento.FechaFinal"
                                 />
                              </mat-form-field>       
                             </div>    
                             
                             <br>
-                        
+                           
                             <div class="col-6">
                                 <mat-form-field>
                                 <input matInput 
@@ -216,10 +222,14 @@
                                 type="number"
                                 name="CostoTransporte" 
                                 required
+                                [(ngModel)]="evento.ValorTrasporte"
                                 />
                              </mat-form-field>       
                             </div>    
 
+                            <div id = "Guardar">
+                                <button (click)="add()" class="btn btn-primary">Guardar</button>
+                            </div>
                     </div>
                     
                 <br>

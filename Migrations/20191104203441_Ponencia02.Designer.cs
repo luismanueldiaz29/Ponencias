@@ -9,7 +9,7 @@ using Ponencias.Models;
 namespace Ponencias.Migrations
 {
     [DbContext(typeof(PonenciaContext))]
-    [Migration("20191104085804_Ponencia02")]
+    [Migration("20191104203441_Ponencia02")]
     partial class Ponencia02
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -77,6 +77,15 @@ namespace Ponencias.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Ciudad")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Entidad")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FechaEvento")
                         .HasColumnType("nvarchar(max)");

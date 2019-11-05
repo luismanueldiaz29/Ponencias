@@ -20,12 +20,39 @@ namespace Ponencias.Controllers
 
             _context = context;
             if (_context.Evento.Count() == 0){
-                _context.Evento.Add(new Evento {NombreEvento="Ponencia", LinkEvento="luismaajas", Pais= "colombia",Telefono="30051725445", ValorInscripcion = 30012, FechaEvento = "30/12/20", FechaInicio= "01/12/20", FechaFinal = "01/12/23", NumeroDias=3, TipoTransporte="aereo", ValorTrasporte=1212});
-                _context.Evento.Add(new Evento {NombreEvento="Ponencia", LinkEvento="luismaajas", Pais= "colombia",Telefono="30051725445", ValorInscripcion = 30012, FechaEvento = "30/12/20", FechaInicio= "01/12/20", FechaFinal = "01/12/23", NumeroDias=3, TipoTransporte="aereo", ValorTrasporte=1212});
+                _context.Evento.Add(new Evento {NombreEvento="Ponencia"
+                                                ,LinkEvento="luismaajas"
+                                                ,Pais= "colombia",
+                                                Ciudad="Bogotá"
+                                                ,Telefono="30051725445",
+                                                ValorInscripcion = 30012,
+                                                FechaEvento = "30/12/20",
+                                                FechaInicio= "01/12/20",
+                                                FechaFinal = "01/12/23",
+                                                NumeroDias=3,
+                                                TipoTransporte="aereo", 
+                                                ValorTrasporte=1212,
+                                                Entidad="Young",
+                                                Email="Unfair@young.com"});
+                                                      
+                _context.Evento.Add(new Evento {NombreEvento="Ponencia"
+                                                ,LinkEvento="luismaajas",
+                                                 Pais= "colombia",
+                                                 Ciudad="Valledupar",
+                                                 Telefono="30051725445",
+                                                ValorInscripcion = 30012,
+                                                FechaEvento = "30/12/20",
+                                                FechaInicio= "01/12/20",
+                                                FechaFinal = "01/12/23", 
+                                                NumeroDias=3, 
+                                                TipoTransporte="aereo", 
+                                                ValorTrasporte=1212,
+                                                Email="NobMasterPro@Carlos.com",
+                                                Entidad="life book"});
                 _context.SaveChanges();
             }
         }
-
+   
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Evento>>> GetEventos()
         {

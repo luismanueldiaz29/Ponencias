@@ -15,13 +15,20 @@ export class CartaSolicitudGeneralComponent implements OnInit {
   constructor(private DocenteService: DocenteService) { }
   docente: Docente;
   ngOnInit() {
-    this.docente={id:0, Identificacion: 0, Nombres: "", Apellidos: "", Telefono: "", VinculoInst: "", Email: "", direccion: ""};
+    this.docente={id:0,
+                   Identificacion: 0, 
+                   Nombres: "", 
+                   Apellidos: "", 
+                   Telefono: "", 
+                   VinculoInst: "", 
+                   Email: "", 
+                   direccion: ""};
   }
   
   add(){
     this.DocenteService.add(this.docente)
     .subscribe(docente => {
-      alert('Se agregó una nueva tarea')
+      alert('Se agregó un nuevo docente')
     });
     
   }
