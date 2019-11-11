@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Docente} from '../models/docente';
 import {DocenteService} from '../services/docente.service';
+import { MaterialModule } from '../material/material';
 
 @Component({
   selector: 'app-consulta-docente',
@@ -9,13 +10,15 @@ import {DocenteService} from '../services/docente.service';
 })
 export class ConsultaDocenteComponent implements OnInit {
     docentes: Docente[];
-  constructor(private servicio:DocenteService ) { }
+    import: [MaterialModule];
+    constructor(private servicio:DocenteService ) { }
 
   ngOnInit() {
     this.getAll();
   }
   
   getAll(){
-    this.servicio.getAll().subscribe(x=>this.docentes=x);
+    this.servicio.getAll().subscribe(docentes=>this.docentes=docentes);
   }
+
 } 

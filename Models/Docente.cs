@@ -1,19 +1,21 @@
 using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 
 namespace Ponencias.Models
 {
     public class Docente
     {
+ 
         [JsonProperty("id")]
-        public int id {get; set;}
-
-        [JsonProperty("Identificacion")]
-        public int Identificacion {get; set;}
+        [Required]
+        public string id {get; set;}
 
         [JsonProperty("Nombres")]
+        [Required]
         public string Nombres {get; set;}
 
         [JsonProperty("Apellidos")]
+        [Required]
         public string Apellidos {get; set;}
 
         [JsonProperty("Telefono")]

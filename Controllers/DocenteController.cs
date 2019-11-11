@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Ponencias.Models;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace Ponencias.Controllers
 {
@@ -19,8 +20,20 @@ namespace Ponencias.Controllers
 
             _context = context;
             if (_context.Docente.Count() == 0){
-                _context.Docente.Add(new Docente { Identificacion = 1,  Nombres = "Carlos ", Apellidos = "Daza", Telefono = "101291212", VinculoInst = "docente", Email = "luis@gmail.com", direccion = "calle linda"});
-                _context.Docente.Add(new Docente {  Identificacion = 2, Nombres = "Luis Manué", Apellidos = "Diaz", Telefono = "101291212", VinculoInst = "docente", Email = "luis@gmail.com", direccion = "calle cuba"});
+                _context.Docente.Add(new Docente { id = "1"
+                                                ,  Nombres = "Carlos "
+                                                , Apellidos = "Daza",
+                                                 Telefono = "101291212",
+                                                  VinculoInst = "docente",
+                                                   Email = "luis@gmail.com",
+                                                    direccion = "calle linda"});
+                _context.Docente.Add(new Docente { id = "2"
+                                                , Nombres = "Luis Manué",
+                                                 Apellidos = "Diaz",
+                                                  Telefono = "101291212",
+                                                   VinculoInst = "docente", 
+                                                   Email = "luis@gmail.com",
+                                                    direccion = "calle cuba"});
                 _context.SaveChanges();
             }
         }
@@ -33,7 +46,7 @@ namespace Ponencias.Controllers
 
         // GET: api/Task/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Docente>> GetDocente(int id)
+        public async Task<ActionResult<Docente>> GetDocente(string id)
         {
             var docente = await _context.Docente.FindAsync(id);
             if (docente == null){
@@ -41,13 +54,21 @@ namespace Ponencias.Controllers
             }
             return docente;
         }
-
         [ProducesResponseType(201)]     // Created
         [ProducesResponseType(400)]     // BadRequest
         // POST: api/Task
         [HttpPost]
         public async Task<ActionResult<Docente>> Post(Docente item)
         {
+            if(!ModelState.IsValid){
+                return BadRequest(ModelState);
+            }
+            
+            // buscar la persona por llave primaria y si existe BadRequest()
+            
+
+
+
             _context.Docente.Add(item);
             await _context.SaveChangesAsync();
 
@@ -58,11 +79,9 @@ namespace Ponencias.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, Docente item)
         {
-            if (id != item.id)
-            {
-                return BadRequest();
+           if(!ModelState.IsValid){
+                return BadRequest(ModelState);
             }
-
             _context.Entry(item).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 

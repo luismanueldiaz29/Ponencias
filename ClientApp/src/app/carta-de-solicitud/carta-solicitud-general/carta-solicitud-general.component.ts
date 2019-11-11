@@ -15,8 +15,8 @@ export class CartaSolicitudGeneralComponent implements OnInit {
   constructor(private DocenteService: DocenteService) { }
   docente: Docente;
   ngOnInit() {
-    this.docente={id:0,
-                   Identificacion: 0, 
+    this.docente={
+                   id: "", 
                    Nombres: "", 
                    Apellidos: "", 
                    Telefono: "", 

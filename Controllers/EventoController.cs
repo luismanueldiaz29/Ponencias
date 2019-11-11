@@ -33,13 +33,13 @@ namespace Ponencias.Controllers
                                                 TipoTransporte="aereo", 
                                                 ValorTrasporte=1212,
                                                 Entidad="Young",
-                                                Email="Unfair@young.com"});
+                                                Email="Unfairyoungcom"});
                                                       
                 _context.Evento.Add(new Evento {NombreEvento="Ponencia"
                                                 ,LinkEvento="luismaajas",
                                                  Pais= "colombia",
                                                  Ciudad="Valledupar",
-                                                 Telefono="30051725445",
+                                                 Telefono="300445",
                                                 ValorInscripcion = 30012,
                                                 FechaEvento = "30/12/20",
                                                 FechaInicio= "01/12/20",
@@ -47,7 +47,7 @@ namespace Ponencias.Controllers
                                                 NumeroDias=3, 
                                                 TipoTransporte="aereo", 
                                                 ValorTrasporte=1212,
-                                                Email="NobMasterPro@Carlos.com",
+                                                Email="NobMasterPro",
                                                 Entidad="life book"});
                 _context.SaveChanges();
             }

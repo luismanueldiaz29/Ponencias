@@ -78,7 +78,7 @@ export class DocenteService {
 
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
-    // alert(message);
+     alert(message);
     // this.messageService.add(`HeroService: ${message}`);
   }
 }
