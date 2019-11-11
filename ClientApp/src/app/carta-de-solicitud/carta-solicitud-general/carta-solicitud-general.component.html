@@ -14,7 +14,6 @@
                 <input matInput placeholder="Título (por ahora vin)" type="text"  [(ngModel)]="docente.VinculoInst" name = "vin"/>
             </mat-form-field>
         </div>
-
         <br>
         
         <div class="col-6">
@@ -123,12 +122,12 @@
                 <tr>
                     <td>
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Nombres del estudiante">
+                            <input matInput placeholder="Nombres del estudiante" type="text" name="NombreEstudiante" [(ngModel)]="estudiante.NombreEstudiante"required/>
                         </mat-form-field>
                     </td>
                     <td>
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Apellidos del estudiante">
+                            <input matInput placeholder="Apellidos del estudiante" type="text" name="ApellidoEstudiante" [(ngModel)]="estudiante.ApellidoEstudiante"required>
                         </mat-form-field>
                     </td>
                 </tr>

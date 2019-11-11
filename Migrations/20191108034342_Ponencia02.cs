@@ -2,7 +2,7 @@
 
 namespace Ponencias.Migrations
 {
-    public partial class ponencias02 : Migration
+    public partial class Ponencia02 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -10,9 +10,11 @@ namespace Ponencias.Migrations
                 name: "Docente",
                 columns: table => new
                 {
-                    id = table.Column<string>(nullable: false),
-                    Nombres = table.Column<string>(nullable: false),
-                    Apellidos = table.Column<string>(nullable: false),
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Identificacion = table.Column<int>(nullable: false),
+                    Nombres = table.Column<string>(nullable: true),
+                    Apellidos = table.Column<string>(nullable: true),
                     Telefono = table.Column<string>(nullable: true),
                     VinculoInst = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),

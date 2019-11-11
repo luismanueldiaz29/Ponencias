@@ -16,6 +16,3 @@ export class Evento {
     TipoTransporte:string;
     ValorTrasporte:number;  
 }
-
-
-

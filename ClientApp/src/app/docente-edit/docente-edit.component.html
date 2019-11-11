@@ -1,6 +1,8 @@
-<p>docente-edit works!</p>
+<app-nav-menu-acc></app-nav-menu-acc>
 
-<div *ngIf="task">
+<div class = "borde">
+    <div class = "agrupar">
+<div *ngIf="docente"> 
     <div>
         <h1 class="h2">Detalle Docentes</h1>
     </div>
@@ -22,32 +24,32 @@
     <br>
     <div class="col-6">
             <mat-form-field>
-                <input matInput placeholder="Nombre" name="Nombre" [(ngModel)]="docente.Nombres" required/>
+                <input matInput placeholder="Nombre" name="Nombre" [(ngModel)]="docente.nombres" required/>
             </mat-form-field>
         </div>
         <br>
     
         <div class="col-6">
                 <mat-form-field>
-                    <input matInput placeholder="Apellidos" name="Apellidos" [(ngModel)]="docente.Apellidos" required/>
+                    <input matInput placeholder="Apellidos" name="Apellidos" [(ngModel)]="docente.apellidos" required/>
                 </mat-form-field>
             </div>
             <br>
             <div class="col-6">
                     <mat-form-field>
-                        <input matInput placeholder="Telefono" name="Telefono" [(ngModel)]="docente.Telefono" required/>
+                        <input matInput placeholder="Telefono" name="Telefono" [(ngModel)]="docente.telefono" required/>
                     </mat-form-field>
                 </div>
                 <br>
                 <div class="col-6">
                         <mat-form-field>
-                            <input matInput placeholder="Vinculo institucional" name="VinculoIns" [(ngModel)]="docente.VinculoIns" required/>
+                            <input matInput placeholder="Vinculo institucional" name="vinculoIns" [(ngModel)]="docente.vinculoInst" required/>
                         </mat-form-field>
                     </div>
                     <br>
                     <div class="col-6">
                             <mat-form-field>
-                                <input matInput placeholder="E-mail" name="Email" [(ngModel)]="docente.Email" required/>
+                                <input matInput placeholder="E-mail" name="Email" [(ngModel)]="docente.email" required/>
                             </mat-form-field>
                         </div>
                         <br>
@@ -63,4 +65,6 @@
         <button (click)="update()" class="btn btn-primary">Actualizar</button>
         <button (click)="delete()" class="btn btn-primary">Eliminar</button>
     </div>
+</div> 
+</div>
 </div>

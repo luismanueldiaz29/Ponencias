@@ -1,37 +1,40 @@
-<p>consulta-evento works!</p>
-
-<div>
-    <h1 class="h2">List</h1>
-    </div>
-    <div>
-        <table >
-            <thead>
-                <tr>
-                    <tr>
-                        <th>Id</th>
-                        <th>NombreEvento</th>
-                        <th>Entidad</th>
-                        <th>Email</th>
-                        <th>Telefono</th>
-                        <th>Vinculo inst</th>
-                        <th>Pais</th>
-                        <th>ValorInscripcion</th>
-                        <th>Ver</th>
+<app-nav-menu-acc></app-nav-menu-acc>
+<div class = "borde">
+    <div class = "agrupar">
+            <div>
+                <h1 class="h2">List</h1>
+            </div>
+            <div>
+                    <table class='table table-striped'>
+                            <thead class="thead-dark">
+                        <tr>
+                            <tr>
+                                <th>Id</th>
+                                <th>NombreEvento</th>
+                                <th>Entidad</th>
+                                <th>Email</th>
+                                <th>Telefono</th>
+                                <th>Vinculo inst</th>
+                                <th>Pais</th>
+                                <th>ValorInscripcion</th>
+                                <th>Ver</th>
+                            </tr>
+                        
+                    </thead>
+                    <tr *ngFor="let x of eventos">
+                    <td>{{x.id}}</td>
+                    <td>{{x.nombreEvento}}</td>
+                    <td>{{x.entidad}}</td>
+                    <td>{{x.email}}</td>
+                    <td>{{x.telefono}}</td>
+                    <td>{{x.vinculo}}</td>
+                    <td>{{x.pais}}</td>
+                    <td>{{x.valorInscripcion}}</td>
+                    <td><a routerLink="/eventoEdit/{{x.id}}">
+                        ver
+                    </a></td>
                     </tr>
-                
-            </thead>
-            <tr *ngFor="let evento of eventos">
-               <td>{{evento.id}}</td>
-               <td>{{evento.NombreEvento}}</td>
-               <td>{{evento.Entidad}}</td>
-               <td>{{evento.Email}}</td>
-               <td>{{evento.Telefono}}</td>
-               <td>{{evento.Vinculo}}</td>
-               <td>{{evento.Pais}}</td>
-               <td>{{evento.ValorInscripcion}}</td>
-               <td><a routerLink="/eventoEdit/{{evento.id}}">
-                ver
-               </a></td>
-            </tr>
-        </table>
+                </table>
+            </div>
     </div>
+</div>

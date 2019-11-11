@@ -17,7 +17,7 @@ export class ConsultaEventoComponent implements OnInit {
   }
   
   getAll(){
-    this.servicio.getAll().subscribe(evento=>this.eventos=evento);
+    this.servicio.getAll().subscribe(x=>this.eventos=x);
   }
 
 }

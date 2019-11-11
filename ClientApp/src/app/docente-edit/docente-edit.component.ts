@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { DocenteService } from '../services/docente.service';
 import { Docente } from '../models/docente';
 import { Location } from '@angular/common';
+import { MaterialModule } from '../material/material';
 
 
 @Component({
@@ -11,13 +12,14 @@ import { Location } from '@angular/common';
   styleUrls: ['./docente-edit.component.css']
 })
 export class DocenteEditComponent implements OnInit {
+  imports: [MaterialModule];
   docente: Docente;
   sdocente:string;
   constructor(
     private route: ActivatedRoute,
     private docenteService: DocenteService,
     private location: Location
-  ) { }
+  ) { this.docente = new Docente(); }
 
   ngOnInit() {
     this.get();

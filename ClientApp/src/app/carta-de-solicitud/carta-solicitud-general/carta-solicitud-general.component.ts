@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import { MaterialModule } from 'src/app/material/material';
 import { Docente } from 'src/app/models/docente';
 import { DocenteService } from 'src/app/services/docente.service';
+import { EstudianteService } from 'src/app/services/estudiante.service';
+import { Estudiante } from 'src/app/models/estudiante';
 
 
 @Component({
@@ -11,18 +13,16 @@ import { DocenteService } from 'src/app/services/docente.service';
 })
 export class CartaSolicitudGeneralComponent implements OnInit {
   imports: [MaterialModule];
-  
-  constructor(private DocenteService: DocenteService) { }
   docente: Docente;
+  estudiante : Estudiante;
+  constructor(
+      private DocenteService: DocenteService,
+      private estudianteService: EstudianteService
+    ) { }
+  
   ngOnInit() {
-    this.docente={
-                   id: "", 
-                   Nombres: "", 
-                   Apellidos: "", 
-                   Telefono: "", 
-                   VinculoInst: "", 
-                   Email: "", 
-                   direccion: ""};
+    this.docente={id:0,Identificacion: 0, Nombres: "", Apellidos: "", Telefono: "", VinculoInst: "", Email: "", direccion: ""};
+    this.estudiante = {id: 0, NombreEstudiante: "",ApellidoEstudiante: "" }
   }
   
   add(){
@@ -30,6 +30,9 @@ export class CartaSolicitudGeneralComponent implements OnInit {
     .subscribe(docente => {
       alert('Se agregó un nuevo docente')
     });
-    
+    this.estudianteService.add(this.estudiante)
+    .subscribe(estudiante => {
+      alert('se agrego un estudiante')
+    });
   }
 }

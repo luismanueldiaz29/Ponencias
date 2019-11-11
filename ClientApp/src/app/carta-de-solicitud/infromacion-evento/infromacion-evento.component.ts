@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Evento } from 'src/app/models/evento';
 import { EventoService } from 'src/app/services/evento.service';
+import { MaterialModule } from 'src/app/material/material';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { EventoService } from 'src/app/services/evento.service';
   styleUrls: ['./infromacion-evento.component.css']
 })
 export class InfromacionEventoComponent implements OnInit {
-
+  imports: [MaterialModule];
   
   constructor(private EventoService: EventoService) { }
   evento: Evento;

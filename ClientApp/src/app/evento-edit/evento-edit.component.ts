@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { EventoService } from '../services/evento.service';
 import { Evento } from '../models/evento';
 import { Location } from '@angular/common';
+import { MaterialModule } from '../material/material';
 
 @Component({
   selector: 'app-evento-edit',
@@ -10,7 +11,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./evento-edit.component.css']
 })
 export class EventoEditComponent implements OnInit {
-
+  imports: [MaterialModule];
   evento: Evento;
   sevento:string;
 
@@ -18,7 +19,7 @@ export class EventoEditComponent implements OnInit {
     private route: ActivatedRoute,
     private Servicio: EventoService,
     private location: Location
-  ) { }
+  ) { this.evento = new Evento(); }
  
   ngOnInit() {
     this.get();

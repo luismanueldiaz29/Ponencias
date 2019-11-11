@@ -1,4 +1,5 @@
 export class Estudiante {
-    Nombre: string;
-    Apellido: string;
+    id: 0;
+    NombreEstudiante: string;
+    ApellidoEstudiante: string;
 }

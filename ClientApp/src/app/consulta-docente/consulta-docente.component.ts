@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {Docente} from '../models/docente';
 import {DocenteService} from '../services/docente.service';
 import { MaterialModule } from '../material/material';
@@ -9,16 +9,25 @@ import { MaterialModule } from '../material/material';
   styleUrls: ['./consulta-docente.component.css']
 })
 export class ConsultaDocenteComponent implements OnInit {
-    docentes: Docente[];
-    import: [MaterialModule];
-    constructor(private servicio:DocenteService ) { }
+  imports: [MaterialModule];
+  docentes: Docente[];
+  // displayedColumns: string[] = ['No', 'Identificacion', 'nombre', 'apellido', 'telefono', 'vinculoInst', 'email', 'direccion', 'ver'];
+  constructor(private servicio:DocenteService ) { }
+
+  // dataSource = new MatTableDataSource(this.docentes);
+
+  // @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   ngOnInit() {
     this.getAll();
+    // this.dataSource.sort = this.sort;
+
   }
-  
-  getAll(){
-    this.servicio.getAll().subscribe(docentes=>this.docentes=docentes);
+
+  getAll() {
+    this.servicio.getAll().subscribe(docente => {
+      return this.docentes = docente;
+    });
   }
 
 } 

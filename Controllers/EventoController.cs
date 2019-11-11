@@ -33,13 +33,13 @@ namespace Ponencias.Controllers
                                                 TipoTransporte="aereo", 
                                                 ValorTrasporte=1212,
                                                 Entidad="Young",
-                                                Email="Unfairyoungcom"});
+                                                Email="Unfair@young.com"});
                                                       
                 _context.Evento.Add(new Evento {NombreEvento="Ponencia"
                                                 ,LinkEvento="luismaajas",
                                                  Pais= "colombia",
                                                  Ciudad="Valledupar",
-                                                 Telefono="300445",
+                                                 Telefono="30051725445",
                                                 ValorInscripcion = 30012,
                                                 FechaEvento = "30/12/20",
                                                 FechaInicio= "01/12/20",
@@ -47,7 +47,7 @@ namespace Ponencias.Controllers
                                                 NumeroDias=3, 
                                                 TipoTransporte="aereo", 
                                                 ValorTrasporte=1212,
-                                                Email="NobMasterPro",
+                                                Email="NobMasterPro@Carlos.com",
                                                 Entidad="life book"});
                 _context.SaveChanges();
             }
@@ -59,11 +59,11 @@ namespace Ponencias.Controllers
             return await _context.Evento.ToListAsync();
         }
 
-        // GET: api/Task/5
+ // GET: api/Task/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Evento>> GetEvento(int id)
         {
-            var evento = await _context.Evento.FindAsync();
+            var evento = await _context.Evento.FindAsync(id);
             if (evento == null){
                 return NotFound();
             }
@@ -91,6 +91,24 @@ namespace Ponencias.Controllers
             await _context.SaveChangesAsync();
             return NoContent();
         }
+
+                        // DELETE: api/Task/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var evento = await _context.Evento.FindAsync(id);
+
+            if (evento == null)
+            {
+                return NotFound();
+            }
+
+            _context.Evento.Remove(evento);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
     }
     
 }
