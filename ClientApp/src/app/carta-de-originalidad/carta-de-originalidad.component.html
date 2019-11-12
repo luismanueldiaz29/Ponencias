@@ -8,9 +8,9 @@
                 <div>
                         Señores
                         UNIVERSIDAD POPULAR DEL CESAR
-                        Valledupar – Cesar
-                        Yo <input type="text">, mayor de edad,
-                        identificado(a) con la cédula de ciudadanía número <input type="number"> de <input type="text">,
+                        Valledupar – Cesar <br>
+                        Yo <mat-form-field><input matInput  name="nombre" placeholder="{{docente.nombres}} {{docente.apellidos}}" readonly="readonly" /></mat-form-field>, mayor de edad,
+                        identificado(a) con la cédula de ciudadanía número <mat-form-field><input matInput  name="identificacion"  placeholder="{{docente.identificacion}}" readonly="readonly" /></mat-form-field> de <mat-form-field><input matInput  name="nombre" placeholder="{{docente.nombres}}" readonly="readonly" /></mat-form-field>,
                         con filiación institucional <input type="text">, residente en
                         <input type="text">, teniendo todas mis facultades en pleno y de voluntad y en
                         calidad de Autor del Texto:
@@ -20,7 +20,7 @@
                         required
                         class="form-control datepicker"
                         />
-                        
+                        <br>
                         Doy fe que el texto es original y de mi propia y exclusiva creación conforme a la ley de
                         propiedad intelectual de derechos de autor en Colombia y manifiesto que: 
                         
@@ -49,16 +49,20 @@
                         required
                         class="form-control datepicker"
                         />
-                
+                        <br>
                         Para efectos de legalidad se firma en la ciudad de <input type="text"> a
                         los <input type="number"> días del mes de <input type="text"> del año <input type="text">
                         
                         NOMBRE: <input type="text">
-                        FIRMA____________________________________________ CC <input type="text">
+                        FIRMA____________________________________________ CC: 
+                        <mat-form-field>
+                            <input matInput  name="Identificacion" [(ngModel)]="docente.identificacion" readonly="readonly" />
+                        </mat-form-field>
                 </div>
                 
                 <div class="ml-auto">
                     <button class="btn btn-primary">Generar formato</button>
                 </div>
+                <input  class="btn btn-primary" type="button" name="imprimir" value="Imprimir" onclick="window.print();">
     </div>
 </div>  

@@ -19,7 +19,7 @@ export class EstudianteService {
   add(Estudiante: Estudiante): Observable<Estudiante> {
 
     return this.http.post<Estudiante>(this.baseUrl + 'api/Estudiante', Estudiante, httpOptions).pipe(
-      tap((newEstudiante: Estudiante) => this.log(`added newEstudiante w/ id=${newEstudiante.Nombre}`)),
+      tap((newEstudiante: Estudiante) => this.log(`added newEstudiante w/ id=${newEstudiante.id}`)),
       catchError(this.handleError<Estudiante>('addEstudiante'))
     );
   }
@@ -43,16 +43,16 @@ export class EstudianteService {
 
   /** PUT: update the hero on the server */
   update (Estudiante: Estudiante): Observable<any> {
-    const url = `${this.baseUrl + 'api/Estudiante'}/${Estudiante.Nombre}`;
+    const url = `${this.baseUrl + 'api/Estudiante'}/${Estudiante.id}`;
     return this.http.put(url, Estudiante, httpOptions).pipe(
-      tap(_ => this.log(`updated Estudiante id=${Estudiante.Nombre}`)),
+      tap(_ => this.log(`updated Estudiante id=${Estudiante.id}`)),
       catchError(this.handleError<any>('Estudiante'))
     );
   }
 
   /** DELETE: delete the hero from the server */
   delete (Estudiante: Estudiante | number): Observable<Estudiante> {
-    const id = typeof Estudiante === 'number' ? Estudiante : Estudiante.Nombre;
+    const id = typeof Estudiante === 'number' ? Estudiante : Estudiante.id;
     const url = `${this.baseUrl + 'api/Estudiante'}/${id}`;
 
     return this.http.delete<Estudiante>(url, httpOptions).pipe(

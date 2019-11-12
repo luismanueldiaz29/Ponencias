@@ -49,7 +49,7 @@ const routes: Routes = [
       component:DocenteEditComponent
     },
   {
-    path: 'Carta_Originalidad',
+    path: 'Carta_Originalidad/:id',
     component: CartaDeOriginalidadComponent
   },
   {

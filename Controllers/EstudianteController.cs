@@ -53,7 +53,7 @@ namespace Ponencias.Controllers
 
         // PUT: api/Task/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTaskItem(int id, Estudiante item)
+        public async Task<IActionResult> PutEstudiante(int id, Estudiante item)
         {
             if (id != item.id)
             {

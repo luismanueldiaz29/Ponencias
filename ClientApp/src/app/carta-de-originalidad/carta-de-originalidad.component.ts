@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { DocenteService } from '../services/docente.service';
+import { Docente } from '../Models/docente';
+import { ActivatedRoute } from '@angular/router';
+import { MaterialModule } from '../material/material';
 
 @Component({
   selector: 'app-carta-de-originalidad',
@@ -7,9 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartaDeOriginalidadComponent implements OnInit {
 
-  constructor() { }
+  docente: Docente;
+  Imports : [MaterialModule];
+
+  constructor(
+    private route: ActivatedRoute,
+    private docenteService : DocenteService
+    ) {this.docente = new Docente(); }
 
   ngOnInit() {
+    this.get();
+  }
+
+  get(): void{
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.docenteService.get(id).subscribe(hero=>this.docente=hero);
   }
 
 }
