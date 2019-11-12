@@ -1,6 +1,6 @@
 export class Evento {
 
-    id:number;
+    id: number;
     NombreEvento:string;
     Entidad:string;
     Email:string;

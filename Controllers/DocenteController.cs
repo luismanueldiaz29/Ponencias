@@ -19,8 +19,8 @@ namespace Ponencias.Controllers
 
             _context = context;
             if (_context.Docente.Count() == 0){
-                _context.Docente.Add(new Docente { Identificacion = 1,  Nombres = "Carlos ", Apellidos = "Daza", Telefono = "101291212", VinculoInst = "docente", Email = "luis@gmail.com", direccion = "calle linda"});
-                _context.Docente.Add(new Docente {  Identificacion = 2, Nombres = "Luis Manué", Apellidos = "Diaz", Telefono = "101291212", VinculoInst = "docente", Email = "luis@gmail.com", direccion = "calle cuba"});
+                _context.Docente.Add(new Docente { id = "1",  Nombres = "Carlos ", Apellidos = "Daza", Telefono = "101291212", VinculoInst = "docente", Email = "luis@gmail.com", direccion = "calle linda"});
+                _context.Docente.Add(new Docente {  id = "2", Nombres = "Luis Manué", Apellidos = "Diaz", Telefono = "101291212", VinculoInst = "docente", Email = "luis@gmail.com", direccion = "calle cuba"});
                 _context.SaveChanges();
             }
         }
@@ -33,7 +33,7 @@ namespace Ponencias.Controllers
 
         // GET: api/Task/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Docente>> GetDocente(int id)
+        public async Task<ActionResult<Docente>> GetDocente(string id)
         {
             var docente = await _context.Docente.FindAsync(id);
             if (docente == null){
@@ -48,7 +48,11 @@ namespace Ponencias.Controllers
         [HttpPost]
         public async Task<ActionResult<Docente>> Post(Docente item)
         {
-            _context.Docente.Add(item);
+           
+           
+            _context.Docente.Add(item); if(!ModelState.IsValid){
+                return BadRequest(ModelState);
+            }
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetDocente), new { id = item.id }, item);
@@ -56,7 +60,7 @@ namespace Ponencias.Controllers
 
          // PUT: api/Task/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, Docente item)
+        public async Task<IActionResult> Put(string id, Docente item)
         {
             if (id != item.id)
             {
@@ -71,7 +75,7 @@ namespace Ponencias.Controllers
 
                         // DELETE: api/Task/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(string id)
         {
             var docente = await _context.Docente.FindAsync(id);
 

@@ -2,7 +2,7 @@
 
 namespace Ponencias.Migrations
 {
-    public partial class Ponencia02 : Migration
+    public partial class ponencias02 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -10,11 +10,10 @@ namespace Ponencias.Migrations
                 name: "Docente",
                 columns: table => new
                 {
-                    id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    id = table.Column<string>(nullable: false),
                     Identificacion = table.Column<int>(nullable: false),
-                    Nombres = table.Column<string>(nullable: true),
-                    Apellidos = table.Column<string>(nullable: true),
+                    Nombres = table.Column<string>(nullable: false),
+                    Apellidos = table.Column<string>(nullable: false),
                     Telefono = table.Column<string>(nullable: true),
                     VinculoInst = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
@@ -45,19 +44,19 @@ namespace Ponencias.Migrations
                 {
                     id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NombreEvento = table.Column<string>(nullable: true),
+                    NombreEvento = table.Column<string>(nullable: false),
                     LinkEvento = table.Column<string>(nullable: true),
-                    Pais = table.Column<string>(nullable: true),
+                    Pais = table.Column<string>(nullable: false),
                     Ciudad = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
                     Telefono = table.Column<string>(nullable: true),
                     ValorInscripcion = table.Column<decimal>(nullable: false),
-                    FechaEvento = table.Column<string>(nullable: true),
+                    FechaEvento = table.Column<string>(nullable: false),
                     FechaInicio = table.Column<string>(nullable: true),
                     FechaFinal = table.Column<string>(nullable: true),
                     Entidad = table.Column<string>(nullable: true),
                     NumeroDias = table.Column<int>(nullable: false),
-                    TipoTransporte = table.Column<string>(nullable: true),
+                    TipoTransporte = table.Column<string>(nullable: false),
                     ValorTrasporte = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>

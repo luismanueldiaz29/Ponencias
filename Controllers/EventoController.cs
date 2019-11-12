@@ -20,7 +20,8 @@ namespace Ponencias.Controllers
 
             _context = context;
             if (_context.Evento.Count() == 0){
-                _context.Evento.Add(new Evento {NombreEvento="Ponencia"
+                _context.Evento.Add(new Evento {
+                                                NombreEvento="Ponencia"
                                                 ,LinkEvento="luismaajas"
                                                 ,Pais= "colombia",
                                                 Ciudad="Bogotá"
@@ -35,7 +36,8 @@ namespace Ponencias.Controllers
                                                 Entidad="Young",
                                                 Email="Unfair@young.com"});
                                                       
-                _context.Evento.Add(new Evento {NombreEvento="Ponencia"
+                _context.Evento.Add(new Evento {
+                                                NombreEvento="Ponencia"
                                                 ,LinkEvento="luismaajas",
                                                  Pais= "colombia",
                                                  Ciudad="Valledupar",
@@ -74,6 +76,9 @@ namespace Ponencias.Controllers
         [HttpPost]
         public async Task<ActionResult<Evento>> PostEvento(Evento item)
         {
+             if(!ModelState.IsValid){
+                return BadRequest(ModelState);
+            }
             _context.Evento.Add(item);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetEvento), new { id = item.id }, item);

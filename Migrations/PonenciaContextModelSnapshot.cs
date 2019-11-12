@@ -20,12 +20,11 @@ namespace Ponencias.Migrations
 
             modelBuilder.Entity("Ponencias.Models.Docente", b =>
                 {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Apellidos")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -35,6 +34,7 @@ namespace Ponencias.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Nombres")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Telefono")
@@ -86,6 +86,7 @@ namespace Ponencias.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FechaEvento")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FechaFinal")
@@ -98,18 +99,21 @@ namespace Ponencias.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NombreEvento")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("NumeroDias")
                         .HasColumnType("int");
 
                     b.Property<string>("Pais")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Telefono")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TipoTransporte")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("ValorInscripcion")

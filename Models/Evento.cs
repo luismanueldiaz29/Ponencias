@@ -1,19 +1,22 @@
 using Newtonsoft.Json;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 namespace Ponencias.Models
 {
     public class Evento
     {
         [JsonProperty("id")]
+        [Required]
         public int id {get; set;}
 
         [JsonProperty("NombreEvento")]
+        [Required]
         public string NombreEvento {get; set;}
         
         [JsonProperty("LinkEvento")]
         public string LinkEvento {get; set;}
 
         [JsonProperty("Pais")]
+        [Required]
         public string Pais {get; set;}
 
         [JsonProperty("Ciudad")]
@@ -26,9 +29,11 @@ namespace Ponencias.Models
         public string Telefono {get; set;}
 
         [JsonProperty("ValorInscripcion")]
+        [Required]
         public decimal ValorInscripcion {get; set;}
 
         [JsonProperty("FechaEvento")]
+        [Required]
         public string FechaEvento {get; set;}
 
         [JsonProperty("FechaInicio")]
@@ -44,9 +49,11 @@ namespace Ponencias.Models
         public int NumeroDias {get; set;}
 
         [JsonProperty("TipoTransporte")]
+        [Required]
         public string TipoTransporte {get; set;}
 
         [JsonProperty("ValorTrasporte")]
+        [Required]
         public decimal ValorTrasporte {get; set;}
         
 

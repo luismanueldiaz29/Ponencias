@@ -1,6 +1,5 @@
 export class Docente {
-    id: number;
-    Identificacion: number;
+    id: string;
     Nombres: string;
     Apellidos: string;
     Telefono: string;
