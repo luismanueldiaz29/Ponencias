@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CartaSolicitudGeneralComponent } from './carta-solicitud-general.component';
 
 describe('CartaSolicitudGeneralComponent', () => {

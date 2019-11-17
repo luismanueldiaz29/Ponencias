@@ -30,9 +30,6 @@ namespace Ponencias.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Identificacion")
-                        .HasColumnType("int");
-
                     b.Property<string>("Nombres")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -90,9 +87,11 @@ namespace Ponencias.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FechaFinal")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FechaInicio")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LinkEvento")
@@ -112,14 +111,7 @@ namespace Ponencias.Migrations
                     b.Property<string>("Telefono")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TipoTransporte")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<decimal>("ValorInscripcion")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("ValorTrasporte")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("id");

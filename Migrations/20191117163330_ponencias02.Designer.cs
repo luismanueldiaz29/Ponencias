@@ -9,7 +9,7 @@ using Ponencias.Models;
 namespace Ponencias.Migrations
 {
     [DbContext(typeof(PonenciaContext))]
-    [Migration("20191112060143_ponencias02")]
+    [Migration("20191117163330_ponencias02")]
     partial class ponencias02
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,9 +31,6 @@ namespace Ponencias.Migrations
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Identificacion")
-                        .HasColumnType("int");
 
                     b.Property<string>("Nombres")
                         .IsRequired()
@@ -92,9 +89,11 @@ namespace Ponencias.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FechaFinal")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FechaInicio")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LinkEvento")
@@ -114,14 +113,7 @@ namespace Ponencias.Migrations
                     b.Property<string>("Telefono")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TipoTransporte")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<decimal>("ValorInscripcion")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("ValorTrasporte")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("id");

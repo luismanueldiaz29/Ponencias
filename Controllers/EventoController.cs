@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Ponencias.Models;
 using Microsoft.EntityFrameworkCore;
-
+//https://www.entityframeworktutorial.net/efcore/one-to-one-conventions-entity-framework-core.aspx
 namespace Ponencias.Controllers
 {
     [Route("api/[controller]")]
@@ -17,7 +17,6 @@ namespace Ponencias.Controllers
         private readonly PonenciaContext _context;
 
         public EventoController(PonenciaContext context){
-
             _context = context;
             if (_context.Evento.Count() == 0){
                 _context.Evento.Add(new Evento {
@@ -31,8 +30,6 @@ namespace Ponencias.Controllers
                                                 FechaInicio= "01/12/20",
                                                 FechaFinal = "01/12/23",
                                                 NumeroDias=3,
-                                                TipoTransporte="aereo", 
-                                                ValorTrasporte=1212,
                                                 Entidad="Young",
                                                 Email="Unfair@young.com"});
                                                       
@@ -46,9 +43,7 @@ namespace Ponencias.Controllers
                                                 FechaEvento = "30/12/20",
                                                 FechaInicio= "01/12/20",
                                                 FechaFinal = "01/12/23", 
-                                                NumeroDias=3, 
-                                                TipoTransporte="aereo", 
-                                                ValorTrasporte=1212,
+                                                NumeroDias=3,
                                                 Email="NobMasterPro@Carlos.com",
                                                 Entidad="life book"});
                 _context.SaveChanges();

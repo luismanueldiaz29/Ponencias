@@ -11,7 +11,6 @@ namespace Ponencias.Migrations
                 columns: table => new
                 {
                     id = table.Column<string>(nullable: false),
-                    Identificacion = table.Column<int>(nullable: false),
                     Nombres = table.Column<string>(nullable: false),
                     Apellidos = table.Column<string>(nullable: false),
                     Telefono = table.Column<string>(nullable: true),
@@ -52,12 +51,10 @@ namespace Ponencias.Migrations
                     Telefono = table.Column<string>(nullable: true),
                     ValorInscripcion = table.Column<decimal>(nullable: false),
                     FechaEvento = table.Column<string>(nullable: false),
-                    FechaInicio = table.Column<string>(nullable: true),
-                    FechaFinal = table.Column<string>(nullable: true),
+                    FechaInicio = table.Column<string>(nullable: false),
+                    FechaFinal = table.Column<string>(nullable: false),
                     Entidad = table.Column<string>(nullable: true),
-                    NumeroDias = table.Column<int>(nullable: false),
-                    TipoTransporte = table.Column<string>(nullable: false),
-                    ValorTrasporte = table.Column<decimal>(nullable: false)
+                    NumeroDias = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

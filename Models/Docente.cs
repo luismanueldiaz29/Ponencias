@@ -9,10 +9,6 @@ namespace Ponencias.Models
         [Required]
         public string id {get; set;}
 
-        [JsonProperty("Identificacion")]
-        [Required]
-        public int Identificacion {get; set;}
-
         [JsonProperty("Nombres")]
         [Required]
         public string Nombres {get; set;}

@@ -71,7 +71,6 @@
                                 <th>Nombres</th>
                                 <th>Apellidos</th>
                                 <th>Telefono</th>
-                                <th>Vinculo inst</th>
                                 <th>Email</th>
                                 <th>Direccion</th>
                                 <th>Ver</th>
@@ -80,11 +79,9 @@
                     </thead>
                     <tr *ngFor="let x of docentes">
                         <td>{{x.id}}</td>
-                        
                         <td>{{x.nombres}}</td>
                         <td>{{x.apellidos}}</td>
                         <td>{{x.telefono}}</td>
-                        <td>{{x.vinculo}}</td>
                         <td>{{x.email}}</td>
                         <td>{{x.direccion}}</td>
                         <td><a routerLink="/docenteEdit/{{x.id}}">ver</a></td>

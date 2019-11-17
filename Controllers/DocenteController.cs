@@ -50,7 +50,8 @@ namespace Ponencias.Controllers
         {
            
            
-            _context.Docente.Add(item); if(!ModelState.IsValid){
+            _context.Docente.Add(item); 
+            if(!ModelState.IsValid){
                 return BadRequest(ModelState);
             }
             await _context.SaveChangesAsync();

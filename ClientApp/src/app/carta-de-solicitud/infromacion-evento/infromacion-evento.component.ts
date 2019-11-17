@@ -28,8 +28,6 @@ export class InfromacionEventoComponent implements OnInit {
                 FechaInicio: "",
                 FechaFinal: "",
                 NumeroDias: 0, 
-                TipoTransporte:"",
-                ValorTrasporte: 0 ,
                 Entidad:""};
   }
   

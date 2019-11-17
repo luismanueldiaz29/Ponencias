@@ -21,7 +21,7 @@ namespace Ponencias.Models
 
         [JsonProperty("Ciudad")]
         public string Ciudad{get;set;}
-
+    
         [JsonProperty("Email")]
         public string Email{get;set;}
 
@@ -37,9 +37,11 @@ namespace Ponencias.Models
         public string FechaEvento {get; set;}
 
         [JsonProperty("FechaInicio")]
+        [Required]
         public string FechaInicio {get; set;}
 
         [JsonProperty("FechaFinal")]
+        [Required]
         public string FechaFinal {get; set;}
 
         [JsonProperty("Entidad")]
@@ -47,15 +49,5 @@ namespace Ponencias.Models
 
         [JsonProperty("NumeroDias")]
         public int NumeroDias {get; set;}
-
-        [JsonProperty("TipoTransporte")]
-        [Required]
-        public string TipoTransporte {get; set;}
-
-        [JsonProperty("ValorTrasporte")]
-        [Required]
-        public decimal ValorTrasporte {get; set;}
-        
-
     }
 }

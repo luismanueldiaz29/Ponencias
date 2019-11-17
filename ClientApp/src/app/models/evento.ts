@@ -13,6 +13,4 @@ export class Evento {
     FechaInicio:string;
     FechaFinal:string ;
     NumeroDias:number; 
-    TipoTransporte:string;
-    ValorTrasporte:number;  
 }

@@ -10,5 +10,10 @@ namespace Ponencias.Models
         public DbSet<Solicitud> Solicitud { get; set; }
         public DbSet<Evento> Evento { get; set; }
         public DbSet<Estudiante> Estudiante { get; set; }
+        public DbSet<Transporte> Transporte {get; set;}
+        public DbSet<Programa> Programa {get; set;}
+        public DbSet<Investigacion> Investigacion {get; set;}
+        public DbSet<GrupoInvestigacion> GrupoInvestigacion {get; set;}
+
     }
 }

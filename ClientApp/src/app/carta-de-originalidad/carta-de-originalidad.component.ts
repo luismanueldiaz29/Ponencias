@@ -13,6 +13,14 @@ export class CartaDeOriginalidadComponent implements OnInit {
 
   docente: Docente;
   Imports : [MaterialModule];
+  meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+  //fechas
+  date = new Date();
+  dia = this.date.getDate();
+  mes = this.meses[this.date.getMonth()];
+  ano = this.date.getFullYear();
+
+
 
   constructor(
     private route: ActivatedRoute,

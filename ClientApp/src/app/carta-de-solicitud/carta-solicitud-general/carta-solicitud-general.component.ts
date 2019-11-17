@@ -21,10 +21,18 @@ export class CartaSolicitudGeneralComponent implements OnInit {
     ) { }
   
   ngOnInit() {
-    this.docente={id:"0", Nombres: "", Apellidos: "", Telefono: "", VinculoInst: "", Email: "", direccion: ""};
+    this.docente={id:"0",Nombres: "", Apellidos: "", Telefono: "", VinculoInst: "", Email: "", direccion: ""};
     this.estudiante = {id: 0, NombreEstudiante: "",ApellidoEstudiante: "" }
   }
   
+
+  add(){
+    this.DocenteService.add(this.docente)
+    .subscribe();
+    this.estudianteService.add(this.estudiante)
+    .subscribe();
+  }
+  /*
   add(){
     this.DocenteService.add(this.docente)
     .subscribe(docente => {
@@ -34,5 +42,5 @@ export class CartaSolicitudGeneralComponent implements OnInit {
     .subscribe(estudiante => {
       alert('se agrego un estudiante')
     });
-  }
+  }*/
 }

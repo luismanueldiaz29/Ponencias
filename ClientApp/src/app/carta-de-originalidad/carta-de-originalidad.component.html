@@ -2,67 +2,69 @@
 
 <div class="borde">
     <div class="agrupar">
-            <header class="Titulo">
-                    <h1>Carta de originalidad</h1>
-                </header>
-                <div>
-                        Señores
-                        UNIVERSIDAD POPULAR DEL CESAR
-                        Valledupar – Cesar <br>
-                        Yo <mat-form-field><input matInput  name="nombre" placeholder="{{docente.nombres}} {{docente.apellidos}}" readonly="readonly" /></mat-form-field>, mayor de edad,
-                        identificado(a) con la cédula de ciudadanía número <mat-form-field><input matInput  name="identificacion"  placeholder="{{docente.identificacion}}" readonly="readonly" /></mat-form-field> de <mat-form-field><input matInput  name="nombre" placeholder="{{docente.nombres}}" readonly="readonly" /></mat-form-field>,
-                        con filiación institucional <input type="text">, residente en
-                        <input type="text">, teniendo todas mis facultades en pleno y de voluntad y en
-                        calidad de Autor del Texto:
-                        <br>
-                        <input 
-                        type="text" 
-                        required
-                        class="form-control datepicker"
-                        />
-                        <br>
-                        Doy fe que el texto es original y de mi propia y exclusiva creación conforme a la ley de
-                        propiedad intelectual de derechos de autor en Colombia y manifiesto que: 
-                        
-                        <ul>
-                            <li>
-                                La información en ella contenida no tiene carácter confidencial.
-                            </li>
-                            <li>
-                                La autorización aquí otorgada cuenta con el consentimiento de todos los que
-                                patrocinaron o participaron en la investigación y/o creación de la obra.
-                            </li>
-                            <li>
-                                Que estamos de acuerdo con el orden de la lista de autores presentados, y que
-                                no existe personal adicional que pueda reclamar derechos de autoría. el número
-                                y orden de autores No contiene declaraciones difamatorias contra terceros y
-                                respeta el derecho a la imagen, intimidad, buen nombre y demás derechos
-                                constitucionales de las personas.
-                            </li>    
-                            <li>
-                                No existe de conflictos de intereses que puedan afectar el contenido de este, en
-                                caso de existirlo declaramos lo siguiente:
-                            </li>
-                        </ul>
-                        <input 
-                        type="text" 
-                        required
-                        class="form-control datepicker"
-                        />
-                        <br>
-                        Para efectos de legalidad se firma en la ciudad de <input type="text"> a
-                        los <input type="number"> días del mes de <input type="text"> del año <input type="text">
-                        
-                        NOMBRE: <input type="text">
-                        FIRMA____________________________________________ CC: 
-                        <mat-form-field>
-                            <input matInput  name="Identificacion" [(ngModel)]="docente.identificacion" readonly="readonly" />
-                        </mat-form-field>
-                </div>
-                
-                <div class="ml-auto">
-                    <button class="btn btn-primary">Generar formato</button>
-                </div>
-                <input  class="btn btn-primary" type="button" name="imprimir" value="Imprimir" onclick="window.print();">
+        
+        <header class="Titulo">
+            <h1>Carta de originalidad</h1>
+        </header>
+        <div class = "Carta">
+            <br>
+            <div class="img">
+                <img src="/assets/CartaOriginalidad.JPG" alt="Encabezado" >
+            </div>
+            <br><br>
+            Señores <br>
+            <b>UNIVERSIDAD POPULAR DEL CESAR</b><br>
+            Valledupar – Cesar <br>
+            <br>
+            <br>
+            Yo <span class="datos">{{docente.nombres}} {{docente.apellidos}}</span>, mayor de edad,
+            identificado(a) con la cédula de ciudadanía número <span class="datos">{{docente.id}}</span> de <span class = "datos">Valledupar</span>,
+            con filiación institucional <span class="datos">{{docente.vinculoInst}}</span>, residente en
+            <span class="datos">{{docente.direccion}}</span> , teniendo todas mis facultades en pleno y de voluntad y en
+            calidad de Autor del Texto:
+            <br><br>
+            <input type="text" required class="form-control datepicker"/>
+            <br><br>
+            <p>
+                Doy fe que el texto es original y de mi propia y exclusiva creación conforme a la ley de
+                propiedad intelectual de derechos de autor en Colombia y manifiesto que: 
+            </p>    
+                <ul>
+                    <li>
+                        La información en ella contenida no tiene carácter confidencial.
+                    </li>
+                    <li>
+                        La autorización aquí otorgada cuenta con el consentimiento de todos los que
+                        patrocinaron o participaron en la investigación y/o creación de la obra.
+                    </li>
+                    <li>
+                        Que estamos de acuerdo con el orden de la lista de autores presentados, y que
+                        no existe personal adicional que pueda reclamar derechos de autoría. el número
+                        y orden de autores No contiene declaraciones difamatorias contra terceros y
+                        respeta el derecho a la imagen, intimidad, buen nombre y demás derechos
+                        constitucionales de las personas.
+                    </li>    
+                    <li>
+                        No existe de conflictos de intereses que puedan afectar el contenido de este, en
+                        caso de existirlo declaramos lo siguiente:
+                    </li>
+                </ul>
+            <br>
+                <input type="text" required class="form-control datepicker"/>
+            <br><br>
+            Para efectos de legalidad se firma en la ciudad de <span class="datos">Valledupar</span> a
+            los <span class="datos">{{dia}}</span> días del mes de <span class="datos">{{mes}}</span> del año <span class="datos">{{ano}}</span>
+            <br><br>
+            NOMBRE: <span class="datos">{{docente.nombres}} {{docente.apellidos}}</span><br>
+            FIRMA <span class="firma"></span> CC: <span class = "datos">{{docente.id}}</span> de <span class="datos">Valledupar</span>
+        </div>
+
+        <br><br>
+        
+        <div class="btn-imprimir">
+            <div class="no-print">
+                <input class="btn btn-primary" type="button" name="imprimir" value="Imprimir" onclick="window.print();">
+            </div>
+        </div>
     </div>
 </div>  
