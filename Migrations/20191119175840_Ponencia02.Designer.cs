@@ -9,8 +9,8 @@ using Ponencias.Models;
 namespace Ponencias.Migrations
 {
     [DbContext(typeof(PonenciaContext))]
-    [Migration("20191117163330_ponencias02")]
-    partial class ponencias02
+    [Migration("20191119175840_Ponencia02")]
+    partial class Ponencia02
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -121,6 +121,54 @@ namespace Ponencias.Migrations
                     b.ToTable("Evento");
                 });
 
+            modelBuilder.Entity("Ponencias.Models.GrupoInvestigacion", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("NombreGrupo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("GrupoInvestigacion");
+                });
+
+            modelBuilder.Entity("Ponencias.Models.Investigacion", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("NombreInvestigacion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Investigacion");
+                });
+
+            modelBuilder.Entity("Ponencias.Models.Programa", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("NombrePrograma")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Programa");
+                });
+
             modelBuilder.Entity("Ponencias.Models.Solicitud", b =>
                 {
                     b.Property<int>("id")
@@ -137,6 +185,25 @@ namespace Ponencias.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Solicitud");
+                });
+
+            modelBuilder.Entity("Ponencias.Models.Transporte", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("TipoTransporte")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("ValorTrasporte")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Transporte");
                 });
 #pragma warning restore 612, 618
         }

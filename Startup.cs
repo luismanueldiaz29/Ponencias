@@ -26,7 +26,7 @@ namespace Ponencias
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddDbContext<PonenciaContext>(opt => opt.UseSqlServer(@"Server=LAPTOP-2K3M06LS\SQLEXPRESS;Database=Ponencia02;Trusted_Connection=True;"));
+            services.AddDbContext<PonenciaContext>(opt => opt.UseSqlServer(@"Server=G23-239993\SQLEXPRESS;Database=Ponencia02;Trusted_Connection=True;"));
 
             services.AddControllersWithViews();
 
