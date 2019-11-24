@@ -9,7 +9,7 @@ using Ponencias.Models;
 namespace Ponencias.Migrations
 {
     [DbContext(typeof(PonenciaContext))]
-    [Migration("20191119175840_Ponencia02")]
+    [Migration("20191123203836_Ponencia02")]
     partial class Ponencia02
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -19,6 +19,32 @@ namespace Ponencias.Migrations
                 .HasAnnotation("ProductVersion", "3.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("Ponencias.Models.Administrador", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Apellido")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Pass")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Usuario")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Administrador");
+                });
 
             modelBuilder.Entity("Ponencias.Models.Docente", b =>
                 {
@@ -36,7 +62,13 @@ namespace Ponencias.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Pass")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Telefono")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Usuario")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("VinculoInst")

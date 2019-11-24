@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -20,6 +20,8 @@ import { ConsultaDocenteComponent } from './consulta-docente/consulta-docente.co
 import { DocenteEditComponent } from './docente-edit/docente-edit.component';
 import { ConsultaEventoComponent } from './consulta-evento/consulta-evento.component';
 import { EventoEditComponent } from './evento-edit/evento-edit.component';
+import { RegistarComponent } from './registar/registar.component';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { EventoEditComponent } from './evento-edit/evento-edit.component';
     ConsultaDocenteComponent,
     DocenteEditComponent,
     ConsultaEventoComponent,
-    EventoEditComponent
+    EventoEditComponent,
+    RegistarComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -45,7 +48,8 @@ import { EventoEditComponent } from './evento-edit/evento-edit.component';
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

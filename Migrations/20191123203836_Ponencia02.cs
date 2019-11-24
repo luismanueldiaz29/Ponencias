@@ -7,6 +7,21 @@ namespace Ponencias.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Administrador",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    Nombre = table.Column<string>(nullable: false),
+                    Apellido = table.Column<string>(nullable: false),
+                    Usuario = table.Column<string>(nullable: false),
+                    Pass = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Administrador", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Docente",
                 columns: table => new
                 {
@@ -16,7 +31,9 @@ namespace Ponencias.Migrations
                     Telefono = table.Column<string>(nullable: true),
                     VinculoInst = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
-                    direccion = table.Column<string>(nullable: true)
+                    direccion = table.Column<string>(nullable: true),
+                    Usuario = table.Column<string>(nullable: true),
+                    Pass = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -131,6 +148,9 @@ namespace Ponencias.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Administrador");
+
             migrationBuilder.DropTable(
                 name: "Docente");
 

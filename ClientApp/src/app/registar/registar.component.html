@@ -1,0 +1,103 @@
+<app-nav-menu></app-nav-menu>
+<div class="borde">
+    <div class="agrupar">
+        <header class="Titulo">
+            <h1>Formulario de Registro</h1>
+        </header>
+        <br>
+        <h2>Informacion general</h2>
+        <hr>
+        <br>
+        <form class="form-group">
+            <div class="row">   
+<!-- 
+                <div class="col-6">
+                    <mat-form-field>
+                        <input matInput placeholder="Título (por ahora vin)" type="text"  [(ngModel)]="docente.VinculoInst" name = "vin"/>
+                    </mat-form-field>
+                </div>
+                <br> -->
+                
+                <div class="col-6">
+                        <mat-form-field>
+                            <input matInput placeholder="Identificación" type="text" name="Identificación" [(ngModel)]="docente.id" required/>
+                        </mat-form-field>
+                    </div>
+                
+                <br>
+
+                <div class="col-6">
+                    <table class="example-full-width" cellspacing="0">
+                        <tr>
+                            <td>
+                                <mat-form-field class="example-full-width">
+                                    <input matInput type = "text" placeholder="Nombres" [(ngModel)]="docente.Nombres" name = "Nombres"/>
+                                </mat-form-field>
+                            </td>
+                            <td>
+                                <mat-form-field class="example-full-width">
+                                    <input matInput type = "text" placeholder="Apellidos"[(ngModel)]="docente.Apellidos" name = "Apellidos" />
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            
+                <br>
+
+                <div class="col-6">
+                    <mat-form-field>
+                        <mat-label>Vinculo Institucional:</mat-label>
+                            <select matNativeControl name ="VinculoInst" [(ngModel)]="docente.VinculoInst" required>
+                                <option value="1">DC</option>
+                                <option value="2">DP</option>
+                                <option value="3">DO</option>
+                                <option value="4">DK</option>
+                                <option value="5">CJ</option>
+                                <option value="6">EP</option>
+                                <option value="7">AD</option>
+                            </select>
+                    </mat-form-field>
+                </div>
+            
+                <br>
+                <div class="col-6">
+                    <mat-form-field>
+                        <input matInput placeholder="Teléfono Celular" type="text" name="Telefono" [(ngModel)]="docente.Telefono" required/>
+                    </mat-form-field>
+                </div>
+                <br>
+            
+                <div class="col-6">
+                    <mat-form-field>
+                        <input matInput placeholder="Dirección Residencial" type="text" name="direccion" [(ngModel)]="docente.direccion" required/>
+                    </mat-form-field>
+                </div>
+            
+                <br>
+            
+                <div class="col-6">
+                    <mat-form-field>
+                        <input matInput placeholder="E-mail" type="text" name="Email" [(ngModel)]="docente.Email"required/>
+                    </mat-form-field>
+                </div>
+            
+
+                <div class="col-6">
+                    <mat-form-field>
+                        <input matInput placeholder="Usuario" type="text" name="Usuario" [(ngModel)]="docente.Usuario" required/>
+                    </mat-form-field>
+                </div>
+                
+                <div class="col-6">
+                    <mat-form-field>
+                        <input matInput placeholder="Pass" type="text" name="Pass" [(ngModel)]="docente.Pass" required/>
+                    </mat-form-field>
+                </div>
+            </div>    
+            <div id = "Guardar">
+                <button (click)="add()" class="btn btn-primary">Registrar</button>
+            </div>
+        </form>  
+    </div> 
+</div>

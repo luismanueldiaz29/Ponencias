@@ -29,6 +29,12 @@ namespace Ponencias.Models
         [JsonProperty("direccion")]
         public string direccion {get; set;}
 
+        [JsonProperty("Usuario")]
+        public string Usuario {get; set;}
+
+        [JsonProperty("Pass")]
+        public string Pass {get; set;}
+
         
     }
 }

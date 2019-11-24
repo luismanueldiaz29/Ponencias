@@ -28,7 +28,7 @@ export class DocenteService {
   getAll(): Observable<Docente[]> {
     return this.http.get<Docente[]>(this.baseUrl + 'api/Docente')
       .pipe(
-        tap(_ => this.log('fetched Docente')),
+        tap(_ => console.log('fetched Docente')),
         catchError(this.handleError<Docente[]>('getDocente', []))
       );
   }

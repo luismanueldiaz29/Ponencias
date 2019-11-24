@@ -13,6 +13,7 @@ import{ConsultaDocenteComponent}from './consulta-docente/consulta-docente.compon
 import{ConsultaEventoComponent}from './consulta-evento/consulta-evento.component';
 import {EventoEditComponent}from './evento-edit/evento-edit.component';
 import{DocenteEditComponent} from './docente-edit/docente-edit.component';
+import { RegistarComponent } from './registar/registar.component';
 const routes: Routes = [
   
 
@@ -63,6 +64,10 @@ const routes: Routes = [
   {
     path: 'carta_solicitud_anexo',
     component: AnexosComponent
+  },
+  {
+    path: 'Registro',
+    component: RegistarComponent
   }
 ]
 

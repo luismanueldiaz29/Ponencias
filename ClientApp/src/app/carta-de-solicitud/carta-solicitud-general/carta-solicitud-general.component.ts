@@ -4,7 +4,7 @@ import { Docente } from 'src/app/models/docente';
 import { DocenteService } from 'src/app/services/docente.service';
 import { EstudianteService } from 'src/app/services/estudiante.service';
 import { Estudiante } from 'src/app/models/estudiante';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-carta-solicitud-general',
@@ -12,17 +12,26 @@ import { Estudiante } from 'src/app/models/estudiante';
   styleUrls: ['./carta-solicitud-general.component.css']
 })
 export class CartaSolicitudGeneralComponent implements OnInit {
+  
   imports: [MaterialModule];
+  
   docente: Docente;
   estudiante : Estudiante;
+
+  registerForm: FormGroup;
+  submitted = false;
+
   constructor(
       private DocenteService: DocenteService,
-      private estudianteService: EstudianteService
+      private estudianteService: EstudianteService,
+      private formBuilder: FormBuilder
     ) { }
   
   ngOnInit() {
-    this.docente={id:"0",Nombres: "", Apellidos: "", Telefono: "", VinculoInst: "", Email: "", direccion: ""};
-    this.estudiante = {id: 0, NombreEstudiante: "",ApellidoEstudiante: "" }
+    // this.registerForm = this.formBuilder.group({
+      //this.docente={id:"0",Nombres: "", Apellidos: "", Telefono: "", VinculoInst: "", Email: "", direccion: ""};
+      this.estudiante = {id: 0, NombreEstudiante: "",ApellidoEstudiante: "" }
+    // }); 
   }
   
 
@@ -32,6 +41,7 @@ export class CartaSolicitudGeneralComponent implements OnInit {
     this.estudianteService.add(this.estudiante)
     .subscribe();
   }
+
   /*
   add(){
     this.DocenteService.add(this.docente)
