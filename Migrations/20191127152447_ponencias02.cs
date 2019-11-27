@@ -2,7 +2,7 @@
 
 namespace Ponencias.Migrations
 {
-    public partial class Ponencia02 : Migration
+    public partial class ponencias02 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -79,6 +79,19 @@ namespace Ponencias.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Facultad",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NombreFacultad = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Facultad", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "GrupoInvestigacion",
                 columns: table => new
                 {
@@ -102,19 +115,6 @@ namespace Ponencias.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Investigacion", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Programa",
-                columns: table => new
-                {
-                    id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    NombrePrograma = table.Column<string>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Programa", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -144,6 +144,31 @@ namespace Ponencias.Migrations
                 {
                     table.PrimaryKey("PK_Transporte", x => x.id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Programa",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NombrePrograma = table.Column<string>(nullable: false),
+                    facultadId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Programa", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_Programa_Facultad_facultadId",
+                        column: x => x.facultadId,
+                        principalTable: "Facultad",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Programa_facultadId",
+                table: "Programa",
+                column: "facultadId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -174,6 +199,9 @@ namespace Ponencias.Migrations
 
             migrationBuilder.DropTable(
                 name: "Transporte");
+
+            migrationBuilder.DropTable(
+                name: "Facultad");
         }
     }
 }

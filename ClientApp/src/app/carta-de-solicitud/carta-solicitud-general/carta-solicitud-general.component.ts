@@ -39,7 +39,7 @@ export class CartaSolicitudGeneralComponent implements OnInit {
     this.DocenteService.add(this.docente)
     .subscribe();
     this.estudianteService.add(this.estudiante)
-    .subscribe();
+    .subscribe(); 
   }
 
   /*

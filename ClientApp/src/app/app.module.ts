@@ -21,6 +21,7 @@ import { DocenteEditComponent } from './docente-edit/docente-edit.component';
 import { ConsultaEventoComponent } from './consulta-evento/consulta-evento.component';
 import { EventoEditComponent } from './evento-edit/evento-edit.component';
 import { RegistarComponent } from './registar/registar.component';
+import { RegistrarFacultadComponent } from './admin/registrar-facultad/registrar-facultad.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { RegistarComponent } from './registar/registar.component';
     DocenteEditComponent,
     ConsultaEventoComponent,
     EventoEditComponent,
-    RegistarComponent
+    RegistarComponent,
+    RegistrarFacultadComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

@@ -1,0 +1,25 @@
+<app-nav-menu-acc></app-nav-menu-acc>
+
+<div class = "borde">
+    <div class = "agrupar">
+<div> 
+    <div>
+        <h1 class="h2">Registrar Facultad</h1>
+    </div>
+    <br>
+    
+    <div class="row">
+        <div class="col-6">
+                <mat-form-field>
+                    <input matInput placeholder="Nombre" name="Nombre" [(ngModel)]="facultad.NombreFacultad" required/>
+                </mat-form-field>
+            </div>
+            
+    </div>                     
+    
+    <div id = "Guardar">
+        <button (click)="add()" class="btn btn-primary">Guardar</button>
+    </div>
+</div> 
+</div>
+</div>

@@ -9,8 +9,8 @@ using Ponencias.Models;
 namespace Ponencias.Migrations
 {
     [DbContext(typeof(PonenciaContext))]
-    [Migration("20191123203836_Ponencia02")]
-    partial class Ponencia02
+    [Migration("20191127152447_ponencias02")]
+    partial class ponencias02
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -153,6 +153,22 @@ namespace Ponencias.Migrations
                     b.ToTable("Evento");
                 });
 
+            modelBuilder.Entity("Ponencias.Models.Facultad", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("NombreFacultad")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Facultad");
+                });
+
             modelBuilder.Entity("Ponencias.Models.GrupoInvestigacion", b =>
                 {
                     b.Property<int>("id")
@@ -196,7 +212,12 @@ namespace Ponencias.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("facultadId")
+                        .HasColumnType("int");
+
                     b.HasKey("id");
+
+                    b.HasIndex("facultadId");
 
                     b.ToTable("Programa");
                 });
@@ -236,6 +257,15 @@ namespace Ponencias.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Transporte");
+                });
+
+            modelBuilder.Entity("Ponencias.Models.Programa", b =>
+                {
+                    b.HasOne("Ponencias.Models.Facultad", "facultad")
+                        .WithMany()
+                        .HasForeignKey("facultadId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

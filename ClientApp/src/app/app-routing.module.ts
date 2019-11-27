@@ -14,6 +14,8 @@ import{ConsultaEventoComponent}from './consulta-evento/consulta-evento.component
 import {EventoEditComponent}from './evento-edit/evento-edit.component';
 import{DocenteEditComponent} from './docente-edit/docente-edit.component';
 import { RegistarComponent } from './registar/registar.component';
+import {RegistrarFacultadComponent} from './admin/registrar-facultad/registrar-facultad.component';
+
 const routes: Routes = [
   
 
@@ -21,6 +23,10 @@ const routes: Routes = [
     path: '', 
     component: LoginComponent,
     pathMatch: 'full' 
+  }, 
+  {
+    path: 'Facultad', 
+    component: RegistrarFacultadComponent 
   },
   {
     path: 'Home',

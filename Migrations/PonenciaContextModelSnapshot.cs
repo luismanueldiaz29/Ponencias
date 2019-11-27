@@ -151,6 +151,22 @@ namespace Ponencias.Migrations
                     b.ToTable("Evento");
                 });
 
+            modelBuilder.Entity("Ponencias.Models.Facultad", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("NombreFacultad")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Facultad");
+                });
+
             modelBuilder.Entity("Ponencias.Models.GrupoInvestigacion", b =>
                 {
                     b.Property<int>("id")
@@ -194,7 +210,12 @@ namespace Ponencias.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("facultadId")
+                        .HasColumnType("int");
+
                     b.HasKey("id");
+
+                    b.HasIndex("facultadId");
 
                     b.ToTable("Programa");
                 });
@@ -234,6 +255,15 @@ namespace Ponencias.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Transporte");
+                });
+
+            modelBuilder.Entity("Ponencias.Models.Programa", b =>
+                {
+                    b.HasOne("Ponencias.Models.Facultad", "facultad")
+                        .WithMany()
+                        .HasForeignKey("facultadId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
