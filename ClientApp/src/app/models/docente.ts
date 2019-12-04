@@ -6,6 +6,5 @@ export class Docente {
     VinculoInst: string;
     Email: string
     direccion: string;
-    Usuario: string;
     Pass: string;
 }

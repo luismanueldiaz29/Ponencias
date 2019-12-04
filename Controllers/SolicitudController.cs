@@ -19,8 +19,8 @@ namespace Ponencias.Controllers
 
             _context = context;
             if (_context.Solicitud.Count() == 0){
-                _context.Solicitud.Add(new Solicitud {  NombrePonencia = "Priorizar el proyecto", FechaEntrega = "Priorizar"});
-                _context.Solicitud.Add(new Solicitud { NombrePonencia = "Calendario el proyecto", FechaEntrega = "Priorizar"});
+                _context.Solicitud.Add(new Solicitud {id = "1",  NombrePonencia = "Priorizar el proyecto", FechaEntrega = "Priorizar"});
+                _context.Solicitud.Add(new Solicitud {id = "2", NombrePonencia = "Calendario el proyecto", FechaEntrega = "Priorizar"});
                 _context.SaveChanges();
             }
         }
@@ -33,9 +33,9 @@ namespace Ponencias.Controllers
 
         // GET: api/Task/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Solicitud>> GetSolicitud(int id)
+        public async Task<ActionResult<Solicitud>> GetSolicitud(string id)
         {
-            var Solicitud = await _context.Solicitud.FindAsync();
+            var Solicitud = await _context.Solicitud.FindAsync(id);
             if (Solicitud == null){
                 return NotFound();
             }
@@ -53,7 +53,7 @@ namespace Ponencias.Controllers
 
         // PUT: api/Task/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutSolicitud(int id, Solicitud item)
+        public async Task<IActionResult> PutSolicitud(string id, Solicitud item)
         {
             if (id != item.id)
             {

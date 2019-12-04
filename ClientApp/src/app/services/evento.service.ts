@@ -79,7 +79,7 @@ export class EventoService {
 
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
-    // alert(message);
+    console.log(message);
     // this.messageService.add(`HeroService: ${message}`);
   }
 }

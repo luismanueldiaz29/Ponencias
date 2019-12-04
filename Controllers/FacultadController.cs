@@ -24,8 +24,8 @@ namespace Ponencias.Controllers
                 _context.SaveChanges();
             }
             if (_context.Programa.Count() == 0){
-                _context.Programa.Add(new Programa {NombrePrograma = "INGENIERIAS DE SISTEMAS" ,facultadId=1});
-                _context.Programa.Add(new Programa {NombrePrograma = "INGENIERIA ELECTRONICA",facultadId=1});
+                _context.Programa.Add(new Programa {NombrePrograma = "INGENIERIAS DE SISTEMAS" ,FacultadId=1});
+                _context.Programa.Add(new Programa {NombrePrograma = "INGENIERIA ELECTRONICA",FacultadId=1});
                 _context.SaveChanges();
             }
         }

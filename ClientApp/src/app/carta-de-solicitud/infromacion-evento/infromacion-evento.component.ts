@@ -14,29 +14,32 @@ export class InfromacionEventoComponent implements OnInit {
   imports: [MaterialModule];
   
   constructor(private EventoService: EventoService) { }
-  evento: Evento;
-  ngOnInit() {
-    this.evento={id:0,
-                NombreEvento:"",
-                LinkEvento: "",
-                Email:"", 
-                Pais: "",
-                Ciudad:"", 
-                Telefono: 0, 
-                ValorInscripcion: 0,
-                FechaEvento: "", 
-                FechaInicio: "",
-                FechaFinal: "",
-                NumeroDias: 0, 
-                Entidad:""};
-  }
+  // evento: Evento;
+  // ngOnInit() {
+  //   this.evento={id:0,
+  //               NombreEvento:"",
+  //               LinkEvento: "",
+  //               Email:"", 
+  //               Pais: "",
+  //               Ciudad:"", 
+  //               Telefono: 0, 
+  //               ValorInscripcion: 0,
+  //               FechaEvento: "", 
+  //               FechaInicio: "",
+  //               FechaFinal: "",
+  //               NumeroDias: 0, 
+  //               Entidad:""};
+  // }
   
 
+  // add(){
+  //   this.EventoService.add(this.evento)
+  //   .subscribe(evento => {
+  //     alert('Se guardó la informacion del evento')
+  //   });
+  // }
 
-  add(){
-    this.EventoService.add(this.evento)
-    .subscribe(evento => {
-      alert('Se guardó la informacion del evento')
-    });
+  ngOnInit(){
+
   }
 }

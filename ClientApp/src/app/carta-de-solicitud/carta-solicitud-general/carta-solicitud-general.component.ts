@@ -30,7 +30,7 @@ export class CartaSolicitudGeneralComponent implements OnInit {
   ngOnInit() {
     // this.registerForm = this.formBuilder.group({
       //this.docente={id:"0",Nombres: "", Apellidos: "", Telefono: "", VinculoInst: "", Email: "", direccion: ""};
-      this.estudiante = {id: 0, NombreEstudiante: "",ApellidoEstudiante: "" }
+      //this.estudiante = { NombreEstudiante: "",ApellidoEstudiante: "" }
     // }); 
   }
   

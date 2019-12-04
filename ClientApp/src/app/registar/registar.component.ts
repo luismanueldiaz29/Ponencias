@@ -20,7 +20,7 @@ export class RegistarComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.docente={id:"",Nombres: "", Apellidos: "", Telefono: "", VinculoInst: "", Email: "", direccion: "", Usuario: "", Pass: ""};
+    this.docente={id:"",Nombres: "", Apellidos: "", Telefono: "", VinculoInst: "", Email: "", direccion: "", Pass: ""};
   }
 
   add(){

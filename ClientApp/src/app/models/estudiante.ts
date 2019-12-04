@@ -1,5 +1,5 @@
 export class Estudiante {
-    id: 0;
+    id : number;
     NombreEstudiante: string;
     ApellidoEstudiante: string;
 }

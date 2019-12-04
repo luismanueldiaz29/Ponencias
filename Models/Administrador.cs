@@ -5,8 +5,8 @@ namespace Ponencias.Models
 {
     public class Administrador
     {
-        [JsonProperty("Id")][Key]
-        public string Id {get; set;}
+        [JsonProperty("id")][Key]
+        public string id {get; set;}
 
         [JsonProperty("Nombre")][Required]
         public string Nombre {get; set;}
@@ -19,5 +19,10 @@ namespace Ponencias.Models
 
         [JsonProperty("Pass")][Required]
         public string Pass {get; set;}
+
+        [JsonProperty("RolesId")]
+        public int RolesId {get; set;}
+
+
     }
 }

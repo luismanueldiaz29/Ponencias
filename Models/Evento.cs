@@ -1,3 +1,4 @@
+using System;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 namespace Ponencias.Models
@@ -5,7 +6,6 @@ namespace Ponencias.Models
     public class Evento
     {
         [JsonProperty("id")]
-        [Required]
         public int id {get; set;}
 
         [JsonProperty("NombreEvento")]
@@ -49,5 +49,12 @@ namespace Ponencias.Models
 
         [JsonProperty("NumeroDias")]
         public int NumeroDias {get; set;}
+
+        [JsonProperty("SolicitudId")]
+        public string SolicitudId {get; set;}
+
+        [JsonProperty("Solicitud")]
+        public Solicitud Solicitud {get; set;}
+        
     }
 }

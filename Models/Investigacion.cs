@@ -6,12 +6,16 @@ namespace Ponencias.Models
     {
           
         [JsonProperty("id")]
-        [Required]
         public int id {get; set;}
 
         [JsonProperty("NombreInvestigacion")]
         [Required]
         public string NombreInvestigacion {get; set;}
         
+        [JsonProperty("SolicitudId")]
+        public string SolicitudId {get; set;}
+
+        [JsonProperty("Solicitud")]
+        public Solicitud Solicitud {get; set;}
     }
 }

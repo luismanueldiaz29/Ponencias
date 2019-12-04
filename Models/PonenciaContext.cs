@@ -15,6 +15,9 @@ namespace Ponencias.Models
         public DbSet<Investigacion> Investigacion {get; set;}
         public DbSet<GrupoInvestigacion> GrupoInvestigacion {get; set;}
         public DbSet<Administrador> Administrador { get; set; }
+        public DbSet<Repositorio> Repositorio { get; set; }
+        public DbSet<Semillero> Semillero { get; set; }
         public DbSet<Facultad> Facultad { get; set; }
+        
     }
 }

@@ -1,12 +1,12 @@
 using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Ponencias.Models
 {
     public class Docente
     {
-        [JsonProperty("id")]
-        [Required]
+        [JsonProperty("id")][Key]
         public string id {get; set;}
 
         [JsonProperty("Nombres")]
@@ -23,18 +23,24 @@ namespace Ponencias.Models
         [JsonProperty("VinculoInst")]
         public string VinculoInst {get; set;}
 
-        [JsonProperty("Email")]
-        public string Email {get; set;}
-
         [JsonProperty("direccion")]
         public string direccion {get; set;}
-
-        [JsonProperty("Usuario")]
-        public string Usuario {get; set;}
+        
+        [JsonProperty("Email")]
+        public string Email {get; set;}
 
         [JsonProperty("Pass")]
         public string Pass {get; set;}
 
+        [JsonProperty("FacultadId")]
+        public int FacultadId {get; set;}
+
+        [JsonProperty("Facultad")]
+        public Facultad Facultad {get; set;}
+
+        [JsonProperty("GrupoInvestigacion")]
+        public GrupoInvestigacion GrupoInvestigacion {get; set;}
         
+        public List<Solicitud> Solicitud { get; } = new List<Solicitud>();
     }
 }

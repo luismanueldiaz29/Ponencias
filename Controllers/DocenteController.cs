@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Ponencias.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 
 namespace Ponencias.Controllers
 {
@@ -19,8 +20,8 @@ namespace Ponencias.Controllers
 
             _context = context;
             if (_context.Docente.Count() == 0){
-                _context.Docente.Add(new Docente { id = "1",  Nombres = "Carlos ", Apellidos = "Daza", Telefono = "101291212", VinculoInst = "docente", Email = "luis@gmail.com", direccion = "calle linda", Usuario = "Carlos", Pass = "123"});
-                _context.Docente.Add(new Docente {  id = "2", Nombres = "Luis Manué", Apellidos = "Diaz", Telefono = "101291212", VinculoInst = "docente", Email = "luis@gmail.com", direccion = "calle cuba", Usuario= "Luis", Pass = "123"});
+                _context.Docente.Add(new Docente { id = "1",  Nombres = "Carlos ", Apellidos = "Daza", Telefono = "101291212", VinculoInst = "docente", Email = "luis@gmail.com", direccion = "calle linda", Pass = "123", FacultadId = 1});
+                _context.Docente.Add(new Docente {  id = "2", Nombres = "Luis Manué", Apellidos = "Diaz", Telefono = "101291212", VinculoInst = "docente", Email = "luis@gmail.com", direccion = "calle cuba", Pass = "123", FacultadId = 2});
                 _context.SaveChanges();
             }
         }
@@ -49,7 +50,19 @@ namespace Ponencias.Controllers
         public async Task<ActionResult<Docente>> Post(Docente item)
         {
            
-           
+           var facultad=_context.Facultad.FindAsync(item.FacultadId);
+
+           if(facultad==null)
+           {
+             ModelState.AddModelError("Facultad", "mesnahe");
+                var problemDetails = new ValidationProblemDetails(ModelState)
+                {
+                    Status = StatusCodes.Status400BadRequest,
+                };
+                return BadRequest(problemDetails);
+
+           }
+
             _context.Docente.Add(item); 
             if(!ModelState.IsValid){
                 return BadRequest(ModelState);

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DocenteService } from '../services/docente.service';
 import { Docente } from '../Models/docente';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,15 +10,17 @@ import { Docente } from '../Models/docente';
 })
 export class LoginComponent implements OnInit {
 
-  private docente : Docente;
+  private usuario : string;
+  private password : string;
   private docentes : Docente[];
+  private rol : string;
 
   constructor(
-    private DocenteService : DocenteService
+    private DocenteService : DocenteService,
+    private authService : AuthService    
   ) { }
 
   ngOnInit() {
-    this.docente={id:"",Nombres: "", Apellidos: "", Telefono: "", VinculoInst: "", Email: "", direccion: "", Usuario: "", Pass: ""};
     this.getAll();
   }
 
@@ -27,19 +30,7 @@ export class LoginComponent implements OnInit {
     });
   }
   
-
-  Validar(){
-    var doc = this.docentes.filter( function (docent) {
-      docent.Usuario === this.docente.Usuario && docent.Pass === this.docente.Usuario;
-    });
+  acceder(){
     
-    if(doc != null){
-      console.log('si');
-      
-    }else{
-      console.log('no');
-    }
-    console.log('ninguna');
   }
-
 }

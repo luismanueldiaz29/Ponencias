@@ -15,7 +15,7 @@ export class ConsultaDocenteComponent implements OnInit {
   constructor(private servicio:DocenteService ) { }
 
   // dataSource = new MatTableDataSource(this.docentes);
-
+  eventoId : number;
   // @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   ngOnInit() {
