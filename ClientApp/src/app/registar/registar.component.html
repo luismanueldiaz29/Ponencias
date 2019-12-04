@@ -49,13 +49,13 @@
                     <mat-form-field>
                         <mat-label>Vinculo Institucional:</mat-label>
                             <select matNativeControl name ="VinculoInst" [(ngModel)]="docente.VinculoInst" required>
-                                <option value="1">DC</option>
-                                <option value="2">DP</option>
-                                <option value="3">DO</option>
-                                <option value="4">DK</option>
-                                <option value="5">CJ</option>
-                                <option value="6">EP</option>
-                                <option value="7">AD</option>
+                                <option value="DC">DC</option>
+                                <option value="DC">DP</option>
+                                <option value="DC">DO</option>
+                                <option value="DC">DK</option>
+                                <option value="DC">CJ</option>
+                                <option value="DC">EP</option>
+                                <option value="DC">AD</option>
                             </select>
                     </mat-form-field>
                 </div>
@@ -94,6 +94,18 @@
                         <input matInput placeholder="Pass" type="text" name="Pass" [(ngModel)]="docente.Pass" required/>
                     </mat-form-field>
                 </div>
+                <div class="col-6">
+                    <mat-form-field>
+                        <mat-label>programa</mat-label>
+                        <mat-select [(ngModel)]="docente.facultadId" name="Facultad">
+                          <mat-option *ngFor="let programa of programas" [value]="programa.facultadId">
+                            {{programa.nombrePrograma}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <p> Selected food: {{docente.FacultadId}} </p>
+                </div>
+                    {{docente.facultadId}}
             </div>    
             <div id = "Guardar">
                 <button (click)="add()" class="btn btn-primary">Registrar</button>

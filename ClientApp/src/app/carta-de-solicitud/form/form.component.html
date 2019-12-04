@@ -194,18 +194,15 @@
                             </div>    
                             
                             <br>
-                        
-
                             <div class="col-6">
-                                    <mat-form-field>
-                                        <mat-label>Tipo del transporte:</mat-label>
-                                            <mat-select matNativeControl required  >
-                                                <option value="1">Aereo</option>
-                                                <option value="2">Terrestre</option>
-                                            </mat-select>
-                                    </mat-form-field>
-                                </div>
-                            
+                                <mat-form-field>
+                                    <mat-label>Tipo de transporte:</mat-label>
+                                        <select matNativeControl name = "TipoTransporte" [(ngModel)]="transporte.TipoTransporte" required>
+                                            <option value="Aereo">Aereo</option>
+                                            <option value="Terrestre">Terrestre</option>
+                                        </select>
+                                </mat-form-field>
+                            </div>                            
                             <br>
                             <div class="col-6">
                                 <mat-form-field>

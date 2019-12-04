@@ -23,11 +23,6 @@ namespace Ponencias.Controllers
                 _context.Facultad.Add(new Facultad {NombreFacultad = "SALUD"});
                 _context.SaveChanges();
             }
-            if (_context.Programa.Count() == 0){
-                _context.Programa.Add(new Programa {NombrePrograma = "INGENIERIAS DE SISTEMAS" ,FacultadId=1});
-                _context.Programa.Add(new Programa {NombrePrograma = "INGENIERIA ELECTRONICA",FacultadId=1});
-                _context.SaveChanges();
-            }
         }
 
         [HttpGet]

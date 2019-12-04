@@ -7,4 +7,5 @@ export class Docente {
     Email: string
     direccion: string;
     Pass: string;
+    FacultadId : number;
 }

@@ -22,6 +22,8 @@ import { ConsultaEventoComponent } from './consulta-evento/consulta-evento.compo
 import { EventoEditComponent } from './evento-edit/evento-edit.component';
 import { RegistarComponent } from './registar/registar.component';
 import { RegistrarFacultadComponent } from './admin/registrar-facultad/registrar-facultad.component';
+import { ConsulFacultadComponent } from './ConsulFacultad/consul-facultad/consul-facultad.component';
+import { ConsulModalComponent } from './ConsulFacultad/consul-modal/consul-modal.component';
 
 
 @NgModule({
@@ -42,7 +44,9 @@ import { RegistrarFacultadComponent } from './admin/registrar-facultad/registrar
     ConsultaEventoComponent,
     EventoEditComponent,
     RegistarComponent,
-    RegistrarFacultadComponent
+    RegistrarFacultadComponent,
+    ConsulFacultadComponent,
+    ConsulModalComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

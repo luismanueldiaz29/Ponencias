@@ -50,18 +50,18 @@ namespace Ponencias.Controllers
         public async Task<ActionResult<Docente>> Post(Docente item)
         {
            
-           var facultad=_context.Facultad.FindAsync(item.FacultadId);
+        //    var facultad=_context.Facultad.FindAsync(item.FacultadId);
 
-           if(facultad==null)
-           {
-             ModelState.AddModelError("Facultad", "mesnahe");
-                var problemDetails = new ValidationProblemDetails(ModelState)
-                {
-                    Status = StatusCodes.Status400BadRequest,
-                };
-                return BadRequest(problemDetails);
+        //    if(facultad==null)
+        //    {
+        //      ModelState.AddModelError("Facultad", "mesnahe");
+        //         var problemDetails = new ValidationProblemDetails(ModelState)
+        //         {
+        //             Status = StatusCodes.Status400BadRequest,
+        //         };
+        //         return BadRequest(problemDetails);
 
-           }
+        //    }
 
             _context.Docente.Add(item); 
             if(!ModelState.IsValid){
