@@ -48,14 +48,8 @@ namespace Ponencias.Controllers
         [HttpPost]
         public async Task<ActionResult<GrupoInvestigacion>> Post(GrupoInvestigacion item)
         {
-           
-           
-            _context.GrupoInvestigacion.Add(item); 
-            if(!ModelState.IsValid){
-                return BadRequest(ModelState);
-            }
             await _context.SaveChangesAsync();
-
+            _context.GrupoInvestigacion.Add(item); 
             return CreatedAtAction(nameof(GetGrupoInvestigacion), new { id = item.id }, item);
         }
 

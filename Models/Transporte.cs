@@ -19,7 +19,7 @@ namespace Ponencias.Models
       public decimal ValorTrasporte {get; set;}
       
       [JsonProperty("SolicitudId")]
-      public string SolicitudId {get; set;}
+      public int SolicitudId {get; set;}
 
       [JsonProperty("Solicitud")]
       public Solicitud Solicitud {get; set;}

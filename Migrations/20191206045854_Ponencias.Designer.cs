@@ -10,8 +10,8 @@ using Ponencias.Models;
 namespace Ponencias.Migrations
 {
     [DbContext(typeof(PonenciaContext))]
-    [Migration("20191205042116_ponencia02")]
-    partial class ponencia02
+    [Migration("20191206045854_Ponencias")]
+    partial class Ponencias
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -88,8 +88,7 @@ namespace Ponencias.Migrations
 
                     b.HasIndex("FacultadId");
 
-                    b.HasIndex("GrupoInvestigacionId")
-                        .IsUnique();
+                    b.HasIndex("GrupoInvestigacionId");
 
                     b.ToTable("Docente");
                 });
@@ -159,8 +158,8 @@ namespace Ponencias.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SolicitudId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("SolicitudId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Telefono")
                         .HasColumnType("nvarchar(max)");
@@ -171,8 +170,7 @@ namespace Ponencias.Migrations
                     b.HasKey("id");
 
                     b.HasIndex("SolicitudId")
-                        .IsUnique()
-                        .HasFilter("[SolicitudId] IS NOT NULL");
+                        .IsUnique();
 
                     b.ToTable("Evento");
                 });
@@ -220,14 +218,13 @@ namespace Ponencias.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SolicitudId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("SolicitudId")
+                        .HasColumnType("int");
 
                     b.HasKey("id");
 
                     b.HasIndex("SolicitudId")
-                        .IsUnique()
-                        .HasFilter("[SolicitudId] IS NOT NULL");
+                        .IsUnique();
 
                     b.ToTable("Investigacion");
                 });
@@ -278,8 +275,8 @@ namespace Ponencias.Migrations
                     b.Property<byte[]>("FormatoOriginal")
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<string>("SolicitudId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("SolicitudId")
+                        .HasColumnType("int");
 
                     b.Property<byte[]>("Sustentacion")
                         .HasColumnType("varbinary(max)");
@@ -287,8 +284,7 @@ namespace Ponencias.Migrations
                     b.HasKey("id");
 
                     b.HasIndex("SolicitudId")
-                        .IsUnique()
-                        .HasFilter("[SolicitudId] IS NOT NULL");
+                        .IsUnique();
 
                     b.ToTable("Repositorio");
                 });
@@ -308,16 +304,17 @@ namespace Ponencias.Migrations
 
                     b.HasKey("id");
 
-                    b.HasIndex("GrupoInvestigacionId")
-                        .IsUnique();
+                    b.HasIndex("GrupoInvestigacionId");
 
                     b.ToTable("Semillero");
                 });
 
             modelBuilder.Entity("Ponencias.Models.Solicitud", b =>
                 {
-                    b.Property<string>("id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("DocenteId")
                         .HasColumnType("nvarchar(450)");
@@ -342,8 +339,8 @@ namespace Ponencias.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("SolicitudId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("SolicitudId")
+                        .HasColumnType("int");
 
                     b.Property<string>("TipoTransporte")
                         .HasColumnType("nvarchar(max)");
@@ -354,8 +351,7 @@ namespace Ponencias.Migrations
                     b.HasKey("id");
 
                     b.HasIndex("SolicitudId")
-                        .IsUnique()
-                        .HasFilter("[SolicitudId] IS NOT NULL");
+                        .IsUnique();
 
                     b.ToTable("Transporte");
                 });
@@ -369,8 +365,8 @@ namespace Ponencias.Migrations
                         .IsRequired();
 
                     b.HasOne("Ponencias.Models.GrupoInvestigacion", "GrupoInvestigacion")
-                        .WithOne("Docente")
-                        .HasForeignKey("Ponencias.Models.Docente", "GrupoInvestigacionId")
+                        .WithMany("Docentes")
+                        .HasForeignKey("GrupoInvestigacionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -388,14 +384,18 @@ namespace Ponencias.Migrations
                 {
                     b.HasOne("Ponencias.Models.Solicitud", "Solicitud")
                         .WithOne("Evento")
-                        .HasForeignKey("Ponencias.Models.Evento", "SolicitudId");
+                        .HasForeignKey("Ponencias.Models.Evento", "SolicitudId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Ponencias.Models.Investigacion", b =>
                 {
                     b.HasOne("Ponencias.Models.Solicitud", "Solicitud")
                         .WithOne("Investigacion")
-                        .HasForeignKey("Ponencias.Models.Investigacion", "SolicitudId");
+                        .HasForeignKey("Ponencias.Models.Investigacion", "SolicitudId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Ponencias.Models.Programa", b =>
@@ -411,14 +411,16 @@ namespace Ponencias.Migrations
                 {
                     b.HasOne("Ponencias.Models.Solicitud", "Solicitud")
                         .WithOne("Repositorio")
-                        .HasForeignKey("Ponencias.Models.Repositorio", "SolicitudId");
+                        .HasForeignKey("Ponencias.Models.Repositorio", "SolicitudId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Ponencias.Models.Semillero", b =>
                 {
                     b.HasOne("Ponencias.Models.GrupoInvestigacion", "GrupoInvestigacion")
-                        .WithOne("Semillero")
-                        .HasForeignKey("Ponencias.Models.Semillero", "GrupoInvestigacionId")
+                        .WithMany("Semillero")
+                        .HasForeignKey("GrupoInvestigacionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -434,7 +436,9 @@ namespace Ponencias.Migrations
                 {
                     b.HasOne("Ponencias.Models.Solicitud", "Solicitud")
                         .WithOne("Transporte")
-                        .HasForeignKey("Ponencias.Models.Transporte", "SolicitudId");
+                        .HasForeignKey("Ponencias.Models.Transporte", "SolicitudId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

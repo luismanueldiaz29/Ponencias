@@ -18,8 +18,8 @@ namespace Ponencias.Controllers
         public TransporteController(PonenciaContext context){
             _context = context;
             if (_context.Transporte.Count() == 0){
-                _context.Transporte.Add(new Transporte { TipoTransporte = "aereo", ValorTrasporte = 2000, SolicitudId = "1"});
-                _context.Transporte.Add(new Transporte {TipoTransporte = "aereo", ValorTrasporte = 2000, SolicitudId = "2"});
+                _context.Transporte.Add(new Transporte { TipoTransporte = "aereo", ValorTrasporte = 2000, SolicitudId = 1});
+                _context.Transporte.Add(new Transporte {TipoTransporte = "aereo", ValorTrasporte = 2000, SolicitudId = 2});
                 _context.SaveChanges();
             }
         }

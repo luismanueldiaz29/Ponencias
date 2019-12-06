@@ -32,7 +32,7 @@ export class CartaDeOriginalidadComponent implements OnInit {
   }
 
   get(): void{
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
     this.docenteService.get(id).subscribe(hero=>this.docente=hero);
   }
 

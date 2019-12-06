@@ -100,20 +100,20 @@
                           </mat-option>
                         </mat-select>
                       </mat-form-field>
-                      <p> Selected food: {{docente.FacultadId}} </p>
+                      <p> Selected food: {{docente.facultadId}} </p>
                 </div>
                     {{docente.facultadId}}
 
                     <div class="col-6">
                             <mat-form-field>
                                 <mat-label>Grupo de Investigación</mat-label>
-                                <mat-select [(ngModel)]="docente.GrupoInvestigacionId" name="grupoId">
+                                <mat-select [(ngModel)]="docente.grupoInvestigacionId" name="grupoId">
                                   <mat-option *ngFor="let grupo of grupos" [value]="grupo.id">
                                     {{grupo.id}} {{grupo.nombreGrupo}}
                                   </mat-option>
                                 </mat-select>
                               </mat-form-field>
-                              <p> Selected food: {{docente.GrupoInvestigacionId}} </p>
+                              <p> Selected food: {{docente.grupoInvestigacionId}} </p>
                         </div>
             </div>    
             <div id = "Guardar">

@@ -6,7 +6,7 @@ namespace Ponencias.Models
     {
 
         [JsonProperty("id")]
-        public string id {get; set;}
+        public int id {get; set;}
 
         [JsonProperty("NombrePonencia")]
         public string NombrePonencia {get; set;}

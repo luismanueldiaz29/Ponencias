@@ -1,6 +1,6 @@
-using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
-using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 namespace Ponencias.Models
 {
     public class GrupoInvestigacion
@@ -13,9 +13,9 @@ namespace Ponencias.Models
         [Required]
         public string NombreGrupo {get; set;}
 
-        public Docente Docente {get; set;}
+        public List<Docente> Docentes { get; } = new List<Docente>();
     
-        public Semillero Semillero {get; set;}
+        public List<Semillero> Semillero { get; } = new List<Semillero>();
 
     }
 }

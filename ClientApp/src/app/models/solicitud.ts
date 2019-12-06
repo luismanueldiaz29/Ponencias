@@ -1,6 +1,6 @@
 export class Solicitud {
     
-    id: string;
+    id: number;
     NombrePonencia:string;
     FechaEntrega: string;
     DocenteId : string;

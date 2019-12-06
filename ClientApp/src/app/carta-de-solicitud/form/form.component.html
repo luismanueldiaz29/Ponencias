@@ -27,19 +27,13 @@
                         
                             <div class="col-6">
                                 <mat-form-field>
-                                    <input matInput placeholder="Nombre del semillero" type="text" name="nombreSemillero" required/>
+                                    <input matInput placeholder="Nombre del semillero" type="text" name="nomSemillero" [(ngModel)]="semillero.NombreSemillero" required/>
                                 </mat-form-field>
                             </div>
 
                             <div class="col-6">
                                 <mat-form-field>
                                     <input matInput placeholder="Nombre de la investigacion" type="text" name="nombreInvestigacion" [(ngModel)]="investigacion.NombreInvestigacion" required/>
-                                </mat-form-field>
-                            </div>
-                            
-                            <div class="col-6">
-                                <mat-form-field>
-                                    <input matInput placeholder="Nombre de La Grupo Investigacion" type="text" name="nombreGrupo"  required/>
                                 </mat-form-field>
                             </div>
                     </div>

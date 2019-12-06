@@ -13,5 +13,5 @@ export class Evento {
     FechaInicio:string;
     FechaFinal:string ;
     NumeroDias:number;
-    SolicitudId:string; 
+    SolicitudId: number; 
 }

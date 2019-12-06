@@ -54,7 +54,7 @@ export class RegistarComponent implements OnInit {
   add(){
       console.log(this.programas);
       this.DocenteService.add(this.docente)
-      .subscribe(()=>this.goBack());
+      .subscribe();//()=>this.goBack());
   }
 
 

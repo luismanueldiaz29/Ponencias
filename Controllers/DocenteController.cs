@@ -21,7 +21,7 @@ namespace Ponencias.Controllers
             _context = context;
             if (_context.Docente.Count() == 0){
                 _context.Docente.Add(new Docente { id = "1",  Nombres = "Carlos ", Apellidos = "Daza", Telefono = "101291212", VinculoInst = "docente", Email = "luis@gmail.com", direccion = "calle linda", Pass = "123", FacultadId = 1, GrupoInvestigacionId = 1});
-                _context.Docente.Add(new Docente {  id = "2", Nombres = "Luis Manué", Apellidos = "Diaz", Telefono = "101291212", VinculoInst = "docente", Email = "luis@gmail.com", direccion = "calle cuba", Pass = "123", FacultadId = 2, GrupoInvestigacionId  = 2});
+                _context.Docente.Add(new Docente {  id = "2", Nombres = "Luis Manué", Apellidos = "Diaz", Telefono = "101291212", VinculoInst = "docente", Email = "luis@gmail.com", direccion = "calle cuba", Pass = "123", FacultadId = 1, GrupoInvestigacionId  = 1});
                 _context.SaveChanges();
             }
         }
@@ -43,8 +43,8 @@ namespace Ponencias.Controllers
             return docente;
         }
 
-        [ProducesResponseType(201)]     // Created
-        [ProducesResponseType(400)]     // BadRequest
+        //[ProducesResponseType(201)]     // Created
+        //[ProducesResponseType(400)]     // BadRequest
         // POST: api/Task
         [HttpPost]
         public async Task<ActionResult<Docente>> Post(Docente item)
@@ -63,12 +63,9 @@ namespace Ponencias.Controllers
 
         //    }
 
+   
             _context.Docente.Add(item); 
-            if(!ModelState.IsValid){
-                return BadRequest(ModelState);
-            }
             await _context.SaveChangesAsync();
-
             return CreatedAtAction(nameof(GetDocente), new { id = item.id }, item);
         }
 

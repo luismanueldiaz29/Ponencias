@@ -11,6 +11,9 @@ import { TransporteService } from 'src/app/services/transporteService';
 import { AuthService } from 'src/app/services/auth.service';
 import { InvestigacionService } from 'src/app/services/Investigacion.service';
 import { Investigacion } from 'src/app/models/Investigacion';
+import { Docente } from 'src/app/Models/docente';
+import { SemilleroService } from 'src/app/services/Semillero.servic';
+import { Semillero } from 'src/app/models/Semillero';
 
 @Component({
   selector: 'app-form',
@@ -26,9 +29,8 @@ export class FormComponent implements OnInit {
   transporte : Transporte;
   solicitud : Solicitud;
   solicitudes : Solicitud[];
-  SolicitudId = Math.round(Math.random()*100);
-  DocenteId : string;
-  
+  Docente : Docente;
+  semillero : Semillero;
   //fechas
   date = new Date();
   dia = this.date.getDate();
@@ -41,15 +43,17 @@ export class FormComponent implements OnInit {
     private docenteService : DocenteService,
     private transporteService : TransporteService,
     private authService : AuthService, 
-    private investigacionService : InvestigacionService
+    private investigacionService : InvestigacionService,
+    private semilleroService : SemilleroService
     ){}
 
   ngOnInit() {
 
     this.getAll();
-    
+    this.getDocente();
+
     this.solicitud = {
-      id : this.SolicitudId.toString(),
+      id : 0,
       NombrePonencia : "",
       FechaEntrega : this.dia+"/"+this.mes+"/"+this.ano,
       DocenteId : this.authService.getUserName()
@@ -69,7 +73,7 @@ export class FormComponent implements OnInit {
       FechaFinal: "",
       NumeroDias: 0, 
       Entidad:"",
-      SolicitudId : this.SolicitudId.toString()
+      SolicitudId : 0
     };
 
     this.estudiante = { 
@@ -82,40 +86,64 @@ export class FormComponent implements OnInit {
     this.investigacion = {
       id : 0,
       NombreInvestigacion : "",
-      SolicitudId : this.SolicitudId.toString()
+      SolicitudId : 0
     };
-
     
     this.transporte = {
       id : 0,
       TipoTransporte : "",
       ValorTrasporte : 0,
-      SolicitudId : this.SolicitudId.toString()
+      SolicitudId : 0
     };
+
+    this.semillero = {
+      id : 0,
+      NombreSemillero : "",
+      GrupoInvestigacionId : 0 //this.Docente.GrupoInvestigacionId
+    }
 
   }
 
   add(){
     this.solicitudService.add(this.solicitud).subscribe( solicitud =>
-      console.log("se guardo la solicitud")
+      this.agregar(solicitud.id)
     );
+  }
+  
+  agregar(SolicitudId: number){
+    
+    this.evento.SolicitudId = SolicitudId;
+    this.investigacion.SolicitudId = SolicitudId;
+    this.transporte.SolicitudId = SolicitudId;
+
+    this.investigacionService.add(this.investigacion)
+    .subscribe( investigacion =>{
+      console.log('Se guardo la informacion de investigacion')
+    });
 
     this.EventoService.add(this.evento)
     .subscribe(evento => {
       console.log('Se guardó la informacion del evento')
     });
     
-    this.investigacionService.add(this.investigacion)
-    .subscribe( investigacion =>{
-      console.log('Se guardo la informacion de investigacion')
-    });
-
     this.transporteService.add(this.transporte)
     .subscribe(evento => {
       console.log('Se guardó la informacion del transporte')
     });
-  }    
+
+    this.addSemillero();
+
+  }
   
+ addSemillero(){
+  this.semillero.GrupoInvestigacionId = this.Docente.GrupoInvestigacionId;
+  this.semilleroService.add(this.semillero).subscribe(
+    semillero => {
+      console.log('Se guardo la informacion del semillero');
+    }
+  );
+ }
+
   getAll(){
     this.solicitudService.getAll().subscribe(
       solicitud => {
@@ -123,6 +151,11 @@ export class FormComponent implements OnInit {
     });    
   }
 
+  getDocente(){
+    this.docenteService.get(this.authService.getUserName()).subscribe(
+      docente => console.log(docente)
+    );
+  }
 
 
 }

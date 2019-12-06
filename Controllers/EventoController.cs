@@ -31,7 +31,9 @@ namespace Ponencias.Controllers
                                                 FechaFinal = "01/12/23",
                                                 NumeroDias=3,
                                                 Entidad="Young",
-                                                Email="Unfair@young.com"});
+                                                Email="Unfair@young.com",
+                                                SolicitudId = 1
+                                            });
                                                       
                 _context.Evento.Add(new Evento {
                                                 NombreEvento="Ponencia"
@@ -45,7 +47,9 @@ namespace Ponencias.Controllers
                                                 FechaFinal = "01/12/23", 
                                                 NumeroDias=3,
                                                 Email="NobMasterPro@Carlos.com",
-                                                Entidad="life book"});
+                                                Entidad="life book",
+                                                SolicitudId = 2    
+                                            });
                 _context.SaveChanges();
             }
         }
@@ -71,9 +75,6 @@ namespace Ponencias.Controllers
         [HttpPost]
         public async Task<ActionResult<Evento>> PostEvento(Evento item)
         {
-             if(!ModelState.IsValid){
-                return BadRequest(ModelState);
-            }
             _context.Evento.Add(item);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetEvento), new { id = item.id }, item);

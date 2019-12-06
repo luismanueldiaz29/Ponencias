@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Ponencias.Migrations
 {
-    public partial class ponencia02 : Migration
+    public partial class Ponencias : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -125,7 +125,8 @@ namespace Ponencias.Migrations
                 name: "Solicitud",
                 columns: table => new
                 {
-                    id = table.Column<string>(nullable: false),
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     NombrePonencia = table.Column<string>(nullable: true),
                     FechaEntrega = table.Column<string>(nullable: true),
                     DocenteId = table.Column<string>(nullable: true)
@@ -180,7 +181,7 @@ namespace Ponencias.Migrations
                     FechaFinal = table.Column<string>(nullable: false),
                     Entidad = table.Column<string>(nullable: true),
                     NumeroDias = table.Column<int>(nullable: false),
-                    SolicitudId = table.Column<string>(nullable: true)
+                    SolicitudId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -190,7 +191,7 @@ namespace Ponencias.Migrations
                         column: x => x.SolicitudId,
                         principalTable: "Solicitud",
                         principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -200,7 +201,7 @@ namespace Ponencias.Migrations
                     id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NombreInvestigacion = table.Column<string>(nullable: false),
-                    SolicitudId = table.Column<string>(nullable: true)
+                    SolicitudId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -210,7 +211,7 @@ namespace Ponencias.Migrations
                         column: x => x.SolicitudId,
                         principalTable: "Solicitud",
                         principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -219,7 +220,7 @@ namespace Ponencias.Migrations
                 {
                     id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    SolicitudId = table.Column<string>(nullable: true),
+                    SolicitudId = table.Column<int>(nullable: false),
                     Sustentacion = table.Column<byte[]>(nullable: true),
                     CitasBibliograficas = table.Column<byte[]>(nullable: true),
                     DocValorInscripcion = table.Column<byte[]>(nullable: true),
@@ -236,7 +237,7 @@ namespace Ponencias.Migrations
                         column: x => x.SolicitudId,
                         principalTable: "Solicitud",
                         principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -247,7 +248,7 @@ namespace Ponencias.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TipoTransporte = table.Column<string>(nullable: true),
                     ValorTrasporte = table.Column<decimal>(nullable: false),
-                    SolicitudId = table.Column<string>(nullable: true)
+                    SolicitudId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -257,7 +258,7 @@ namespace Ponencias.Migrations
                         column: x => x.SolicitudId,
                         principalTable: "Solicitud",
                         principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -268,8 +269,7 @@ namespace Ponencias.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Docente_GrupoInvestigacionId",
                 table: "Docente",
-                column: "GrupoInvestigacionId",
-                unique: true);
+                column: "GrupoInvestigacionId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Estudiante_SemilleroId",
@@ -280,15 +280,13 @@ namespace Ponencias.Migrations
                 name: "IX_Evento_SolicitudId",
                 table: "Evento",
                 column: "SolicitudId",
-                unique: true,
-                filter: "[SolicitudId] IS NOT NULL");
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Investigacion_SolicitudId",
                 table: "Investigacion",
                 column: "SolicitudId",
-                unique: true,
-                filter: "[SolicitudId] IS NOT NULL");
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Programa_FacultadId",
@@ -299,14 +297,12 @@ namespace Ponencias.Migrations
                 name: "IX_Repositorio_SolicitudId",
                 table: "Repositorio",
                 column: "SolicitudId",
-                unique: true,
-                filter: "[SolicitudId] IS NOT NULL");
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Semillero_GrupoInvestigacionId",
                 table: "Semillero",
-                column: "GrupoInvestigacionId",
-                unique: true);
+                column: "GrupoInvestigacionId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Solicitud_DocenteId",
@@ -317,8 +313,7 @@ namespace Ponencias.Migrations
                 name: "IX_Transporte_SolicitudId",
                 table: "Transporte",
                 column: "SolicitudId",
-                unique: true,
-                filter: "[SolicitudId] IS NOT NULL");
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

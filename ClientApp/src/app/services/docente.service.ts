@@ -38,7 +38,7 @@ export class DocenteService {
       );
   }
 
-  get(id: number): Observable<Docente> {
+  get(id: string): Observable<Docente> {
     const url = `${this.baseUrl + 'api/Docente'}/${id}`;
     return this.http.get<Docente>(url).pipe(
       tap(_ => this.log(`fetched docente id=${id}`)),

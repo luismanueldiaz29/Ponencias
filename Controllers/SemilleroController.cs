@@ -18,8 +18,8 @@ namespace Ponencias.Controllers
         public SemilleroController(PonenciaContext context){
             _context = context;
              if (_context.Semillero.Count() == 0){
-                _context.Semillero.Add(new Semillero {NombreSemillero = "Grupo de luis", GrupoInvestigacionId = 3});
-                _context.Semillero.Add(new Semillero {NombreSemillero = "Grupo de Carlos", GrupoInvestigacionId = 4});
+                _context.Semillero.Add(new Semillero {NombreSemillero = "Grupo de luis", GrupoInvestigacionId = 1});
+                _context.Semillero.Add(new Semillero {NombreSemillero = "Grupo de Carlos", GrupoInvestigacionId = 2});
                 _context.SaveChanges();
             }
         }
