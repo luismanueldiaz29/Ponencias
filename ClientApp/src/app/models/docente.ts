@@ -8,4 +8,5 @@ export class Docente {
     direccion: string;
     Pass: string;
     FacultadId : number;
+    GrupoInvestigacionId : number;
 }

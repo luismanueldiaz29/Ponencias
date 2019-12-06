@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Ponencias.Migrations
 {
-    public partial class Ponencia02 : Migration
+    public partial class ponencia02 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -37,28 +37,16 @@ namespace Ponencias.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Docente",
+                name: "GrupoInvestigacion",
                 columns: table => new
                 {
-                    id = table.Column<string>(nullable: false),
-                    Nombres = table.Column<string>(nullable: false),
-                    Apellidos = table.Column<string>(nullable: false),
-                    Telefono = table.Column<string>(nullable: true),
-                    VinculoInst = table.Column<string>(nullable: true),
-                    direccion = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
-                    Pass = table.Column<string>(nullable: true),
-                    FacultadId = table.Column<int>(nullable: false)
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NombreGrupo = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Docente", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_Docente_Facultad_FacultadId",
-                        column: x => x.FacultadId,
-                        principalTable: "Facultad",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
+                    table.PrimaryKey("PK_GrupoInvestigacion", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -82,23 +70,55 @@ namespace Ponencias.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "GrupoInvestigacion",
+                name: "Docente",
+                columns: table => new
+                {
+                    id = table.Column<string>(nullable: false),
+                    Nombres = table.Column<string>(nullable: false),
+                    Apellidos = table.Column<string>(nullable: false),
+                    Telefono = table.Column<string>(nullable: true),
+                    VinculoInst = table.Column<string>(nullable: true),
+                    direccion = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
+                    Pass = table.Column<string>(nullable: true),
+                    FacultadId = table.Column<int>(nullable: false),
+                    GrupoInvestigacionId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Docente", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_Docente_Facultad_FacultadId",
+                        column: x => x.FacultadId,
+                        principalTable: "Facultad",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Docente_GrupoInvestigacion_GrupoInvestigacionId",
+                        column: x => x.GrupoInvestigacionId,
+                        principalTable: "GrupoInvestigacion",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Semillero",
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NombreGrupo = table.Column<string>(nullable: false),
-                    DocenteId = table.Column<string>(nullable: true)
+                    NombreSemillero = table.Column<string>(nullable: true),
+                    GrupoInvestigacionId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_GrupoInvestigacion", x => x.id);
+                    table.PrimaryKey("PK_Semillero", x => x.id);
                     table.ForeignKey(
-                        name: "FK_GrupoInvestigacion_Docente_DocenteId",
-                        column: x => x.DocenteId,
-                        principalTable: "Docente",
+                        name: "FK_Semillero_GrupoInvestigacion_GrupoInvestigacionId",
+                        column: x => x.GrupoInvestigacionId,
+                        principalTable: "GrupoInvestigacion",
                         principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -122,21 +142,22 @@ namespace Ponencias.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Semillero",
+                name: "Estudiante",
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NombreSemillero = table.Column<string>(nullable: true),
-                    GrupoInvestigacionId = table.Column<int>(nullable: false)
+                    NombreEstudiante = table.Column<string>(nullable: true),
+                    ApellidoEstudiante = table.Column<string>(nullable: true),
+                    SemilleroId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Semillero", x => x.id);
+                    table.PrimaryKey("PK_Estudiante", x => x.id);
                     table.ForeignKey(
-                        name: "FK_Semillero_GrupoInvestigacion_GrupoInvestigacionId",
-                        column: x => x.GrupoInvestigacionId,
-                        principalTable: "GrupoInvestigacion",
+                        name: "FK_Estudiante_Semillero_SemilleroId",
+                        column: x => x.SemilleroId,
+                        principalTable: "Semillero",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -239,31 +260,16 @@ namespace Ponencias.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Estudiante",
-                columns: table => new
-                {
-                    id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    NombreEstudiante = table.Column<string>(nullable: true),
-                    ApellidoEstudiante = table.Column<string>(nullable: true),
-                    SemilleroId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Estudiante", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_Estudiante_Semillero_SemilleroId",
-                        column: x => x.SemilleroId,
-                        principalTable: "Semillero",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_Docente_FacultadId",
                 table: "Docente",
                 column: "FacultadId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Docente_GrupoInvestigacionId",
+                table: "Docente",
+                column: "GrupoInvestigacionId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Estudiante_SemilleroId",
@@ -276,13 +282,6 @@ namespace Ponencias.Migrations
                 column: "SolicitudId",
                 unique: true,
                 filter: "[SolicitudId] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_GrupoInvestigacion_DocenteId",
-                table: "GrupoInvestigacion",
-                column: "DocenteId",
-                unique: true,
-                filter: "[DocenteId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Investigacion_SolicitudId",
@@ -352,13 +351,13 @@ namespace Ponencias.Migrations
                 name: "Solicitud");
 
             migrationBuilder.DropTable(
-                name: "GrupoInvestigacion");
-
-            migrationBuilder.DropTable(
                 name: "Docente");
 
             migrationBuilder.DropTable(
                 name: "Facultad");
+
+            migrationBuilder.DropTable(
+                name: "GrupoInvestigacion");
         }
     }
 }

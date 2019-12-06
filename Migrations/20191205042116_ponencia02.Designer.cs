@@ -10,8 +10,8 @@ using Ponencias.Models;
 namespace Ponencias.Migrations
 {
     [DbContext(typeof(PonenciaContext))]
-    [Migration("20191204071804_Ponencia02")]
-    partial class Ponencia02
+    [Migration("20191205042116_ponencia02")]
+    partial class ponencia02
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -65,6 +65,9 @@ namespace Ponencias.Migrations
                     b.Property<int>("FacultadId")
                         .HasColumnType("int");
 
+                    b.Property<int>("GrupoInvestigacionId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Nombres")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -84,6 +87,9 @@ namespace Ponencias.Migrations
                     b.HasKey("id");
 
                     b.HasIndex("FacultadId");
+
+                    b.HasIndex("GrupoInvestigacionId")
+                        .IsUnique();
 
                     b.ToTable("Docente");
                 });
@@ -194,18 +200,11 @@ namespace Ponencias.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("DocenteId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("NombreGrupo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
-
-                    b.HasIndex("DocenteId")
-                        .IsUnique()
-                        .HasFilter("[DocenteId] IS NOT NULL");
 
                     b.ToTable("GrupoInvestigacion");
                 });
@@ -368,6 +367,12 @@ namespace Ponencias.Migrations
                         .HasForeignKey("FacultadId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Ponencias.Models.GrupoInvestigacion", "GrupoInvestigacion")
+                        .WithOne("Docente")
+                        .HasForeignKey("Ponencias.Models.Docente", "GrupoInvestigacionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Ponencias.Models.Estudiante", b =>
@@ -384,13 +389,6 @@ namespace Ponencias.Migrations
                     b.HasOne("Ponencias.Models.Solicitud", "Solicitud")
                         .WithOne("Evento")
                         .HasForeignKey("Ponencias.Models.Evento", "SolicitudId");
-                });
-
-            modelBuilder.Entity("Ponencias.Models.GrupoInvestigacion", b =>
-                {
-                    b.HasOne("Ponencias.Models.Docente", "Docente")
-                        .WithOne("GrupoInvestigacion")
-                        .HasForeignKey("Ponencias.Models.GrupoInvestigacion", "DocenteId");
                 });
 
             modelBuilder.Entity("Ponencias.Models.Investigacion", b =>

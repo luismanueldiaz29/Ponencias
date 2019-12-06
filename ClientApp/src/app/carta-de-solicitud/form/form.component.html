@@ -10,13 +10,42 @@
                     <!-- <app-carta-solicitud-general></app-carta-solicitud-general> -->
 
                     <form class="form-group">
-                            <div class="row"> 
+                        <header class="Titulo">
+                            <h1>Solicitud de ponencia</h1>
+                        </header>
+                        <br>
+                        <h2>Informacion general</h2>
+                        <hr>
+                        <br>
+                        <div class="row"> 
 
                             <div class="col-6">
-                                    <mat-form-field>
-                                        <input matInput placeholder="Nombre de La ponencia" type="text" name="nombrePonencia" [(ngModel)]="solicitud.NombrePonencia" required/>
-                                    </mat-form-field>
-                                </div>
+                                <mat-form-field>
+                                    <input matInput placeholder="Nombre de La ponencia" type="text" name="nombrePonencia" [(ngModel)]="solicitud.NombrePonencia" required/>
+                                </mat-form-field>
+                            </div>
+                        
+                            <div class="col-6">
+                                <mat-form-field>
+                                    <input matInput placeholder="Nombre del semillero" type="text" name="nombreSemillero" required/>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-6">
+                                <mat-form-field>
+                                    <input matInput placeholder="Nombre de la investigacion" type="text" name="nombreInvestigacion" [(ngModel)]="investigacion.NombreInvestigacion" required/>
+                                </mat-form-field>
+                            </div>
+                            
+                            <div class="col-6">
+                                <mat-form-field>
+                                    <input matInput placeholder="Nombre de La Grupo Investigacion" type="text" name="nombreGrupo"  required/>
+                                </mat-form-field>
+                            </div>
+                    </div>
+                    <br>
+                    <h5>(opcional)</h5>
+                    <div class="row">
                         <div class="col-6">
                             <table class="example-full-width" cellspacing="0">
                                 <tr>
@@ -33,22 +62,6 @@
                                 </tr>
                             </table>
                         </div>
-                        
-                        <br>
-
-                        <div class="col-6">
-                            <mat-form-field>
-                                <input matInput placeholder="Nombre del semillero" type="text" name="nombreSemillero" required/>
-                            </mat-form-field>
-                        </div>
-
-                        <br>
-                        <div class="col-6">
-                            <mat-form-field>
-                                <input matInput placeholder="Nombre de La investigacion" type="text" name="nombreInvestigacion"  required/>
-                            </mat-form-field>
-                        </div>
-
                     </div>
                     </form>
                     <div class="container">
@@ -69,7 +82,7 @@
                     <!-- <app-infromacion-evento></app-infromacion-evento> -->
 
                     <header class="Titulo">
-                        <h1>Carta de solicitud</h1>
+                        <h1>Solicitud de ponencia</h1>
                     </header>
                     <br>
                     <h2>Informacion del evento</h2>
@@ -88,10 +101,7 @@
                                 />
                              </mat-form-field>       
                             </div>    
-                        
- 
                             <br>
-                        
                             <div class="col-6">
                                 <mat-form-field>
                                 <input matInput 
@@ -163,8 +173,6 @@
                              </mat-form-field>       
                             </div>    
                         
-                            
-
                             <br>
                         
                             <div class="col-6">
@@ -257,15 +265,12 @@
                                 />
                              </mat-form-field>       
                             </div>    
-                            
-     
-
-                            <div id = "Guardar">
-                                <button (click)="add()" class="btn btn-primary">Guardar</button>
-                            </div>
                     </div>
-                    
             </form>
+
+                <div id = "Guardar">
+                    <button (click)="add()" class="btn btn-primary">Guardar</button>
+                </div>
                 
                     <!-- Fin Evento -->
 

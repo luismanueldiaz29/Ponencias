@@ -16,14 +16,14 @@ export class AuthService {
         //se podría encriptar el nombre de la variable
 
         sessionStorage.setItem('user', user);
-        sessionStorage.setItem('pass', password);
+        sessionStorage.setItem('id', password);
         
         this._router.navigate(['/Home']);
     }
 
     logout() {
       sessionStorage.clear();
-      //this._router.navigate(['/login']);
+      this._router.navigate(['/login']);
     }
 
     isAuthenticated(): boolean {
@@ -37,6 +37,6 @@ export class AuthService {
     }
 
     getUserName(): string {
-        return sessionStorage.getItem('user') != null ? sessionStorage.getItem('user'):'Anonimo';
+        return sessionStorage.getItem('id') != null ? sessionStorage.getItem('id'):'Anonimo';
     }
 }

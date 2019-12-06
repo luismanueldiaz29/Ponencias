@@ -3,6 +3,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Docente } from '../Models/docente';
 import { catchError, map, tap } from 'rxjs/operators';
+import { HandleErrorService } from '../@base/services/handle-error.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -13,14 +14,18 @@ const httpOptions = {
 })
 export class DocenteService {
 
-  constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
+  constructor(
+      private http: HttpClient,
+      @Inject('BASE_URL') private baseUrl: string,
+      private handlerService : HandleErrorService  
+    ) { }
 
   /** POST: add a new docente to the server */
   add(docente: Docente): Observable<Docente> {
 
     return this.http.post<Docente>(this.baseUrl + 'api/Docente', docente, httpOptions).pipe(
       tap((newDocente: Docente) => this.log(`added newDocente w/ id=${newDocente.id}`)),
-      catchError(this.handleError<Docente>('addDocente'))
+      catchError(this.handleError<Docente>('addDocente', null))
     );
   }
 
@@ -78,7 +83,8 @@ export class DocenteService {
 
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
-     alert(message);
+    //alert(message);
+    this.handlerService.log(message);
     // this.messageService.add(`HeroService: ${message}`);
   }
 }

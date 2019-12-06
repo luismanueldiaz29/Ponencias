@@ -38,6 +38,9 @@ namespace Ponencias.Models
         [JsonProperty("Facultad")]
         public Facultad Facultad {get; set;}
 
+        [JsonProperty("GrupoInvestigacionId")]
+        public int GrupoInvestigacionId {get; set;}
+
         [JsonProperty("GrupoInvestigacion")]
         public GrupoInvestigacion GrupoInvestigacion {get; set;}
         

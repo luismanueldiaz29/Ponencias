@@ -5,9 +5,6 @@
             <h1>Formulario de Registro</h1>
         </header>
         <br>
-        <h2>Informacion general</h2>
-        <hr>
-        <br>
         <form class="form-group">
             <div class="row">   
 <!-- 
@@ -106,6 +103,18 @@
                       <p> Selected food: {{docente.FacultadId}} </p>
                 </div>
                     {{docente.facultadId}}
+
+                    <div class="col-6">
+                            <mat-form-field>
+                                <mat-label>Grupo de Investigación</mat-label>
+                                <mat-select [(ngModel)]="docente.GrupoInvestigacionId" name="grupoId">
+                                  <mat-option *ngFor="let grupo of grupos" [value]="grupo.id">
+                                    {{grupo.id}} {{grupo.nombreGrupo}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                              <p> Selected food: {{docente.GrupoInvestigacionId}} </p>
+                        </div>
             </div>    
             <div id = "Guardar">
                 <button (click)="add()" class="btn btn-primary">Registrar</button>

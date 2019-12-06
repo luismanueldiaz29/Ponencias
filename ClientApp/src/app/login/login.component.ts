@@ -31,6 +31,6 @@ export class LoginComponent implements OnInit {
   }
   
   acceder(){
-    
+    this.authService.login(this.usuario, this.password);
   }
 }

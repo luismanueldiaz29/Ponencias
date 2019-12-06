@@ -12,11 +12,7 @@ namespace Ponencias.Models
         [JsonProperty("NombreGrupo")]
         [Required]
         public string NombreGrupo {get; set;}
-        
-        [JsonProperty("DocenteId")]
-        public string DocenteId {get; set;}
 
-        [JsonProperty("Docente")]
         public Docente Docente {get; set;}
     
         public Semillero Semillero {get; set;}
