@@ -24,7 +24,8 @@ import { RegistarComponent } from './registar/registar.component';
 import { RegistrarFacultadComponent } from './admin/registrar-facultad/registrar-facultad.component';
 import { ConsulFacultadComponent } from './ConsulFacultad/consul-facultad/consul-facultad.component';
 import { ConsulModalComponent } from './ConsulFacultad/consul-modal/consul-modal.component';
-
+import { AlertModalComponent } from './@base/modals/alert-modal/alert-modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ConsulModalComponent } from './ConsulFacultad/consul-modal/consul-modal
     RegistarComponent,
     RegistrarFacultadComponent,
     ConsulFacultadComponent,
-    ConsulModalComponent
+    ConsulModalComponent,
+    AlertModalComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -55,9 +57,12 @@ import { ConsulModalComponent } from './ConsulFacultad/consul-modal/consul-modal
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+      AlertModalComponent
+  ]
 })
 export class AppModule { }

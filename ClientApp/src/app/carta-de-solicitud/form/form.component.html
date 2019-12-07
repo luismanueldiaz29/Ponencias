@@ -2,74 +2,88 @@
 
 <div class="borde">
     <div class="agrupar">
-        <mat-horizontal-stepper>
-            <mat-step label="firstFormGroup">
-                <ng-template matStepLabel>Informacion general</ng-template>
+        <mat-horizontal-stepper linear #stepper>
+            <mat-step [stepControl]="firstFormGroup">
+                <form [formGroup]="firstFormGroup" >
+                    <ng-template matStepLabel>Informacion general</ng-template>
                     
                     <!-- solicitud de ponecias -->
                     <!-- <app-carta-solicitud-general></app-carta-solicitud-general> -->
-
-                    <form class="form-group">
-                        <header class="Titulo">
-                            <h1>Solicitud de ponencia</h1>
-                        </header>
-                        <br>
-                        <h2>Informacion general</h2>
-                        <hr>
-                        <br>
-                        <div class="row"> 
-
-                            <div class="col-6">
-                                <mat-form-field>
-                                    <input matInput placeholder="Nombre de La ponencia" type="text" name="nombrePonencia" [(ngModel)]="solicitud.NombrePonencia" required/>
-                                </mat-form-field>
-                            </div>
-                        
-                            <div class="col-6">
-                                <mat-form-field>
-                                    <input matInput placeholder="Nombre del semillero" type="text" name="nomSemillero" [(ngModel)]="semillero.NombreSemillero" required/>
-                                </mat-form-field>
-                            </div>
-
-                            <div class="col-6">
-                                <mat-form-field>
-                                    <input matInput placeholder="Nombre de la investigacion" type="text" name="nombreInvestigacion" [(ngModel)]="investigacion.NombreInvestigacion" required/>
-                                </mat-form-field>
-                            </div>
-                    </div>
+                    <header class="Titulo">
+                        <h1>Solicitud de ponencia</h1>
+                    </header>
                     <br>
-                    <h5>(opcional)</h5>
-                    <div class="row">
+                    <h2>Informacion general</h2>
+                    <hr>
+                    <br>
+                    <div class="row"> 
+
                         <div class="col-6">
-                            <table class="example-full-width" cellspacing="0">
-                                <tr>
-                                    <td>
-                                        <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Nombres del estudiante" type="text" name="NombreEstudiante" [(ngModel)]="estudiante.NombreEstudiante"/>
-                                        </mat-form-field>
-                                    </td>
-                                    <td>
-                                        <mat-form-field class="example-full-width">
-                                            <input matInput placeholder="Apellidos del estudiante" type="text" name="ApellidoEstudiante" [(ngModel)]="estudiante.ApellidoEstudiante">
-                                        </mat-form-field>
-                                    </td>
-                                </tr>
-                            </table>
+                            <mat-form-field>
+                                <input matInput placeholder="Nombre de La ponencia" 
+                                    type="text" formControlName="nombrePonencia" 
+                                    [(ngModel)]="solicitud.NombrePonencia" 
+                                    required
+                                />
+                            </mat-form-field>
                         </div>
+                    
+                        <div class="col-6">
+                            <mat-form-field>
+                                <input matInput placeholder="Nombre del semillero" 
+                                    type="text" formControlName="nomSemillero" 
+                                    [(ngModel)]="semillero.NombreSemillero" 
+                                    required
+                                />
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-6">
+                            <mat-form-field>
+                                <input matInput placeholder="Nombre de la investigacion"
+                                    formControlName="nombreInvestigacion" 
+                                    type="text" 
+                                    [(ngModel)]="investigacion.NombreInvestigacion" 
+                                    required
+                                />
+                            </mat-form-field>
+                        </div>
+                </div>
+                <br>
+                <h5>(opcional)</h5>
+                <div class="row">
+                    <div class="col-6">
+                        <table class="example-full-width" cellspacing="0">
+                            <tr>
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Nombres del estudiante" type="text" 
+                                        formControlName="NombreEstudiante" [(ngModel)]="estudiante.NombreEstudiante"/>
+                                    </mat-form-field>
+                                </td>
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Apellidos del estudiante" type="text" formControlName="ApellidoEstudiante" [(ngModel)]="estudiante.ApellidoEstudiante">
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
-                    </form>
-                    <div class="container">
+                </div>
+                </form>
+                <div class="container">
                         <div class="row">
                             <div class="ml-auto">
                                 <div class="ml-auto">
-                                    <button class="btn btn-info" mat-button matStepperNext>Siguiente</button>
+                                    <button class="btn btn-info" mat-button  matStepperNext>Siguiente</button>
                                 </div>
                             </div>
                         </div>
                     </div>
             </mat-step> 
             
-            <mat-step label="secondFormGroup">
+            <mat-step [stepControl]="secondFormGroup">
+                <form [formGroup]="secondFormGroup">
                     <ng-template matStepLabel>Informacion del evento</ng-template>
 
                     <!-- Infromacion del evento -->
@@ -82,14 +96,13 @@
                     <h2>Informacion del evento</h2>
                     <hr>
                     <br>
-                    <form class="form-group">
                         <div class="row">
                             <div class="col-6">
                                 <mat-form-field>
                                 <input matInput 
                                 placeholder="Nombre del evento"
                                 type="text"
-                                name="evento" 
+                                formControlName="evento" 
                                 required
                                 [(ngModel)]="evento.NombreEvento"
                                 />
@@ -101,22 +114,21 @@
                                 <input matInput 
                                 placeholder="Nombre de la entidad"
                                 type="text"
-                                name="entidad" 
+                                formControlName="entidad" 
                                 required
                                 [(ngModel)]="evento.entidad"
                                 />
                              </mat-form-field>       
                             </div>    
-                        
- 
+
                             <br>
-                        
+        
                             <div class="col-6">
                                 <mat-form-field>
                                 <input matInput 
                                 placeholder="Link"
                                 type="text"
-                                name="Link" 
+                                formControlName="Link" 
                                 required
                                 [(ngModel)]="evento.LinkEvento"
                                 />
@@ -131,7 +143,7 @@
                                 <input matInput 
                                 placeholder="Pais"
                                 type="text"
-                                name="pais" 
+                                formControlName="pais" 
                                 required
                                 [(ngModel)]="evento.Pais"
                                 />
@@ -146,7 +158,7 @@
                                 <input matInput 
                                 placeholder="Ciudad"
                                 type="text"
-                                name="cuidad" 
+                                formControlName="cuidad" 
                                 required
                                 [(ngModel)]="evento.Ciudad"
                                 />
@@ -160,7 +172,7 @@
                                 <input matInput 
                                 placeholder="Telefono y/o celular"
                                 type="text"
-                                name="Telefono" 
+                                formControlName="Telefono" 
                                 required
                                 [(ngModel)]="evento.Telefono"
                                 />
@@ -174,7 +186,7 @@
                                 <input matInput 
                                 placeholder="E-mail"
                                 type="text"
-                                name="email" 
+                                formControlName="email" 
                                 required
                                 [(ngModel)]="evento.Email"
                                 />
@@ -188,7 +200,7 @@
                                 <input matInput 
                                 placeholder="costo de la inscripcion"
                                 type="number"
-                                name="CostoInscripcion" 
+                                formControlName="CostoInscripcion" 
                                 required
                                 [(ngModel)]="evento.ValorInscripcion"
                                 />
@@ -199,7 +211,7 @@
                             <div class="col-6">
                                 <mat-form-field>
                                     <mat-label>Tipo de transporte:</mat-label>
-                                        <select matNativeControl name = "TipoTransporte" [(ngModel)]="transporte.TipoTransporte" required>
+                                        <select matNativeControl formControlName = "TipoTransporte" [(ngModel)]="transporte.TipoTransporte" required>
                                             <option value="Aereo">Aereo</option>
                                             <option value="Terrestre">Terrestre</option>
                                         </select>
@@ -211,7 +223,8 @@
                                 <input matInput 
                                 placeholder="Costo del transporte"
                                 type="number"
-                                name="CostoTransporte" 
+                                step="1"
+                                formControlName="CostoTransporte" 
                                 required
                                 [(ngModel)]="transporte.ValorTrasporte"
                                 />
@@ -224,7 +237,7 @@
                                 <input matInput 
                                 placeholder="Fecha del evento"
                                 type="date"
-                                name="FechaEvento" 
+                                formControlName="FechaEvento" 
                                 required
                                 [(ngModel)]="evento.FechaEvento"
                                 />
@@ -239,7 +252,7 @@
                                 <input matInput 
                                 placeholder="fecha de inicio"
                                 type="date"
-                                name="inicio" 
+                                formControlName="inicio" 
                                 required
                                 [(ngModel)]="evento.FechaInicio"
                                 />
@@ -253,40 +266,40 @@
                                 <input matInput 
                                 placeholder="fecha de Finalización"
                                 type="date"
-                                name="Finaliza" 
+                                formControlName="Finaliza" 
                                 required
                                 [(ngModel)]="evento.FechaFinal"
                                 />
                              </mat-form-field>       
                             </div>    
                     </div>
-            </form>
 
-                <div id = "Guardar">
-                    <button (click)="add()" class="btn btn-primary">Guardar</button>
-                </div>
-                
-                    <!-- Fin Evento -->
+                        <div id = "Guardar">
+                            <button (click)="onSubmit()" class="btn btn-primary">Guardar</button>
+                        </div>
+                        
+                        <!-- Fin Evento -->
 
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6">
-                                    <button class="btn btn-info" mat-button matStepperPrevious>Anterior</button>
-                            </div>
-                            <div class="ml-auto">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                        <button class="btn btn-info" mat-button matStepperPrevious>Anterior</button>
+                                </div>
                                 <div class="ml-auto">
-                                        <button class="btn btn-info" mat-button matStepperNext>Siguiente</button>
+                                    <div class="ml-auto">
+                                            <button class="btn btn-info" mat-button matStepperNext>Siguiente</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                </form>
             </mat-step>
             <mat-step>
                 <ng-template matStepLabel>Anexos</ng-template>
                 <!-- Anexos -->
                 <app-anexos></app-anexos>
                 
-                <button class="btn btn-info" mat-button matStepperPrevious>Anterior</button>
+                <button class="btn btn-info"  mat-button matStepperPrevious>Anterior</button>
             </mat-step>    
         </mat-horizontal-stepper>
     </div>    

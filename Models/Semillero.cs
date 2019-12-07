@@ -20,5 +20,6 @@ namespace Ponencias.Models
         public GrupoInvestigacion GrupoInvestigacion {get; set;}
 
         public List<Estudiante> Estudiantes { get; } = new List<Estudiante>();
+
     }
 }     

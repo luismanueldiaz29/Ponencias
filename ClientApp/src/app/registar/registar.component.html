@@ -4,8 +4,9 @@
         <header class="Titulo">
             <h1>Formulario de Registro</h1>
         </header>
+        <hr>
         <br>
-        <form class="form-group">
+        <form [formGroup]="formGroup">
             <div class="row">   
 <!-- 
                 <div class="col-6">
@@ -17,7 +18,7 @@
                 
                 <div class="col-6">
                         <mat-form-field>
-                            <input matInput placeholder="Identificación" type="text" name="Identificación" [(ngModel)]="docente.id" required/>
+                            <input matInput placeholder="Identificación" type="text" formControlName="Identificacion" [(ngModel)]="docente.id" required/>
                         </mat-form-field>
                     </div>
                 
@@ -28,12 +29,12 @@
                         <tr>
                             <td>
                                 <mat-form-field class="example-full-width">
-                                    <input matInput type = "text" placeholder="Nombres" [(ngModel)]="docente.Nombres" name = "Nombres"/>
+                                    <input matInput type = "text" placeholder="Nombres" [(ngModel)]="docente.Nombres" formControlName = "Nombres" required/>
                                 </mat-form-field>
                             </td>
                             <td>
                                 <mat-form-field class="example-full-width">
-                                    <input matInput type = "text" placeholder="Apellidos"[(ngModel)]="docente.Apellidos" name = "Apellidos" />
+                                    <input matInput type = "text" placeholder="Apellidos"[(ngModel)]="docente.Apellidos" formControlName = "Apellidos" required/>
                                 </mat-form-field>
                             </td>
                         </tr>
@@ -45,7 +46,7 @@
                 <div class="col-6">
                     <mat-form-field>
                         <mat-label>Vinculo Institucional:</mat-label>
-                            <select matNativeControl name ="VinculoInst" [(ngModel)]="docente.VinculoInst" required>
+                            <select matNativeControl formControlName ="VinculoInst" [(ngModel)]="docente.VinculoInst"  required>
                                 <option value="DC">DC</option>
                                 <option value="DC">DP</option>
                                 <option value="DC">DO</option>
@@ -60,23 +61,31 @@
                 <br>
                 <div class="col-6">
                     <mat-form-field>
-                        <input matInput placeholder="Teléfono Celular" type="text" name="Telefono" [(ngModel)]="docente.Telefono" required/>
+                        <input matInput placeholder="Teléfono Celular" type="text" formControlName="Telefono" [(ngModel)]="docente.Telefono" required/>
                     </mat-form-field>
                 </div>
                 <br>
             
                 <div class="col-6">
                     <mat-form-field>
-                        <input matInput placeholder="Dirección Residencial" type="text" name="direccion" [(ngModel)]="docente.direccion" required/>
+                        <input matInput placeholder="Dirección Residencial" type="text" formControlName="direccion" [(ngModel)]="docente.direccion" required/>
                     </mat-form-field>
                 </div>
             
                 <br>
             
                 <div class="col-6">
-                    <mat-form-field>
-                        <input matInput placeholder="E-mail" type="text" name="Email" [(ngModel)]="docente.Email"required/>
-                    </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Email" [(ngModel)]="docente.Email" [formControl]="emailFormControl"
+                                       [errorStateMatcher]="matcher">
+                                <mat-hint>Errors appear instantly!</mat-hint>
+                                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                                  Email incorrecto
+                                </mat-error>
+                                <mat-error *ngIf="emailFormControl.hasError('required')">
+                                  Email requerido <strong>required</strong>
+                                </mat-error>
+                        </mat-form-field>
                 </div>
             
 
@@ -88,37 +97,36 @@
                 
                 <div class="col-6">
                     <mat-form-field>
-                        <input matInput placeholder="Pass" type="text" name="Pass" [(ngModel)]="docente.Pass" required/>
+                        <input matInput placeholder="Pass" type="text" formControlName="Pass" [(ngModel)]="docente.Pass" required/>
                     </mat-form-field>
                 </div>
                 <div class="col-6">
                     <mat-form-field>
                         <mat-label>programa</mat-label>
-                        <mat-select [(ngModel)]="docente.facultadId" name="Facultad">
+                        <mat-select [(ngModel)]="docente.facultadId" formControlName ="Facultad"  required>
                           <mat-option *ngFor="let programa of programas" [value]="programa.facultadId">
                             {{programa.nombrePrograma}}
                           </mat-option>
                         </mat-select>
                       </mat-form-field>
-                      <p> Selected food: {{docente.facultadId}} </p>
                 </div>
-                    {{docente.facultadId}}
 
                     <div class="col-6">
                             <mat-form-field>
                                 <mat-label>Grupo de Investigación</mat-label>
-                                <mat-select [(ngModel)]="docente.grupoInvestigacionId" name="grupoId">
+                                <mat-select [(ngModel)]="docente.grupoInvestigacionId" formControlName="grupoId" required>
                                   <mat-option *ngFor="let grupo of grupos" [value]="grupo.id">
                                     {{grupo.id}} {{grupo.nombreGrupo}}
                                   </mat-option>
                                 </mat-select>
                               </mat-form-field>
-                              <p> Selected food: {{docente.grupoInvestigacionId}} </p>
                         </div>
-            </div>    
+            </div> 
             <div id = "Guardar">
-                <button (click)="add()" class="btn btn-primary">Registrar</button>
-            </div>
-        </form>  
+                    <button (click)="onSubmit()" class="btn btn-primary">Registrar</button>
+                </div>
+        </form>     
+
+        
     </div> 
 </div>

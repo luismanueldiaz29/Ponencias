@@ -7,7 +7,7 @@ export class Evento {
     LinkEvento:string;
     Pais:string;
     Ciudad:string;
-    Telefono: number;
+    Telefono: string;
     ValorInscripcion:number;
     FechaEvento:string;
     FechaInicio:string;

@@ -19,8 +19,8 @@ namespace Ponencias.Controllers
 
             _context = context;
             if (_context.Estudiante.Count() == 0){
-                _context.Estudiante.Add(new Estudiante { NombreEstudiante = "Priorizar el proyecto", ApellidoEstudiante = "Priorizar"});
-                _context.Estudiante.Add(new Estudiante {NombreEstudiante = "Priorizar el proyecto", ApellidoEstudiante = "Priorizar" });
+                _context.Estudiante.Add(new Estudiante { NombreEstudiante = "luis Manuel", ApellidoEstudiante = "Diaz Sequea", SemilleroId = 1});
+                _context.Estudiante.Add(new Estudiante {NombreEstudiante = "Carlos", ApellidoEstudiante = "Daza Murgas", SemilleroId = 1 });
                 _context.SaveChanges();
             }
         }

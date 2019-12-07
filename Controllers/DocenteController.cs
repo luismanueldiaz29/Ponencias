@@ -8,6 +8,7 @@ using Ponencias.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
 
+
 namespace Ponencias.Controllers
 {
     [Route("api/[controller]")]
@@ -15,7 +16,9 @@ namespace Ponencias.Controllers
     public class DocenteController: ControllerBase
     {
         private readonly PonenciaContext _context;
-
+        //envio de correo
+        EnvioDeEmail envioDeEmail = new EnvioDeEmail();
+        //envio de correo
         public DocenteController(PonenciaContext context){
 
             _context = context;
@@ -63,9 +66,13 @@ namespace Ponencias.Controllers
 
         //    }
 
-   
+            
             _context.Docente.Add(item); 
             await _context.SaveChangesAsync();
+            //envio de correo
+            envioDeEmail.EnviarEmail(item);
+
+            //envio de correo
             return CreatedAtAction(nameof(GetDocente), new { id = item.id }, item);
         }
 
@@ -100,6 +107,8 @@ namespace Ponencias.Controllers
 
             return NoContent();
         }
+
+        
 
     }
 }
