@@ -15,11 +15,12 @@ import {EventoEditComponent}from './evento-edit/evento-edit.component';
 import{DocenteEditComponent} from './docente-edit/docente-edit.component';
 import { RegistarComponent } from './registar/registar.component';
 import {RegistrarFacultadComponent} from './admin/registrar-facultad/registrar-facultad.component';
+import { ConsultarSolicitudesComponent } from './consultar-solicitudes/consultar-solicitudes.component';
+import { DetalleSolicitudComponent } from './detalle-solicitud/detalle-solicitud.component';
 
 const routes: Routes = [
   
-
-    {
+  {
     path: '', 
     component: LoginComponent,
     pathMatch: 'full' 
@@ -51,10 +52,11 @@ const routes: Routes = [
   {
     path:'Evento',
     component:ConsultaEventoComponent
-  },{
-      path:'docenteEdit/:id',
+  },
+  {
+      path:'docenteEdit',
       component:DocenteEditComponent
-    },
+  },
   {
     path: 'Carta_Originalidad/:id',
     component: CartaDeOriginalidadComponent
@@ -74,6 +76,14 @@ const routes: Routes = [
   {
     path: 'Registro',
     component: RegistarComponent
+  },
+  {
+    path : "Consultar_solicitud",
+    component : ConsultarSolicitudesComponent
+  },
+  {
+    path : "detalle_Solicitud",
+    component : DetalleSolicitudComponent
   }
 ]
 

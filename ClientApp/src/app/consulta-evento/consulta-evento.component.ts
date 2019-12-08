@@ -20,4 +20,8 @@ export class ConsultaEventoComponent implements OnInit {
     this.servicio.getAll().subscribe(x=>this.eventos=x);
   }
 
+  mostrar(){
+    alert('si');
+  }
+  displayedColumns: string[] = ['id', 'NombreEvento', 'Entidad', 'Telefono', 'Ciudad', 'Pais', 'ValorInscripcion', 'ver'];
 }

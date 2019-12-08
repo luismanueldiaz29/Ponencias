@@ -17,11 +17,15 @@ namespace Ponencias.Models
         [JsonProperty("DocenteId")]
         public string DocenteId {get; set;}
 
+        [JsonProperty("EstadoSolicitud")]
+        public string EstadoSolicitud {get; set;}
+
         [JsonProperty("Docente")]
         public Docente Docente {get; set;}
     
         [JsonProperty("Transporte")]
         public Transporte Transporte {get; set;}
+
 
         [JsonProperty("Evento")]
         public Evento Evento {get; set;}

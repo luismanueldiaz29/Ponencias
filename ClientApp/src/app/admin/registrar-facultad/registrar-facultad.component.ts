@@ -20,7 +20,7 @@ facultad:Facultad;
   ){}
 
   ngOnInit() {
-    this.facultad = {id:0, NombreFacultad: ""}
+    this.facultad = {id:0, nombreFacultad: ""}
   }
 
   add(){

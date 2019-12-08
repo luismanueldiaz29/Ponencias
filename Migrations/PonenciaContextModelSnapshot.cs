@@ -317,6 +317,9 @@ namespace Ponencias.Migrations
                     b.Property<string>("DocenteId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("EstadoSolicitud")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("FechaEntrega")
                         .HasColumnType("nvarchar(max)");
 

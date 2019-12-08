@@ -110,6 +110,20 @@ namespace Ponencias.Controllers
             return NoContent();
         }
 
+        [HttpGet("Solicitud/{id}")]
+        public async Task<ActionResult<Evento>> GetEventoSolicitud(int id)
+        {
+            var eventos = await _context.Evento.ToListAsync();
+            
+            foreach(Evento element in eventos){
+                if(element.SolicitudId == id){
+                    return element;
+                }
+            }
+
+            return NotFound();
+        }
+
     }
     
 }

@@ -3,64 +3,93 @@
 <div class = "borde">
     <div class = "agrupar">
 <div *ngIf="docente"> 
+
     <div>
         <h1 class="h2">Detalle Docentes</h1>
     </div>
-    <p>Editar/Eliminar Docentes</p>
 
     <br>
+       
+        <div class="row">
     
-    <div class="form-group">
-            <label>Id:
-                {{docente.id}}
-            </label>
-    </div>
-    <div class="row">
-        <br>
-        <div class="col-6">
-                <mat-form-field>
-                    <input matInput placeholder="Nombre" name="Nombre" [(ngModel)]="docente.nombres" required/>
-                </mat-form-field>
-            </div>
-            <br>
-        
-            <div class="col-6">
+                <div class="col-6">
+                        <mat-form-field>
+                            <input matInput placeholder="Identificación" type="text" name="Identificacion" [(ngModel)]="docente.id" readonly/>
+                        </mat-form-field>
+                    </div>
+                
+                <br>
+
+                <div class="col-6">
+                    <table class="example-full-width" cellspacing="0">
+                        <tr>
+                            <td>
+                                <mat-form-field class="example-full-width">
+                                    <input matInput type = "text" placeholder="Nombres" [(ngModel)]="docente.nombres" name = "Nombres" required/>
+                                </mat-form-field>
+                            </td>
+                            <td>
+                                <mat-form-field class="example-full-width">
+                                    <input matInput type = "text" placeholder="Apellidos"[(ngModel)]="docente.apellidos" name = "Apellidos" required/>
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            
+                <br>
+
+                <div class="col-6">
                     <mat-form-field>
-                        <input matInput placeholder="Apellidos" name="Apellidos" [(ngModel)]="docente.apellidos" required/>
+                            <input matInput placeholder="Vinculo institucional" type="text" name="Telefono" [(ngModel)]="docente.vinculoInst" required/>
+                    </mat-form-field>
+                </div>
+            
+                <br>
+                <div class="col-6">
+                    <mat-form-field>
+                        <input matInput placeholder="Teléfono Celular" type="text" name="Telefono" [(ngModel)]="docente.telefono" required/>
                     </mat-form-field>
                 </div>
                 <br>
+            
+                <div class="col-6">
+                    <mat-form-field>
+                        <input matInput placeholder="Dirección Residencial" type="text" name="direccion" [(ngModel)]="docente.direccion" required/>
+                    </mat-form-field>
+                </div>
+            
+                <br>
+            
                 <div class="col-6">
                         <mat-form-field>
-                            <input matInput placeholder="Telefono" name="Telefono" [(ngModel)]="docente.telefono" required/>
+                                <input matInput placeholder="Email" name ="email" [(ngModel)]="docente.email" required>
+                        </mat-form-field>
+                </div>
+            
+                
+                <div class="col-6">
+                    <mat-form-field>
+                        <input matInput placeholder="Pass" type="text" name="Pass" [(ngModel)]="docente.pass" required/>
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field>
+                        <input matInput placeholder="Facultad" type="text"  [(ngModel)]="facultad" name ="Facultad" readonly/>
+                      </mat-form-field>
+                </div>
+
+                    <div class="col-6">
+                        <mat-form-field>
+                                <input matInput placeholder="Grupo de investigación" type="text"  [(ngModel)]="grupo" name="grupoId" readonly/>
                         </mat-form-field>
                     </div>
-                    <br>
-                    <div class="col-6">
-                            <mat-form-field>
-                                <input matInput placeholder="Vinculo institucional" name="vinculoIns" [(ngModel)]="docente.vinculoInst" required/>
-                            </mat-form-field>
-                        </div>
-                        <br>
-                        <div class="col-6">
-                                <mat-form-field>
-                                    <input matInput placeholder="E-mail" name="Email" [(ngModel)]="docente.email" required/>
-                                </mat-form-field>
-                            </div>
-                            <br>
-                            <div class="col-6">
-                                    <mat-form-field>
-                                        <input matInput placeholder="Direccion" name="Direccion" [(ngModel)]="docente.direccion" required/>
-                                    </mat-form-field>
-                                </div>
-                                <br>
-            </div>                     
-    
-    <div class="form-group">
-        <button (click)="update()" class="btn btn-primary">Actualizar</button>
-        <button (click)="delete()" class="btn btn-primary">Eliminar</button>
-        <button routerLink = "/Carta_Originalidad/{{docente.id}}" class="btn btn-primary">generar carta</button>
-    </div>
+            </div> 
+                </div>                     
+        
+        <div class="form-group">
+            <button (click)="update()" class="btn btn-primary">Actualizar</button>
+            <!-- <button routerLink = "/Carta_Originalidad/{{docente.id}}" class="btn btn-primary">generar carta</button> -->
+        </div>
 </div> 
-</div>
 </div>

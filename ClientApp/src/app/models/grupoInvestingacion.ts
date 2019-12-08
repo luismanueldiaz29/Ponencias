@@ -1,4 +1,4 @@
 export class GrupoInvestigacion{
     id : number;
-    NombreGrupo : string;
+    nombreGrupo : string;
 }

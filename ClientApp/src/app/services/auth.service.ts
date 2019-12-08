@@ -26,6 +26,14 @@ export class AuthService {
       this._router.navigate(['/login']);
     }
 
+    GuardarSolicitud(id : number){
+        sessionStorage.setItem('solicitudId', id.toString());
+    }
+
+    getSolicitudId(): string {
+        return sessionStorage.getItem('solicitudId') != null ? sessionStorage.getItem('solicitudId'):'Anonimo';
+    }
+
     isAuthenticated(): boolean {
         return sessionStorage.getItem('user')!=null;
     }

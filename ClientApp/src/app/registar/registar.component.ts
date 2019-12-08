@@ -54,7 +54,7 @@ export class RegistarComponent implements OnInit {
 
   ngOnInit() {
     this.getAll();
-    this.docente={id:"",Nombres: "", Apellidos: "", Telefono: "", VinculoInst: "", Email: "", direccion: "", Pass: "", FacultadId : 0,  grupoInvestigacionId : 0};
+    this.docente={id:"",Nombres: "", Apellidos: "", Telefono: "", VinculoInst: "", Email: "", direccion: "", Pass: "", facultadId : 0,  grupoInvestigacionId : 0};
     this.formGroup = this._formBuilder.group({
       Identificacion: ['', Validators.required],
       Nombres: ['', Validators.required],

@@ -10,8 +10,8 @@ using Ponencias.Models;
 namespace Ponencias.Migrations
 {
     [DbContext(typeof(PonenciaContext))]
-    [Migration("20191206045854_Ponencias")]
-    partial class Ponencias
+    [Migration("20191207204603_Ponencia02")]
+    partial class Ponencia02
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -318,6 +318,9 @@ namespace Ponencias.Migrations
 
                     b.Property<string>("DocenteId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("EstadoSolicitud")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FechaEntrega")
                         .HasColumnType("nvarchar(max)");

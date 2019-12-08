@@ -68,6 +68,7 @@ export class FormComponent implements OnInit {
     this.solicitud = {
       id : 0,
       NombrePonencia : "",
+      EstadoSolicitud : "",
       FechaEntrega : this.dia+"/"+this.mes+"/"+this.ano,
       DocenteId : this.authService.getUserName()
     };
@@ -124,40 +125,40 @@ export class FormComponent implements OnInit {
   }
   
   agregar(SolicitudId: number){
-  try {
-   
-    this.evento.SolicitudId = SolicitudId;
-    this.investigacion.SolicitudId = SolicitudId;
-    this.transporte.SolicitudId = SolicitudId;
+    try {
+      
+      this.evento.SolicitudId = SolicitudId;
+      this.investigacion.SolicitudId = SolicitudId;
+      this.transporte.SolicitudId = SolicitudId;
 
-    this.investigacionService.add(this.investigacion)
-    .subscribe( investigacion =>{
-      console.log('Se guardo la informacion de investigacion')
-    });
+      this.investigacionService.add(this.investigacion)
+      .subscribe( investigacion =>{
+        console.log('Se guardo la informacion de investigacion')
+      });
 
-    this.EventoService.add(this.evento)
-    .subscribe(evento => {
-      console.log('Se guardó la informacion del evento')
-    });
-    
-    this.transporteService.add(this.transporte)
-    .subscribe(evento => {
-      console.log('Se guardó la informacion del transporte')
-    });
+      this.EventoService.add(this.evento)
+      .subscribe(evento => {
+        console.log('Se guardó la informacion del evento')
+      });
+      
+      this.transporteService.add(this.transporte)
+      .subscribe(transporte => {
+        console.log('Se guardó la informacion del transporte')
+      });
 
-    this.semilleroService.add(this.semillero).subscribe(
-      semillero => {
-        this.estudiante.SemilleroId = semillero.id;
-        this.agregarEstudiante();
-      }
-    );
-    
-    this.mensaje("Resultado Operación",'La operación fue un exito  SUCCESS!! :-)');
-    this.location.back()
-  } catch (error) {
+      this.semilleroService.add(this.semillero).subscribe(
+        semillero => {
+          this.estudiante.SemilleroId = semillero.id;
+          this.agregarEstudiante();
+        }
+      );
 
-    this.mensaje("Resultado Operación",'Ocurrio un error'+error);  
-  } 
+      this.mensaje("Resultado Operación",'La operación fue un exito  SUCCESS!! :-)');
+      this.location.back();
+
+    } catch (error) {
+      this.mensaje("Resultado Operación",'Ocurrio un error'+error);  
+    } 
   }
 
   agregarEstudiante(){

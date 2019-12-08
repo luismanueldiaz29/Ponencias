@@ -1,4 +1,4 @@
 export class Facultad {
     id:number;
-    NombreFacultad:string;
+    nombreFacultad:string;
 }

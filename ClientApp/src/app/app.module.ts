@@ -26,6 +26,8 @@ import { ConsulFacultadComponent } from './ConsulFacultad/consul-facultad/consul
 import { ConsulModalComponent } from './ConsulFacultad/consul-modal/consul-modal.component';
 import { AlertModalComponent } from './@base/modals/alert-modal/alert-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ConsultarSolicitudesComponent } from './consultar-solicitudes/consultar-solicitudes.component';
+import { DetalleSolicitudComponent } from './detalle-solicitud/detalle-solicitud.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RegistrarFacultadComponent,
     ConsulFacultadComponent,
     ConsulModalComponent,
-    AlertModalComponent
+    AlertModalComponent,
+    ConsultarSolicitudesComponent,
+    DetalleSolicitudComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

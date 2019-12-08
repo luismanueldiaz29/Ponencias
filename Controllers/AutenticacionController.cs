@@ -19,23 +19,38 @@ namespace Ponencias.Controllers
 
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Docente>>> GetDocentes()
-        {
-            return await _context.Docente.ToListAsync();
-        }
-
         // GET: api/Task/5
-        // [HttpPost]
-        // public async Task<ActionResult<LoginInputModel>> Autenticacion(LoginInputModel loginInputModel){
-            
+        // [HttpGet("{usuario}/{Password}")]
+        // public async Task<ActionResult<Docente>> AutenticacionDocente(string usuario, string Password){
+
+        //     var docentes = await _context.Docente.ToListAsync();
+        //     foreach (Docente element in docentes){
+        //         if(element.Email == usuario && element.Pass == Password){
+        //             return element;
+        //         }
+        //     }
+        //     return NotFound();
         // } 
+
+        // [HttpGet]
+        // public async Task<ActionResult<Administrador>> AutenticacionAdmin(LoginInputModel loginInputModel){
+
+        //     var docentes = await _context.Administrador.ToListAsync();
+        //     foreach (Administrador element in docentes){
+        //         if(element.Usuario == loginInputModel.Usuario && element.Pass == loginInputModel.Password){
+        //             return element;
+        //         }
+        //     }
+        //     return NotFound();
+        // } 
+
 
     }
 
     public class LoginInputModel{
 
         public string Usuario {get; set;}
+
         public string Password {get; set;}
     
     }

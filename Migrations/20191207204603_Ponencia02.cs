@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Ponencias.Migrations
 {
-    public partial class Ponencias : Migration
+    public partial class Ponencia02 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -129,7 +129,8 @@ namespace Ponencias.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NombrePonencia = table.Column<string>(nullable: true),
                     FechaEntrega = table.Column<string>(nullable: true),
-                    DocenteId = table.Column<string>(nullable: true)
+                    DocenteId = table.Column<string>(nullable: true),
+                    EstadoSolicitud = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

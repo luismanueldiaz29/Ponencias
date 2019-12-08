@@ -28,6 +28,7 @@ export class ConsultaDocenteComponent implements OnInit {
     this.servicio.getAll().subscribe(docente => {
       return this.docentes = docente;
     });
+    
   }
 
 } 

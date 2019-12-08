@@ -62,5 +62,19 @@ namespace Ponencias.Controllers
             await _context.SaveChangesAsync();
             return NoContent();
         }
+
+        [HttpGet("Solicitud/{id}")]
+        public async Task<ActionResult<Transporte>> GetEventoSolicitud(int id)
+        {
+            var transportes = await _context.Transporte.ToListAsync();
+            
+            foreach(Transporte element in transportes){
+                if(element.SolicitudId == id){
+                    return element;
+                }
+            }
+
+            return NotFound();
+        }
     }
 }

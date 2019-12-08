@@ -41,6 +41,14 @@ export class EventoService {
     );
   }
 
+  getEventoSolicitud(id: number): Observable<Evento> {
+    const url = `${this.baseUrl + 'api/Evento/Solicitud'}/${id}`;
+    return this.http.get<Evento>(url).pipe(
+      tap(_ => this.log(`fetched Evento id=${id}`)),
+      catchError(this.handleError<Evento>(`Evento id=${id}`))
+    );
+  }
+
   /** PUT: update the hero on the server */
   update (Evento: Evento): Observable<any> {
     const url = `${this.baseUrl + 'api/Evento'}/${Evento.id}`;

@@ -41,6 +41,14 @@ export class TransporteService {
     );
   }
 
+  getSolicitudTransporte(id: number): Observable<Transporte> {
+    const url = `${this.baseUrl + 'api/Transporte/Solicitud'}/${id}`;
+    return this.http.get<Transporte>(url).pipe(
+      tap(_ => this.log(`fetched Transporte id=${id}`)),
+      catchError(this.handleError<Transporte>(`Transporte id=${id}`))
+    );
+  }
+
   /** PUT: update the hero on the server */
   update (Transporte: Transporte): Observable<any> {
     const url = `${this.baseUrl + 'api/Transporte'}/${Transporte.id}`;

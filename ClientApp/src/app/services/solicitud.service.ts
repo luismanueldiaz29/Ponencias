@@ -41,6 +41,15 @@ export class SolicitudService {
     );
   }
 
+  getSolicitudDocente(id : string ): Observable<Solicitud[]>{
+    const url = `${this.baseUrl + 'api/Solicitud/Docente'}/${id}`;
+    return this.http.get<Solicitud[]>(url)
+    .pipe(
+      tap(_ => this.log('fetched Solicitud'+_)),
+      catchError(this.handleError<Solicitud[]>('getSolicitud', []))
+    );
+  }
+
   /** PUT: update the hero on the server */
   update (Solicitud: Solicitud): Observable<any> {
     const url = `${this.baseUrl + 'api/Solicitud'}/${Solicitud.id}`;
