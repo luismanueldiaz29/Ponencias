@@ -10,7 +10,6 @@ import { NavMenuAccComponent } from './nav-menu-acc/nav-menu-acc.component';
 import { CartaDeOriginalidadComponent } from './carta-de-originalidad/carta-de-originalidad.component';
 import { CartaDeDerechoComponent } from './carta-de-derecho/carta-de-derecho.component';
 import { CartaSolicitudGeneralComponent } from './carta-de-solicitud/carta-solicitud-general/carta-solicitud-general.component';
-import { InfromacionEventoComponent } from './carta-de-solicitud/infromacion-evento/infromacion-evento.component';
 import { AnexosComponent } from './carta-de-solicitud/anexos/anexos.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
@@ -28,6 +27,9 @@ import { AlertModalComponent } from './@base/modals/alert-modal/alert-modal.comp
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ConsultarSolicitudesComponent } from './consultar-solicitudes/consultar-solicitudes.component';
 import { DetalleSolicitudComponent } from './detalle-solicitud/detalle-solicitud.component';
+import { SolicitudesDocnetesComponent } from './solicitudes-docnetes/solicitudes-docnetes.component';
+import { DetalleSolicitudAdminComponent } from './detalle-solicitud-admin/detalle-solicitud-admin.component';
+import { SendEmailComponent } from './send-email/send-email.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,6 @@ import { DetalleSolicitudComponent } from './detalle-solicitud/detalle-solicitud
     CartaDeOriginalidadComponent,
     CartaDeDerechoComponent,
     CartaSolicitudGeneralComponent,
-    InfromacionEventoComponent,
     AnexosComponent,
     FormComponent,
     ConsultaDocenteComponent,
@@ -52,7 +53,10 @@ import { DetalleSolicitudComponent } from './detalle-solicitud/detalle-solicitud
     ConsulModalComponent,
     AlertModalComponent,
     ConsultarSolicitudesComponent,
-    DetalleSolicitudComponent
+    DetalleSolicitudComponent,
+    SolicitudesDocnetesComponent,
+    DetalleSolicitudAdminComponent,
+    SendEmailComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

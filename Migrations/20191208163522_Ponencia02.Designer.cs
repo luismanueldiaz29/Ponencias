@@ -10,7 +10,7 @@ using Ponencias.Models;
 namespace Ponencias.Migrations
 {
     [DbContext(typeof(PonenciaContext))]
-    [Migration("20191207204603_Ponencia02")]
+    [Migration("20191208163522_Ponencia02")]
     partial class Ponencia02
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

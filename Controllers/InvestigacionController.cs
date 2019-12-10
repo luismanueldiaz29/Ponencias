@@ -27,6 +27,18 @@ namespace Ponencias.Controllers
             return await _context.Investigacion.ToListAsync();
         }
 
+        [HttpGet("Solicitud/{id}")]
+        public async Task<ActionResult<Investigacion>> GetInvestigacionSolicitud(int id)
+        {
+            var Investigaciones = await _context.Investigacion.ToListAsync();
+            foreach(Investigacion elemet in Investigaciones){
+                if(elemet.SolicitudId == id){
+                    return elemet;
+                }
+            }
+            return NotFound();
+        }
+
         // GET: api/Task/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Investigacion>> GetInvestigacion(int id)

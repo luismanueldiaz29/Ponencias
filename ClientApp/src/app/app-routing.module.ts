@@ -7,7 +7,7 @@ import { CartaDeDerechoComponent } from './carta-de-derecho/carta-de-derecho.com
 import { CartaDeOriginalidadComponent } from './carta-de-originalidad/carta-de-originalidad.component';
 import { CartaSolicitudGeneralComponent } from './carta-de-solicitud/carta-solicitud-general/carta-solicitud-general.component';
 import { AnexosComponent } from './carta-de-solicitud/anexos/anexos.component';
-import { InfromacionEventoComponent } from './carta-de-solicitud/infromacion-evento/infromacion-evento.component';
+
 import { FormComponent } from './carta-de-solicitud/form/form.component';
 import{ConsultaDocenteComponent}from './consulta-docente/consulta-docente.component';
 import{ConsultaEventoComponent}from './consulta-evento/consulta-evento.component';
@@ -17,6 +17,9 @@ import { RegistarComponent } from './registar/registar.component';
 import {RegistrarFacultadComponent} from './admin/registrar-facultad/registrar-facultad.component';
 import { ConsultarSolicitudesComponent } from './consultar-solicitudes/consultar-solicitudes.component';
 import { DetalleSolicitudComponent } from './detalle-solicitud/detalle-solicitud.component';
+import { SolicitudesDocnetesComponent } from './solicitudes-docnetes/solicitudes-docnetes.component';
+import { DetalleSolicitudAdminComponent } from './detalle-solicitud-admin/detalle-solicitud-admin.component';
+import { SendEmailComponent } from './send-email/send-email.component';
 
 const routes: Routes = [
   
@@ -62,10 +65,6 @@ const routes: Routes = [
     component: CartaDeOriginalidadComponent
   },
   {
-    path: 'carta_solicitud_informacion',
-    component: InfromacionEventoComponent
-  },
-  {
     path: 'carta_Solicitud_general',
     component: CartaSolicitudGeneralComponent
   },
@@ -84,8 +83,21 @@ const routes: Routes = [
   {
     path : "detalle_Solicitud",
     component : DetalleSolicitudComponent
+  },
+  {
+    path : "solicitudes_Docente",
+    component : SolicitudesDocnetesComponent
+  },
+  {
+    path : "DetalleSolicitudAdmin",
+    component : DetalleSolicitudAdminComponent
+  },
+  {
+    path : "SendEmailComponent",
+    component : SendEmailComponent
   }
 ]
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -47,4 +47,20 @@ export class AuthService {
     getUserName(): string {
         return sessionStorage.getItem('id') != null ? sessionStorage.getItem('id'):'Anonimo';
     }
+
+
+    DocenteSeleccionado(id : string){
+        sessionStorage.setItem('DocenteSeleccionado', id);
+    }
+
+    getDocenteSeleccionado(): string {
+        return sessionStorage.getItem('DocenteSeleccionado') != null ? sessionStorage.getItem('DocenteSeleccionado'):'Anonimo';
+    }
+
+    SolicitudRegistarform(id : number){
+        sessionStorage.setItem('SolicitudRegistarform', id.toString());
+    }
+    getSolicitudRegistarform(){
+        return sessionStorage.getItem('SolicitudRegistarform') != null ? sessionStorage.getItem('SolicitudRegistarform'):'Anonimo';
+    }
 }

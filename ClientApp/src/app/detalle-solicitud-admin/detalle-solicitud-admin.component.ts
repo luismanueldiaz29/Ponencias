@@ -1,25 +1,27 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Docente } from '../Models/docente';
-import { SolicitudService } from '../services/solicitud.service';
-import { AuthService } from '../services/auth.service';
-import { Solicitud } from '../models/solicitud';
-import { DocenteService } from '../services/docente.service';
-import { Facultad } from '../models/facultad';
+import { Component, OnInit } from '@angular/core';
 import { GrupoInvestigacion } from '../models/grupoInvestingacion';
+import { Docente } from '../Models/docente';
+import { Solicitud } from '../models/solicitud';
+import { AuthService } from '../services/auth.service';
+import { SolicitudService } from '../services/solicitud.service';
+import { DocenteService } from '../services/docente.service';
 import { GrupoInvestigacionService } from '../services/grupoInvestigacion.service';
 import { EventoService } from '../services/evento.service';
-import { Evento } from '../models/evento';
 import { TransporteService } from '../services/transporteService';
-import { Transporte } from '../models/Transporte';
 import { SemilleroService } from '../services/Semillero.servic';
 import { Semillero } from '../models/Semillero';
+import { Transporte } from '../models/Transporte';
+import { Evento } from '../models/evento';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { SendEmailComponent } from '../send-email/send-email.component';
+import { Email } from '../models/Email';
 
 @Component({
-  selector: 'app-detalle-solicitud',
-  templateUrl: './detalle-solicitud.component.html',
-  styleUrls: ['./detalle-solicitud.component.css']
+  selector: 'app-detalle-solicitud-admin',
+  templateUrl: './detalle-solicitud-admin.component.html',
+  styleUrls: ['./detalle-solicitud-admin.component.css']
 })
-export class DetalleSolicitudComponent implements OnInit {
+export class DetalleSolicitudAdminComponent implements OnInit {
 
   solicitud : Solicitud;
   docente : Docente;
@@ -27,7 +29,7 @@ export class DetalleSolicitudComponent implements OnInit {
   evento : Evento;
   transporte : Transporte;
   semillero : Semillero;
-
+  private email : Email;
   constructor(
     private solicitudService : SolicitudService,
     private authService : AuthService,
@@ -36,7 +38,8 @@ export class DetalleSolicitudComponent implements OnInit {
     private eventoService : EventoService,
     private transporteService : TransporteService,
     private grupoService : GrupoInvestigacionService,
-    private semilleroService : SemilleroService
+    private semilleroService : SemilleroService,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit() {
@@ -62,6 +65,7 @@ export class DetalleSolicitudComponent implements OnInit {
     );
   }
   buscarGrupo(Docente : Docente){
+    this.docente = Docente;
     this.grupoInvestigacionService.get(Docente.grupoInvestigacionId)
     .subscribe(
       grupo => {this.BuscarSemillero(grupo)}
@@ -74,6 +78,10 @@ export class DetalleSolicitudComponent implements OnInit {
     .subscribe(
       semillero => {this.semillero = semillero}
     )
+  }
+
+  openEmail(){
+    
   }
 
 }

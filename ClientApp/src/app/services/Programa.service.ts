@@ -42,6 +42,14 @@ export class ProgramaService {
     );
   }
 
+  getFacultad(id: number): Observable<Programa> {
+    const url = `${this.baseUrl + 'api/Programa/Docente'}/${id}`;
+    return this.http.get<Programa>(url).pipe(
+      tap(_ => this.log(`fetched Programa id=${id}`)),
+      catchError(this.handleError<Programa>(`Programa id=${id}`))
+    );
+  }
+
   /** PUT: update the hero on the server */
   update (Programa: Programa): Observable<any> {
     const url = `${this.baseUrl + 'api/Programa'}/${Programa.id}`;

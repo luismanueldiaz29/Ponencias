@@ -33,7 +33,13 @@ export class SemilleroService {
       );
   }
 
-
+  getSemilleroGrupo(id : number ){
+    const url = `${this.baseUrl + 'api/Semillero/GrupoInvestigacion'}/${id}`;
+    return this.http.get<Semillero>(url).pipe(
+      tap(_ => this.log(`fetched Semillero id=${id}`)),
+      catchError(this.handleError<Semillero>(`Semillero id=${id}`))
+    );
+  }
 
   get(id: number): Observable<Semillero> {
     const url = `${this.baseUrl + 'api/Semillero'}/${id}`;

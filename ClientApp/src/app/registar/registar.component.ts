@@ -87,7 +87,7 @@ export class RegistarComponent implements OnInit {
     this.submitted = true;
     // stop here if form is invalid
     if (this.formGroup.invalid) {
-      this.mensaje("Resultado Operación",'No se permiten campos vacios'+this.formGroup.errors);
+      this.mensaje("Resultado Operación",'No se permiten campos vacios');
       return;
     }
     this.add();

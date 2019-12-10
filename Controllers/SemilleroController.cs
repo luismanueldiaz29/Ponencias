@@ -90,5 +90,19 @@ namespace Ponencias.Controllers
             return NoContent();
         }
 
+        [HttpGet("GrupoInvestigacion/{id}")]
+        public async Task<ActionResult<Semillero>> GetEventoSolicitud(int id)
+        {
+            var semilleros = await _context.Semillero.ToListAsync();
+            
+            foreach(Semillero element in semilleros){
+                if(element.GrupoInvestigacionId == id){
+                    return element;
+                }
+            }
+
+            return NotFound();
+        }
+
     }
 }

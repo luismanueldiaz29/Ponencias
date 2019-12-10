@@ -5,6 +5,15 @@ import { DocenteService } from 'src/app/services/docente.service';
 import { EstudianteService } from 'src/app/services/estudiante.service';
 import { Estudiante } from 'src/app/models/estudiante';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { ProgramaService } from 'src/app/services/Programa.service';
+import { Programa } from 'src/app/models/Programa';
+import { InvestigacionService } from 'src/app/services/Investigacion.service';
+import { Investigacion } from 'src/app/models/Investigacion';
+import { GrupoInvestigacion } from 'src/app/models/grupoInvestingacion';
+import { GrupoInvestigacionService } from 'src/app/services/grupoInvestigacion.service';
+import { group } from '@angular/animations';
 
 @Component({
   selector: 'app-carta-solicitud-general',
@@ -12,45 +21,62 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./carta-solicitud-general.component.css']
 })
 export class CartaSolicitudGeneralComponent implements OnInit {
-  
   imports: [MaterialModule];
-  
+  investigacion : Investigacion;
+  programa : Programa;
   docente: Docente;
-  estudiante : Estudiante;
+  grupo : GrupoInvestigacion;
+  Imports : [MaterialModule];
+  meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+  //fechas
+  date = new Date();
+  dia = this.date.getDate();
+  mes = this.meses[this.date.getMonth()];
+  ano = this.date.getFullYear();
 
-  registerForm: FormGroup;
-  submitted = false;
 
   constructor(
-      private DocenteService: DocenteService,
-      private estudianteService: EstudianteService,
-      private formBuilder: FormBuilder
+    private route: ActivatedRoute,
+    private docenteService : DocenteService,
+    private authService : AuthService, 
+    private programaService : ProgramaService,
+    private investigacioService : InvestigacionService,
+    private grupoInvestigacionService : GrupoInvestigacionService
     ) { }
-  
+
   ngOnInit() {
-    // this.registerForm = this.formBuilder.group({
-      //this.docente={id:"0",Nombres: "", Apellidos: "", Telefono: "", VinculoInst: "", Email: "", direccion: ""};
-      //this.estudiante = { NombreEstudiante: "",ApellidoEstudiante: "" }
-    // }); 
+    this.get();
+  }
+
+  get(): void{
+    const id = this.authService.getUserName();
+    this.docenteService.get(id).subscribe(
+      docente=> this.buscarPrograma(docente)
+    );
+  }
+
+  buscarPrograma(docente : Docente){
+    this.docente=docente;
+    this.buscarGrupo(docente);
+    this.programaService.get(docente.facultadId).subscribe
+    (
+      programa => this.buscarInvestigacion(programa)
+    );
+  }
+
+  buscarInvestigacion(programa : Programa){
+    this.programa = programa;
+    this.investigacioService.getInvestigacionSolicitud(parseInt(this.authService.getSolicitudId()))
+    .subscribe(
+      investigacion => this.investigacion = investigacion
+    );
   }
   
-
-  add(){
-    this.DocenteService.add(this.docente)
-    .subscribe();
-    this.estudianteService.add(this.estudiante)
-    .subscribe(); 
+  buscarGrupo(docente : Docente){
+    this.grupoInvestigacionService.get(docente.grupoInvestigacionId)
+    .subscribe(
+      grupo => this.grupo = grupo
+    )
   }
 
-  /*
-  add(){
-    this.DocenteService.add(this.docente)
-    .subscribe(docente => {
-      alert('Se agregó un nuevo docente')
-    });
-    this.estudianteService.add(this.estudiante)
-    .subscribe(estudiante => {
-      alert('se agrego un estudiante')
-    });
-  }*/
 }

@@ -14,6 +14,7 @@ namespace Ponencias.Controllers
     public class SolicitudController: ControllerBase
     {
         private readonly PonenciaContext _context;
+        EnvioDeEmail envioDeEmail = new EnvioDeEmail();
 
         public SolicitudController(PonenciaContext context){
 
@@ -43,7 +44,7 @@ namespace Ponencias.Controllers
         }
 
         [HttpGet("Docente/{id}")]
-        public async Task<ActionResult<IEnumerable<Solicitud>>> GetSolicitudDocente(string id)
+        public async Task<ActionResult<IEnumerable<Solicitud>>> GetSolicitudesDocente(string id)
         {
             var solicitudes = await _context.Solicitud.ToListAsync();
             List<Solicitud> Solicitudes = new List<Solicitud>();
@@ -62,10 +63,21 @@ namespace Ponencias.Controllers
         [HttpPost]
         public async Task<ActionResult<Solicitud>> PostSolicitud(Solicitud item)
         {
+            //Docente docente = await _context.Docente.FindAsync(item.DocenteId);
+            
             item.EstadoSolicitud = "En espera";
             _context.Solicitud.Add(item);
             await _context.SaveChangesAsync();
+            
+                // if(docente != null){
+                //     string encabezado = "Confirmacion de registro de solicitud de ponencia " + DateTime.Now.ToString("dd/ MMM / yyy hh:mm:ss");
+                //     string body = $"\nEstimado Docente se a registrado a registrado exitosamente su solicitud";
+                    
+                //     envioDeEmail.EnviarEmail(docente, encabezado, body);
+                // }
+
             return CreatedAtAction(nameof(GetSolicitud), new { id = item.id }, item);
+        
         }
 
         // PUT: api/Task/5

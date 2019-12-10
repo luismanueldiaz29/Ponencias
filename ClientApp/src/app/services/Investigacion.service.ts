@@ -42,6 +42,14 @@ export class InvestigacionService {
     );
   }
 
+  getInvestigacionSolicitud(id: number): Observable<Investigacion> {
+    const url = `${this.baseUrl + 'api/Investigacion/Solicitud'}/${id}`;
+    return this.http.get<Investigacion>(url).pipe(
+      tap(_ => this.log(`fetched Investigacion id=${id}`)),
+      catchError(this.handleError<Investigacion>(`Investigacion id=${id}`))
+    );
+  }
+
   /** PUT: update the hero on the server */
   update (Investigacion: Investigacion): Observable<any> {
     const url = `${this.baseUrl + 'api/Investigacion'}/${Investigacion.id}`;

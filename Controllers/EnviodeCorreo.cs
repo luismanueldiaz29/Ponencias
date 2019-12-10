@@ -12,13 +12,15 @@ namespace  Ponencias.Controllers
     public class EnvioDeEmail
     {
          
-        private MailMessage CrearEmail(Docente docente)
+        private MailMessage CrearEmail(Docente docente, string encabezado, string body)
         {
+
+            
             MailMessage email = new MailMessage();
             email.To.Add(docente.Email);
-            email.From = new MailAddress("Invencami@gmail.com");
-            email.Subject = "Registro de Usuario" + DateTime.Now.ToString("dd/ MMM / yyy hh:mm:ss");
-            email.Body = $"Estimado Docente : {docente.Nombres} {docente.Apellidos}\n se ha registrado su inventario exitosamente. \nSu Usuario:{docente.Email}\n Contraseña: {docente.Pass} ";
+            email.From = new MailAddress("ponenciasupc@gmail.com");
+            email.Subject = encabezado; //"Registro de Usuario " + DateTime.Now.ToString("dd/ MMM / yyy hh:mm:ss");
+            email.Body = body;//$"Estimado Docente : {docente.Nombres} {docente.Apellidos}\n se ha registrado su inventario exitosamente. Su Usuario: {docente.Email}\n Contraseña: {docente.Pass} ";
             email.IsBodyHtml = true;
             email.Priority = MailPriority.Normal;
             return email;
@@ -33,17 +35,17 @@ namespace  Ponencias.Controllers
             smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
             smtp.UseDefaultCredentials = false;
             //aca toca poner un correo con su contraseña, ojo con eso manito.
-            smtp.Credentials = new System.Net.NetworkCredential("Invencami@gmail.com", "28082018");
+            smtp.Credentials = new System.Net.NetworkCredential("ponenciasupc@gmail.com", "28082018");
             return smtp;
         }
 
-        public string EnviarEmail(Docente docente)
+        public string EnviarEmail(Docente docente, string encabezado, string body)
         {
             string resultado = string.Empty;
             try
             {
                 SmtpClient smtp = ConfigurarSMTP();
-                MailMessage email = CrearEmail(docente);
+                MailMessage email = CrearEmail(docente, encabezado, body);
                 smtp.Send(email);
                 email.Dispose();
                 resultado = "Correo enviado";

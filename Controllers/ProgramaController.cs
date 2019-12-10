@@ -90,5 +90,18 @@ namespace Ponencias.Controllers
             return NoContent();
         }
 
+        //me retornara el programa de un docente pasandole la FacultadId de docente
+        [HttpGet("Docente/{id}")]
+        public async Task<ActionResult<Programa>> GetProgramaDocent(int id)
+        {
+            var programas = await _context.Programa.ToListAsync();
+            foreach (Programa element in programas){
+                if(element.FacultadId == id){
+                    return element;
+                }
+            }
+            return NotFound();
+        }
+
     }
 }

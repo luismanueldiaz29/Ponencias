@@ -1,0 +1,20 @@
+<!-- <div class="modal-header">
+        <h4 class="modal-title">title</h4>
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <span >Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi provident itaque magnam earum ratione quas, dolores obcaecati voluptate a doloremque expedita doloribus excepturi vitae dignissimos omnis quaerat dicta harum est?</span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Cerrar</button>
+      </div> -->
+      
+<div>
+  <label for="">para : </label> <input type="text" name = "para" [(ngModel)]="email.to"><br>
+  <label for="">cc : </label> <input type="text" name = "para" [(ngModel)]="email.cc"><br>
+  <label for="">text : </label> <input type="text" name = "para" [(ngModel)]="email.titulo"><br>
+  <label for="">titulo : </label> <input type="text" name = "para" [(ngModel)]="email.text"><br><br>
+  <button (click) = "enviar()">enviar</button>
+</div>

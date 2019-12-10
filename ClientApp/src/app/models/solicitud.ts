@@ -4,5 +4,5 @@ export class Solicitud {
     NombrePonencia:string;
     FechaEntrega: string;
     EstadoSolicitud : string;
-    DocenteId : string;
+    docenteId : string;
 }

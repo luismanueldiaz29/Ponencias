@@ -70,7 +70,7 @@ export class FormComponent implements OnInit {
       NombrePonencia : "",
       EstadoSolicitud : "",
       FechaEntrega : this.dia+"/"+this.mes+"/"+this.ano,
-      DocenteId : this.authService.getUserName()
+      docenteId : this.authService.getUserName()
     };
 
     this.evento={
@@ -125,6 +125,7 @@ export class FormComponent implements OnInit {
   }
   
   agregar(SolicitudId: number){
+    this.authService.SolicitudRegistarform(SolicitudId);
     try {
       
       this.evento.SolicitudId = SolicitudId;

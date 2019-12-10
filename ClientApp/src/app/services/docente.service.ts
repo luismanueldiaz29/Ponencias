@@ -83,8 +83,26 @@ export class DocenteService {
 
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
-    //alert(message);
-    this.handlerService.log(message);
+    console.log(message);
+    //this.handlerService.log(message);
     // this.messageService.add(`HeroService: ${message}`);
   }
+
+  sendEmail(mailMessage: any) {
+    let headers = new HttpHeaders();
+
+    headers = headers.set('Accept', 'application/json');
+
+    if (mailMessage) {
+      headers = headers.set('Content-Type', 'application/json');
+    }
+
+    this.http.post(`http://localhost:5000/api/mail/sendmail`, mailMessage, {
+      headers
+    }).subscribe(result => {
+      console.log("Email sent!");
+    });
+
+  }
+
 }

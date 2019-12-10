@@ -70,7 +70,11 @@ namespace Ponencias.Controllers
             _context.Docente.Add(item); 
             await _context.SaveChangesAsync();
             //envio de correo
-            envioDeEmail.EnviarEmail(item);
+
+            string encabezado = "Registro de Usuario " + DateTime.Now.ToString("dd/ MMM / yyy hh:mm:ss");
+            string body = $"Estimado Docente : {item.Nombres} {item.Apellidos}\n se ha registrado su inventario exitosamente. Su Usuario: {item.Email}\n Contraseña: {item.Pass} ";
+            
+            envioDeEmail.EnviarEmail(item, encabezado, body);
 
             //envio de correo
             return CreatedAtAction(nameof(GetDocente), new { id = item.id }, item);
