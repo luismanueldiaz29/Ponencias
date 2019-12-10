@@ -10,7 +10,7 @@ using Ponencias.Models;
 namespace Ponencias.Migrations
 {
     [DbContext(typeof(PonenciaContext))]
-    [Migration("20191208163522_Ponencia02")]
+    [Migration("20191210160514_Ponencia02")]
     partial class Ponencia02
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,20 +26,17 @@ namespace Ponencias.Migrations
                     b.Property<string>("id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Apellido")
+                    b.Property<string>("Apellidos")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Nombre")
+                    b.Property<string>("Nombres")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Pass")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("RolesId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Usuario")
                         .IsRequired()

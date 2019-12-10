@@ -15,6 +15,8 @@ import { Evento } from '../models/evento';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SendEmailComponent } from '../send-email/send-email.component';
 import { Email } from '../models/Email';
+import { CartaDeDerechoComponent } from '../carta-de-derecho/carta-de-derecho.component';
+import { resolveSanitizationFn } from '@angular/compiler/src/render3/view/template';
 
 @Component({
   selector: 'app-detalle-solicitud-admin',
@@ -54,7 +56,6 @@ export class DetalleSolicitudAdminComponent implements OnInit {
     .subscribe(
       transporte => this.transporte = transporte
     );
-
   }
 
   agregarDocente(solicitud : Solicitud){
@@ -80,8 +81,6 @@ export class DetalleSolicitudAdminComponent implements OnInit {
     )
   }
 
-  openEmail(){
-    
-  }
+  
 
 }

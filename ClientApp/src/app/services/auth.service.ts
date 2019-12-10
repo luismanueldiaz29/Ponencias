@@ -1,29 +1,59 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { DocenteService } from './docente.service';
+import { Docente } from '../Models/docente';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AlertModalComponent } from '../@base/modals/alert-modal/alert-modal.component';
+import { AdministradorService } from './administrador.service';
+import { Administrador } from '../models/Administrador';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-    constructor(private _router: Router) {
+    docente : Docente;
+    administrador : Administrador;
+    constructor(
+        private _router: Router,
+        private modalService: NgbModal,
+        private docenteService : DocenteService,
+        private authService : AuthService,
+        private AdministradorService : AdministradorService
+    ) {
         
     }
+ 
 
     login(user: string, password: string) {
         //validar en el servidor si el usuario y password son válidos.
         //en el caso que sean válidos se deberian retornar los roles que tiene asociado dicho usuario
         //se podría encriptar el nombre de la variable
-
-        sessionStorage.setItem('user', user);
-        sessionStorage.setItem('id', password);
         
-        this._router.navigate(['/Home']);
+        if(user == "docente"){
+            this.docenteService.get(password).subscribe(
+                docente => this.AsignarRoles(user, docente.id) 
+            );
+        }
+        if(user == "admin"){
+            this.AdministradorService.get(password).subscribe(
+                administrador => this.AsignarRoles(user, administrador.id)
+            );
+        }
     }
 
+    AsignarRoles(user : string, password : string){
+        if(password != ""){
+            sessionStorage.setItem('user', user);
+            sessionStorage.setItem('id', password);
+            this._router.navigate(['/Home']);
+        }else{
+            this.mensaje("mensaje de sugerencia", "No se puede acceder");
+        }
+    }
     logout() {
       sessionStorage.clear();
-      this._router.navigate(['/login']);
+      this._router.navigate(['']);
     }
 
     GuardarSolicitud(id : number){
@@ -39,9 +69,8 @@ export class AuthService {
     }
 
     hasRole(rol: string): boolean {
-        if (!this.isAuthenticated()) return false;
-        let roles: string[] = JSON.parse(sessionStorage.getItem('roles'));
-        return roles.indexOf(rol) >= 0;
+        // if (!this.isAuthenticated()) return false;
+        return rol == sessionStorage.getItem('user');
     }
 
     getUserName(): string {
@@ -62,5 +91,11 @@ export class AuthService {
     }
     getSolicitudRegistarform(){
         return sessionStorage.getItem('SolicitudRegistarform') != null ? sessionStorage.getItem('SolicitudRegistarform'):'Anonimo';
+    }
+
+    mensaje(titulo : string, mensaje : string){
+        const messageBox = this.modalService.open(AlertModalComponent)
+          messageBox.componentInstance.title = titulo;
+          messageBox.componentInstance.message = mensaje; 
     }
 }

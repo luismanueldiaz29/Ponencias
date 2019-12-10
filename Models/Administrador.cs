@@ -8,21 +8,17 @@ namespace Ponencias.Models
         [JsonProperty("id")][Key]
         public string id {get; set;}
 
-        [JsonProperty("Nombre")][Required]
-        public string Nombre {get; set;}
+        [JsonProperty("Nombres")][Required]
+        public string Nombres {get; set;}
 
-        [JsonProperty("Apellido")][Required]
-        public string Apellido {get; set;}
+        [JsonProperty("Apellidos")][Required]
+        public string Apellidos {get; set;}
 
         [JsonProperty("Usuario")][Required]
         public string Usuario {get; set;}
 
         [JsonProperty("Pass")][Required]
         public string Pass {get; set;}
-
-        [JsonProperty("RolesId")]
-        public int RolesId {get; set;}
-
 
     }
 }

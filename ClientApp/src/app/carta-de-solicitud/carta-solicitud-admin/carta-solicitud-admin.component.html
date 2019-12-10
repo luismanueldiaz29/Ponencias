@@ -1,7 +1,7 @@
 <app-nav-menu-acc></app-nav-menu-acc>
 <div class="borde">
     <div class="agrupar">
-        <mat-horizontal-stepper linear #stepper>
+        <mat-horizontal-stepper linear #stepper class="stepper">
             <mat-step [stepControl]="firstFormGroup">
                 <ng-template matStepLabel>CARTA DE ORIGINALIDAD</ng-template>
                 <!-- <form [formGroup]="firstFormGroup" >
@@ -66,6 +66,11 @@
                     <br><br>
 
                     <div class="btn-imprimir">
+                        <div class="no-print">
+                            <input class="btn btn-primary" type="button" name="imprimir" value="Imprimir" onclick="window.print();">
+                        </div>
+                    </div>
+                    <div class="no-print">
                         <div class="container">
                             <div class="row">
                                 <div class="ml-auto">

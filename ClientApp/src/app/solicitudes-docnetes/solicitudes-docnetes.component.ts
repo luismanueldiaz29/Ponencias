@@ -33,6 +33,7 @@ export class SolicitudesDocnetesComponent implements OnInit {
   }
 
   getRecord(solicitud : Solicitud){
+    alert(solicitud.id);
     this.authService.GuardarSolicitud(solicitud.id);
   }
 

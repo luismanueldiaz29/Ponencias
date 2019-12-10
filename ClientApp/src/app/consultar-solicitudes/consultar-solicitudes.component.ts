@@ -25,8 +25,16 @@ export class ConsultarSolicitudesComponent implements OnInit {
   ngOnInit() {
     this.solicitudService.getSolicitudDocente(this.authService.getUserName())
     .subscribe(
-      solicitud => this.solicitudes = solicitud
+      solicitud => this.ValidarSolicitudes(solicitud)
     );
+    
+  }
+
+  ValidarSolicitudes(solicitudes : Solicitud[]){
+    this.solicitudes = solicitudes;
+    if(solicitudes.length == null){
+      alert("No se encontraron solicitudes")
+    }
     this.mensaje('Seleccione la fila para ver los de detalles de la solicitud');
   }
 
@@ -37,7 +45,6 @@ export class ConsultarSolicitudesComponent implements OnInit {
   }
 
   getRecord(solicitud : Solicitud){
-    alert('se tomo la fila '+solicitud.id);
     this.authService.GuardarSolicitud(solicitud.id);
   }
 

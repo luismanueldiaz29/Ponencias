@@ -20,6 +20,7 @@ import { DetalleSolicitudComponent } from './detalle-solicitud/detalle-solicitud
 import { SolicitudesDocnetesComponent } from './solicitudes-docnetes/solicitudes-docnetes.component';
 import { DetalleSolicitudAdminComponent } from './detalle-solicitud-admin/detalle-solicitud-admin.component';
 import { SendEmailComponent } from './send-email/send-email.component';
+import { CartaSolicitudAdminComponent } from './carta-de-solicitud/carta-solicitud-admin/carta-solicitud-admin.component';
 
 const routes: Routes = [
   
@@ -95,6 +96,10 @@ const routes: Routes = [
   {
     path : "SendEmailComponent",
     component : SendEmailComponent
+  },
+  {
+    path : "cartas",
+    component : CartaSolicitudAdminComponent
   }
 ]
 

@@ -48,7 +48,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 @media print
 {    
-    .no-print, h1, h2, .no-print *
+    .no-print, h1, h2, .no-print, .stepper *
     {
         display: none !important;
     }

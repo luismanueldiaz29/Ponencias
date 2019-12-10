@@ -24,20 +24,17 @@ namespace Ponencias.Migrations
                     b.Property<string>("id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Apellido")
+                    b.Property<string>("Apellidos")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Nombre")
+                    b.Property<string>("Nombres")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Pass")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("RolesId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Usuario")
                         .IsRequired()

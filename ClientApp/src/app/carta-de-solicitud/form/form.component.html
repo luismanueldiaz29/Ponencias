@@ -5,7 +5,7 @@
         <mat-horizontal-stepper linear #stepper>
             <mat-step [stepControl]="firstFormGroup">
                 <form [formGroup]="firstFormGroup" >
-                    <ng-template matStepLabel>Informacion general</ng-template>
+                    <ng-template matStepLabel>Información general</ng-template>
                     
                     <!-- solicitud de ponecias -->
                     <!-- <app-carta-solicitud-general></app-carta-solicitud-general> -->
@@ -13,7 +13,7 @@
                         <h1>Solicitud de ponencia</h1>
                     </header>
                     <br>
-                    <h2>Informacion general</h2>
+                    <h2>Información general</h2>
                     <hr>
                     <br>
                     <div class="row"> 
@@ -84,7 +84,7 @@
             
             <mat-step [stepControl]="secondFormGroup">
                 <form [formGroup]="secondFormGroup">
-                    <ng-template matStepLabel>Informacion del evento</ng-template>
+                    <ng-template matStepLabel>Información del evento</ng-template>
 
                     <!-- Infromacion del evento -->
                     <!-- <app-infromacion-evento></app-infromacion-evento> -->
@@ -93,7 +93,7 @@
                         <h1>Solicitud de ponencia</h1>
                     </header>
                     <br>
-                    <h2>Informacion del evento</h2>
+                    <h2>Información del evento</h2>
                     <hr>
                     <br>
                         <div class="row">
@@ -285,22 +285,21 @@
                                 <div class="col-md-6">
                                         <button class="btn btn-info" mat-button matStepperPrevious>Anterior</button>
                                 </div>
-                                <div class="ml-auto">
+                                <!--<div class="ml-auto">
                                     <div class="ml-auto">
                                             <button class="btn btn-info" mat-button matStepperNext>Siguiente</button>
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                 </form>
             </mat-step>
-            <mat-step>
+            <!-- <mat-step>
                 <ng-template matStepLabel>Anexos</ng-template>
-                <!-- Anexos -->
                 <app-anexos></app-anexos>
                 
                 <button class="btn btn-info"  mat-button matStepperPrevious>Anterior</button>
-            </mat-step>    
+            </mat-step>     -->
         </mat-horizontal-stepper>
     </div>    
 </div>

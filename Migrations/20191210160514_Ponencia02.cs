@@ -12,11 +12,10 @@ namespace Ponencias.Migrations
                 columns: table => new
                 {
                     id = table.Column<string>(nullable: false),
-                    Nombre = table.Column<string>(nullable: false),
-                    Apellido = table.Column<string>(nullable: false),
+                    Nombres = table.Column<string>(nullable: false),
+                    Apellidos = table.Column<string>(nullable: false),
                     Usuario = table.Column<string>(nullable: false),
-                    Pass = table.Column<string>(nullable: false),
-                    RolesId = table.Column<int>(nullable: false)
+                    Pass = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {

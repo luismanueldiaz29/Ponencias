@@ -19,6 +19,7 @@ import { AlertModalComponent } from 'src/app/@base/modals/alert-modal/alert-moda
 import { NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { EstudianteService } from 'src/app/services/estudiante.service';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -46,6 +47,7 @@ export class FormComponent implements OnInit {
   submitted: boolean;
 
   constructor(
+    private _router: Router,
     private location: Location,
     private modalService: NgbModal,
     private _formBuilder: FormBuilder,
@@ -125,6 +127,7 @@ export class FormComponent implements OnInit {
   }
   
   agregar(SolicitudId: number){
+    this.authService.GuardarSolicitud(SolicitudId)
     this.authService.SolicitudRegistarform(SolicitudId);
     try {
       
@@ -155,8 +158,7 @@ export class FormComponent implements OnInit {
       );
 
       this.mensaje("Resultado Operación",'La operación fue un exito  SUCCESS!! :-)');
-      this.location.back();
-
+      this._router.navigate(['/carta_Solicitud_general']);
     } catch (error) {
       this.mensaje("Resultado Operación",'Ocurrio un error'+error);  
     } 

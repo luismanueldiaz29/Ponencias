@@ -1,26 +1,22 @@
-import {Component, OnInit} from '@angular/core';
-import { MaterialModule } from 'src/app/material/material';
-import { Docente } from 'src/app/models/docente';
-import { DocenteService } from 'src/app/services/docente.service';
-import { EstudianteService } from 'src/app/services/estudiante.service';
-import { Estudiante } from 'src/app/models/estudiante';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
-import { ProgramaService } from 'src/app/services/Programa.service';
+import { Component, OnInit } from '@angular/core';
+import { Docente } from 'src/app/Models/docente';
 import { Programa } from 'src/app/models/Programa';
-import { InvestigacionService } from 'src/app/services/Investigacion.service';
+import { ActivatedRoute } from '@angular/router';
+import { DocenteService } from 'src/app/services/docente.service';
+import { MaterialModule } from 'src/app/material/material';
 import { Investigacion } from 'src/app/models/Investigacion';
 import { GrupoInvestigacion } from 'src/app/models/grupoInvestingacion';
+import { AuthService } from 'src/app/services/auth.service';
+import { ProgramaService } from 'src/app/services/Programa.service';
+import { InvestigacionService } from 'src/app/services/Investigacion.service';
 import { GrupoInvestigacionService } from 'src/app/services/grupoInvestigacion.service';
-import { group } from '@angular/animations';
 
 @Component({
-  selector: 'app-carta-solicitud-general',
-  templateUrl: './carta-solicitud-general.component.html',
-  styleUrls: ['./carta-solicitud-general.component.css']
+  selector: 'app-carta-solicitud-admin',
+  templateUrl: './carta-solicitud-admin.component.html',
+  styleUrls: ['./carta-solicitud-admin.component.css']
 })
-export class CartaSolicitudGeneralComponent implements OnInit {
+export class CartaSolicitudAdminComponent implements OnInit {
   imports: [MaterialModule];
   investigacion : Investigacion;
   programa : Programa;
@@ -50,7 +46,7 @@ export class CartaSolicitudGeneralComponent implements OnInit {
   
 
   get(): void{
-    const id = this.authService.getUserName();
+    const id = this.authService.getDocenteSeleccionado();
     this.docenteService.get(id).subscribe(
       docente=> this.buscarPrograma(docente)
     );
@@ -80,5 +76,4 @@ export class CartaSolicitudGeneralComponent implements OnInit {
       grupo => this.grupo = grupo
     )
   }
-
 }

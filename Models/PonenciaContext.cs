@@ -18,6 +18,7 @@ namespace Ponencias.Models
         public DbSet<Repositorio> Repositorio { get; set; }
         public DbSet<Semillero> Semillero { get; set; }
         public DbSet<Facultad> Facultad { get; set; }
+
         
     }
 }
