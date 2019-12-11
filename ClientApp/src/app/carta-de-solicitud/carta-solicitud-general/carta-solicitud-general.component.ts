@@ -5,7 +5,7 @@ import { DocenteService } from 'src/app/services/docente.service';
 import { EstudianteService } from 'src/app/services/estudiante.service';
 import { Estudiante } from 'src/app/models/estudiante';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProgramaService } from 'src/app/services/Programa.service';
 import { Programa } from 'src/app/models/Programa';
@@ -36,6 +36,7 @@ export class CartaSolicitudGeneralComponent implements OnInit {
 
 
   constructor(
+    private _router: Router,
     private route: ActivatedRoute,
     private docenteService : DocenteService,
     private authService : AuthService, 
@@ -79,6 +80,10 @@ export class CartaSolicitudGeneralComponent implements OnInit {
     .subscribe(
       grupo => this.grupo = grupo
     )
+  }
+
+  volver(){
+    this._router.navigate(['/Home']);
   }
 
 }

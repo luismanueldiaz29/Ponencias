@@ -1,7 +1,7 @@
 <app-nav-menu-acc></app-nav-menu-acc>
 <div class="borde">
     <div class="agrupar">
-        <mat-horizontal-stepper linear #stepper class="stepper">
+        <mat-horizontal-stepper linear #stepper>
             <mat-step [stepControl]="firstFormGroup">
                 <ng-template matStepLabel>CARTA DE ORIGINALIDAD</ng-template>
                 <!-- <form [formGroup]="firstFormGroup" >
@@ -63,13 +63,14 @@
                         FIRMA <span class="firma"></span> CC: <span class = "datos">{{docente.id}}</span> de <span class="datos">Valledupar</span>
                     </div>
             
-                    <br><br>
+                    <br>
 
                     <div class="btn-imprimir">
                         <div class="no-print">
                             <input class="btn btn-primary" type="button" name="imprimir" value="Imprimir" onclick="window.print();">
                         </div>
                     </div>
+                    <br>
                     <div class="no-print">
                         <div class="container">
                             <div class="row">
@@ -84,7 +85,9 @@
 
             </mat-step> 
             <mat-step [stepControl]="secondFormGroup">
-                <ng-template matStepLabel>CESIÓN DE DERECHOS PATRIMONIALES</ng-template>
+                <div class="label">
+                    <ng-template matStepLabel>CESIÓN DE DERECHOS PATRIMONIALES</ng-template>
+                </div>
                     <!-- <form [formGroup]="secondFormGroup">
                     
                     </form> --> 
@@ -176,8 +179,13 @@
                         NOMBRE: <span class="datos">{{docente.nombres}} {{docente.apellidos}}</span><br>
                         FIRMA <span class="firma"></span> CC: <span class = "datos">{{docente.id}}</span> de <span class="datos">Valledupar</span>
                 </div>
-                <br><br><br>
-
+                <br>
+                <div class="btn-imprimir">
+                        <div class="no-print">
+                            <input class="btn btn-primary" type="button" name="imprimir" value="Imprimir" onclick="window.print();">
+                        </div>
+                    </div>
+                    <br>
                 <div class="no-print">
                         <div class="row">
                             <div class="col-md-6">

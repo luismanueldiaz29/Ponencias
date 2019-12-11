@@ -15,5 +15,6 @@ namespace Ponencias.Models
         public string NombreFacultad {get; set;}
         
         public List<Docente> Docentes { get; } = new List<Docente>();
+        
     }
 }

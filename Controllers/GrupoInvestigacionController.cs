@@ -26,7 +26,7 @@ namespace Ponencias.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<GrupoInvestigacion>>> GetGrupoInvestigacion()
+        public async Task<ActionResult<IEnumerable<GrupoInvestigacion>>> GetGrupoInvestigaciones()
         {
             return await _context.GrupoInvestigacion.ToListAsync();
         }
@@ -42,14 +42,15 @@ namespace Ponencias.Controllers
             return GrupoInvestigacion;
         }
 
-        [ProducesResponseType(201)]     // Created
-        [ProducesResponseType(400)]     // BadRequest
+        // [ProducesResponseType(201)]     // Created
+        // [ProducesResponseType(400)]     // BadRequest
         // POST: api/Task
         [HttpPost]
         public async Task<ActionResult<GrupoInvestigacion>> Post(GrupoInvestigacion item)
         {
-            await _context.SaveChangesAsync();
+            
             _context.GrupoInvestigacion.Add(item); 
+            await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetGrupoInvestigacion), new { id = item.id }, item);
         }
 

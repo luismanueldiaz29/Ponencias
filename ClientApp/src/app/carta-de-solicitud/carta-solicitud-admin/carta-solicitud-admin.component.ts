@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Docente } from 'src/app/Models/docente';
 import { Programa } from 'src/app/models/Programa';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DocenteService } from 'src/app/services/docente.service';
 import { MaterialModule } from 'src/app/material/material';
 import { Investigacion } from 'src/app/models/Investigacion';
@@ -32,6 +32,7 @@ export class CartaSolicitudAdminComponent implements OnInit {
 
 
   constructor(
+
     private route: ActivatedRoute,
     private docenteService : DocenteService,
     private authService : AuthService, 
@@ -76,4 +77,6 @@ export class CartaSolicitudAdminComponent implements OnInit {
       grupo => this.grupo = grupo
     )
   }
+
+
 }

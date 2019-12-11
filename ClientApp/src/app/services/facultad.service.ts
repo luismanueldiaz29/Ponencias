@@ -30,7 +30,7 @@ export class FacultadService {
    getAll(): Observable<Facultad[]> {
     return this.http.get<Facultad[]>(this.baseUrl + 'api/Facultad')
       .pipe(
-        tap(_ => this.log('fetched Facultad')),
+        tap(f => this.log('fetched Facultad'+f.length)),
         catchError(this.handleError<Facultad[]>('getFacultad', []))
       );
   }
@@ -83,7 +83,7 @@ export class FacultadService {
 
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
-    // alert(message);
+    console.log(message);
     // this.messageService.add(`HeroService: ${message}`);
   }
 

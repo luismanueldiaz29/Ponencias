@@ -10,7 +10,13 @@
 
 li{
     font-size: 120%;
+    
 }
+
+.ul li{
+    color: #0366d6;
+}
+
 h4, .ul{
     text-align: center;
 }

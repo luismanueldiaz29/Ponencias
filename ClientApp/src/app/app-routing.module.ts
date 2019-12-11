@@ -21,6 +21,9 @@ import { SolicitudesDocnetesComponent } from './solicitudes-docnetes/solicitudes
 import { DetalleSolicitudAdminComponent } from './detalle-solicitud-admin/detalle-solicitud-admin.component';
 import { SendEmailComponent } from './send-email/send-email.component';
 import { CartaSolicitudAdminComponent } from './carta-de-solicitud/carta-solicitud-admin/carta-solicitud-admin.component';
+import { GrupoInvestigacion } from './models/grupoInvestingacion';
+import { GrupoInvestigacionComponent } from './@base/modals/grupo-investigacion/grupo-investigacion.component';
+import { ProgramaComponent } from './@base/modals/programa/programa.component';
 
 const routes: Routes = [
   
@@ -100,6 +103,14 @@ const routes: Routes = [
   {
     path : "cartas",
     component : CartaSolicitudAdminComponent
+  },
+  {
+    path : "gupoInvestigacion",
+    component : GrupoInvestigacionComponent
+  },
+  {
+    path : "Programa",
+    component : ProgramaComponent
   }
 ]
 

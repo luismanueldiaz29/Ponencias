@@ -1,0 +1,41 @@
+<div class="modal-header">
+    <h4 class="modal-title">Agregar Programa</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <br>
+        <form [formGroup]="firstFormGroup">
+          <div class="row">
+            <div class="col-6">
+              <mat-form-field>
+                  <input matInput placeholder="Nombre del programa" 
+                      type="text" formControlName="Programa" 
+                      [(ngModel)]="programa.NombrePrograma" 
+                      required
+                  />
+              </mat-form-field>
+            </div>
+            <div class="col-6">
+                <!-- <mat-form-field>
+                    <mat-label>Facultad</mat-label>
+                    <mat-select [(ngModel)]="programa.FacultadId" formControlName ="Facultad"  required>
+                      <mat-option *ngFor="let facultad of facultades" [value]="facultad.id">
+                        {{facultad.id}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field> -->
+                  <mat-form-field>
+                      <mat-label>Facultad :</mat-label>
+                          <select matNativeControl formControlName ="Facultad" [(ngModel)]="programa.FacultadId"  required>
+                              <option *ngFor="let facultad of facultades" [value]="facultad.id">{{facultad.nombreFacultad}}</option>
+                          </select>
+                  </mat-form-field>
+            </div>  
+          </div>
+        </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="Guardar()">Guardar</button>
+  </div>

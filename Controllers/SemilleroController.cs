@@ -91,7 +91,7 @@ namespace Ponencias.Controllers
         }
 
         [HttpGet("GrupoInvestigacion/{id}")]
-        public async Task<ActionResult<Semillero>> GetEventoSolicitud(int id)
+        public async Task<ActionResult<Semillero>> GetSemilleroGrupo(int id)
         {
             var semilleros = await _context.Semillero.ToListAsync();
             

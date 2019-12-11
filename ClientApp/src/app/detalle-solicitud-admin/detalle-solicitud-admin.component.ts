@@ -17,6 +17,8 @@ import { SendEmailComponent } from '../send-email/send-email.component';
 import { Email } from '../models/Email';
 import { CartaDeDerechoComponent } from '../carta-de-derecho/carta-de-derecho.component';
 import { resolveSanitizationFn } from '@angular/compiler/src/render3/view/template';
+import { Notification } from 'rxjs';
+import { AlertModalComponent } from '../@base/modals/alert-modal/alert-modal.component';
 
 @Component({
   selector: 'app-detalle-solicitud-admin',
@@ -81,6 +83,8 @@ export class DetalleSolicitudAdminComponent implements OnInit {
     )
   }
 
-  
-
+  // notificar(){
+  //   const messageBox = this.modalService.open(NotificacionComponent);
+  //   messageBox.componentInstance.docente = this.docente;
+  // }
 }

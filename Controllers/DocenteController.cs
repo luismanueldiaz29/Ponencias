@@ -63,7 +63,6 @@ namespace Ponencias.Controllers
         //             Status = StatusCodes.Status400BadRequest,
         //         };
         //         return BadRequest(problemDetails);
-
         //    }
 
             

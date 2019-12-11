@@ -25,7 +25,7 @@ namespace Ponencias.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Programa>>> GetPrograma()
+        public async Task<ActionResult<IEnumerable<Programa>>> GetProgramas()
         {
             return await _context.Programa.ToListAsync();
         }
@@ -41,20 +41,14 @@ namespace Ponencias.Controllers
             return programa;
         }
 
-        [ProducesResponseType(201)]     // Created
-        [ProducesResponseType(400)]     // BadRequest
+        // [ProducesResponseType(201)]     // Created
+        // [ProducesResponseType(400)]     // BadRequest
         // POST: api/Programa
         [HttpPost]
         public async Task<ActionResult<Programa>> Post(Programa item)
         {
-           
-           
-            _context.Programa.Add(item); 
-            if(!ModelState.IsValid){
-                return BadRequest(ModelState);
-            }
+            _context.Programa.Add(item);
             await _context.SaveChangesAsync();
-
             return CreatedAtAction(nameof(GetPrograma), new { id = item.id }, item);
         }
 

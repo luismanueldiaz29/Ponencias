@@ -31,6 +31,8 @@ import { SolicitudesDocnetesComponent } from './solicitudes-docnetes/solicitudes
 import { DetalleSolicitudAdminComponent } from './detalle-solicitud-admin/detalle-solicitud-admin.component';
 import { SendEmailComponent } from './send-email/send-email.component';
 import { CartaSolicitudAdminComponent } from './carta-de-solicitud/carta-solicitud-admin/carta-solicitud-admin.component';
+import { GrupoInvestigacionComponent } from './@base/modals/grupo-investigacion/grupo-investigacion.component';
+import { ProgramaComponent } from './@base/modals/programa/programa.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { CartaSolicitudAdminComponent } from './carta-de-solicitud/carta-solicit
     SolicitudesDocnetesComponent,
     DetalleSolicitudAdminComponent,
     SendEmailComponent,
-    CartaSolicitudAdminComponent
+    CartaSolicitudAdminComponent,
+    GrupoInvestigacionComponent,
+    ProgramaComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

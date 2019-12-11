@@ -1,70 +1,201 @@
 <app-nav-menu-acc></app-nav-menu-acc>
-
 <div class="borde">
     <div class="agrupar">
-        
-        <header class="Titulo">
-            <h1>Carta de originalidad</h1>
-        </header>
-        <div class = "Carta">
-            <br>
-            <div class="img">
-                <img src="/assets/CartaOriginalidad.JPG" alt="Encabezado" >
+        <mat-horizontal-stepper linear #stepper class="stepper">
+            <mat-step [stepControl]="firstFormGroup">
+            <div class="label">
+                <ng-template matStepLabel>CARTA DE ORIGINALIDAD</ng-template>
             </div>
-            <br><br>
-            Señores <br>
-            <b>UNIVERSIDAD POPULAR DEL CESAR</b><br>
-            Valledupar – Cesar <br>
-            <br>
-            <br>
-            Yo <span class="datos">{{docente.nombres}} {{docente.apellidos}}</span>, mayor de edad,
-            identificado(a) con la cédula de ciudadanía número <span class="datos">{{docente.id}}</span> de <span class = "datos">Valledupar</span>,
-            con filiación institucional <span class="datos">{{docente.vinculoInst}}</span>, residente en
-            <span class="datos">{{docente.direccion}}</span> , teniendo todas mis facultades en pleno y de voluntad y en
-            calidad de Autor del Texto:
-            <br><br>
-            <input type="text" required class="form-control datepicker"/>
-            <br><br>
-            <p>
-                Doy fe que el texto es original y de mi propia y exclusiva creación conforme a la ley de
-                propiedad intelectual de derechos de autor en Colombia y manifiesto que: 
-            </p>    
-                <ul>
-                    <li>
-                        La información en ella contenida no tiene carácter confidencial.
-                    </li>
-                    <li>
-                        La autorización aquí otorgada cuenta con el consentimiento de todos los que
-                        patrocinaron o participaron en la investigación y/o creación de la obra.
-                    </li>
-                    <li>
-                        Que estamos de acuerdo con el orden de la lista de autores presentados, y que
-                        no existe personal adicional que pueda reclamar derechos de autoría. el número
-                        y orden de autores No contiene declaraciones difamatorias contra terceros y
-                        respeta el derecho a la imagen, intimidad, buen nombre y demás derechos
-                        constitucionales de las personas.
-                    </li>    
-                    <li>
-                        No existe de conflictos de intereses que puedan afectar el contenido de este, en
-                        caso de existirlo declaramos lo siguiente:
-                    </li>
-                </ul>
-            <br>
-                <input type="text" required class="form-control datepicker"/>
-            <br><br>
-            Para efectos de legalidad se firma en la ciudad de <span class="datos">Valledupar</span> a
-            los <span class="datos">{{dia}}</span> días del mes de <span class="datos">{{mes}}</span> del año <span class="datos">{{ano}}</span>
-            <br><br>
-            NOMBRE: <span class="datos">{{docente.nombres}} {{docente.apellidos}}</span><br>
-            FIRMA <span class="firma"></span> CC: <span class = "datos">{{docente.id}}</span> de <span class="datos">Valledupar</span>
-        </div>
+                <!-- <form [formGroup]="firstFormGroup" >
+        
+                </form> -->
+                
+                    <header class="Titulo">
+                        <h1>Carta de originalidad</h1>
+                    </header>
+                    <div class = "Carta">
+                        <div class="img">
+                            <img src="/assets/CartaOriginalidad.JPG" alt="Encabezado" >
+                        </div>
+                        <br><br>
+                        Señores <br>
+                        <b>UNIVERSIDAD POPULAR DEL CESAR</b><br>
+                        Valledupar – Cesar <br>
+                        <br>
+                        <br>
+                        Yo <span class="datos">{{docente.nombres}} {{docente.apellidos}}</span>, mayor de edad,
+                        identificado(a) con la cédula de ciudadanía número <span class="datos">{{docente.id}}</span> de <span class = "datos">Valledupar</span>,
+                        con filiación institucional <span class="datos">{{docente.vinculoInst}}</span>, residente en
+                        <span class="datos">{{docente.direccion}}</span> , teniendo todas mis facultades en pleno y de voluntad y en
+                        calidad de Autor del Texto:
+                        <br><br>
+                        <input type="text" required class="form-control datepicker"/>
+                        <br><br>
+                        <p>
+                            Doy fe que el texto es original y de mi propia y exclusiva creación conforme a la ley de
+                            propiedad intelectual de derechos de autor en Colombia y manifiesto que: 
+                        </p>    
+                            <ul>
+                                <li>
+                                    La información en ella contenida no tiene carácter confidencial.
+                                </li>
+                                <li>
+                                    La autorización aquí otorgada cuenta con el consentimiento de todos los que
+                                    patrocinaron o participaron en la investigación y/o creación de la obra.
+                                </li>
+                                <li>
+                                    Que estamos de acuerdo con el orden de la lista de autores presentados, y que
+                                    no existe personal adicional que pueda reclamar derechos de autoría. el número
+                                    y orden de autores No contiene declaraciones difamatorias contra terceros y
+                                    respeta el derecho a la imagen, intimidad, buen nombre y demás derechos
+                                    constitucionales de las personas.
+                                </li>    
+                                <li>
+                                    No existe de conflictos de intereses que puedan afectar el contenido de este, en
+                                    caso de existirlo declaramos lo siguiente:
+                                </li>
+                            </ul>
+                        <br>
+                            <input type="text" required class="form-control datepicker"/>
+                        <br><br>
+                        Para efectos de legalidad se firma en la ciudad de <span class="datos">Valledupar</span> a
+                        los <span class="datos">{{dia}}</span> días del mes de <span class="datos">{{mes}}</span> del año <span class="datos">{{ano}}</span>
+                        <br><br>
+                        NOMBRE: <span class="datos">{{docente.nombres}} {{docente.apellidos}}</span><br>
+                        FIRMA <span class="firma"></span> CC: <span class = "datos">{{docente.id}}</span> de <span class="datos">Valledupar</span>
+                    </div>
+            
+                    <br><br>
 
-        <br><br>
-        
-        <div class="btn-imprimir">
-            <div class="no-print">
-                <input class="btn btn-primary" type="button" name="imprimir" value="Imprimir" onclick="window.print();">
-            </div>
-        </div>
+                    <div class="btn-imprimir">
+                        <div class="no-print">
+                            <input class="btn btn-primary" type="button" name="imprimir" value="Imprimir" onclick="window.print();">
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="no-print">
+                        <div class="container">
+                            <div class="row">
+                                <div class="ml-auto">
+                                    <div class="ml-auto">
+                                        <button class="btn btn-info" mat-button  matStepperNext>Siguiente</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+            </mat-step> 
+            <mat-step [stepControl]="secondFormGroup">
+                <div class="label">
+                    <ng-template matStepLabel>CESIÓN DE DERECHOS PATRIMONIALES</ng-template>
+                </div>
+                    <!-- <form [formGroup]="secondFormGroup">
+                    
+                    </form> --> 
+                    <header class="Titulo">
+                        <h1>Carta de cesion derechos de autor</h1>
+                    </header>
+                    <div class="img">
+                        <img src="/assets/CecionDerecho.PNG" alt="Encabezado" >
+                    </div>
+                    <div>
+                        <br><br>
+                        Señores <br>
+                        <b>UNIVERSIDAD POPULAR DEL CESAR</b><br>
+                        Valledupar – Cesar <br>
+                        <br>
+                        <br>
+                        <span class="datos">{{docente.nombres}} {{docente.apellidos}}</span> mayor de edad, identificado(a) con la cédula de ciudadanía número <span class="datos">{{docente.id}}</span>
+                        de <span class="datos">Valledupar</span>, con filiación institucional al programa de <span class="datos">{{programa.nombrePrograma}}</span>, en adelante el
+                        CEDENTE, actuando en nombre propio y en su calidad de titular de los derechos de autor
+                        sobre el la obra denominada <span class="datos">{{investigacion.nombreInvestigacion}}</span>, por medio del presente acto CEDE los
+                        DERECHOS PATRIMONIALES DE AUTOR sobre la misma a la UNIVERSIDAD POPULAR DEL
+                        CESAR, con NIT número 892300285-6, en adelante el CESIONARIO, conforme a las
+                        siguientes clausulas:
+                        <br><br>
+                        <ol>
+                            <li>
+                                El CODENTE cede al CESIONARIO la totalidad de los DERECHOS PATRIMONIALES DE
+                                AUTOR sobre la obra <span class="datos">{{investigacion.nombreInvestigacion}}</span>, por él creada, en desarrollo del proyecto de
+                                investigación <span class="datos">{{investigacion.nombreInvestigacion}}</span>, adscrito al Grupo de Investigación <span class="datos">{{grupo.nombreGrupo}}</span>
+                                de la Universidad Popular del Cesar.
+                            </li>
+                            <br>
+                            <li>
+                                El CESIONARIO es, en adelante, y en virtud del presente acto, el titular exclusivo
+                                de todos los derechos patrimoniales de autor que le otorga el CEDENTE, en su
+                                calidad de autor de la obra; por lo tanto, puede disponer libremente de esta
+                                creación y utilizarla en cualquier medio y/o procedimiento, conocido o por
+                                conocer, y queda autorizado para su registro y posterior explotación comercial.
+                                Esta cesión otorgada se ajusta a lo establecido en la norma, conservando el autor
+                                los derechos morales de la actividad académica antes citada acorde al artículo 30
+                                de la Ley 23 de 1982.
+                            </li>
+                            <br>
+                            <li>
+                                El CEDENTE declara que la obra objeto de cesión, es un trabajo original suyo y que
+                                fue legalmente creada sin hacer uso ilegítimo de los derechos de propiedad
+                                intelectual de terceros, por lo que se hace responsable por cualquier reclamación
+                                que se haga por estos conceptos y se obliga al saneamiento.
+                                4. El CEDENTE declara que esta CESIÓN no contraviene ninguna disposición
+                                contractual y que se hace con el consentimiento de todos los que patrocinaron o
+                                participaron en la creación de la obra de que se trata y de todos los autores de la
+                                misma.
+                            </li>
+                            <br>
+                            <li>
+                                EL CESIONARIO, se compromete a respetar los derechos morales de autor sobre la
+                                obra objeto del presente acto.
+                                6. Los derechos concedidos al CESIONARIO, en virtud de la presente documento,
+                                podrán ser ejercidos por éste, sin limitación de modo, en cualquier lugar del
+                                mundo y por el tiempo de protección correspondiente a la obra objeto de este
+                                acto.
+                            </li>
+                            <br>
+                            <li>
+                                EL CESIONARIO declara que con la obra no se ha quebrantado ningún derecho
+                                moral o patrimonial de autor, además que no contiene declaraciones difamatorias
+                                contra terceros y respeta el derecho a la imagen, intimidad, buen nombre y demás
+                                derechos constitucionales de las personas; y que la información en ella contenida
+                                no tiene carácter confidencial.
+                            </li>
+                            <br>
+                            <li>
+                                El CEDENTE se obliga a no celebrar actos o convenios que atenten contra los
+                                derechos que el CESIONARIO ha adquirido por medio de la presente CESIÓN.
+                            </li>
+                            <br>
+                            <li>
+                                El CEDENTE declara que conoce y acepta las políticas y normas de de Propiedad
+                                Intelectual de la Universidad Popular del Cesar. De igual forma, acepta que
+                                cualquier cambio efectuado en la prealudida normativa no altera los derechos
+                                adquiridos por el CESIONARIO en virtud de la presente CESIÓN.
+                            </li>
+                        </ol>
+                        <br><br>
+                        En consecuencia se firma en la Ciudad de <span class="datos">Valledupar</span> a los <span class="datos">{{dia}}</span> días del mes de <span class="datos">{{mes}}</span> 
+                        del año <span class="datos">{{ano}}</span>
+                        <br><br>
+                        
+                        NOMBRE: <span class="datos">{{docente.nombres}} {{docente.apellidos}}</span><br>
+                        FIRMA <span class="firma"></span> CC: <span class = "datos">{{docente.id}}</span> de <span class="datos">Valledupar</span>
+                </div>
+                <br><br><br>
+                <div class="btn-imprimir">
+                        <div class="no-print">
+                            <input class="btn btn-primary" type="button" name="imprimir" value="Imprimir" onclick="window.print();">
+                        </div>
+                    </div>
+                    <br><br>
+                <div class="no-print">
+                        <div class="row">
+                            <div class="col-md-6">
+                                    <button class="btn btn-info" mat-button matStepperPrevious>Anterior</button>
+                            </div>
+                    </div>
+                </div>
+            </mat-step> 
+        </mat-horizontal-stepper>
     </div>
-</div>  
+</div>

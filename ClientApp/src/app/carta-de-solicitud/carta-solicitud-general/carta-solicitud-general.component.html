@@ -64,19 +64,18 @@
                     </div>
             
                     <br><br>
-
-                    <div class="btn-imprimir">
-                        <div class="container">
-                            <div class="row">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                    <button class="btn btn-info" (click)="volver()" mat-button matStepperPrevious>Volver</button>
+                            </div>
+                            <div class="ml-auto">
                                 <div class="ml-auto">
-                                    <div class="ml-auto">
-                                        <button class="btn btn-info" mat-button  matStepperNext>Siguiente</button>
-                                    </div>
+                                        <button class="btn btn-info" mat-button matStepperNext>Siguiente</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
             </mat-step> 
             <mat-step [stepControl]="secondFormGroup">
                 <ng-template matStepLabel>CESIÓN DE DERECHOS PATRIMONIALES</ng-template>
